@@ -10,3 +10,6 @@
     * Added 'themes' folder in src, containing css files for custom theme data
     * Added 'assets' folder in src, containing all potential assets we may need (including images, audio, video, etc)
 
+- James 7/14/2022 
+    * Started adding input fields and state to RegisterPage.jsx. 
+    * Pulled down most recent changes at 7:20pm 7/13/2022. 
