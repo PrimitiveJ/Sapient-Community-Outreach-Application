@@ -13,15 +13,23 @@
 
 // import native react modules
 import React from 'react';
+import { useThemeContext } from '../../providers/ThemeProvider';
 
-const HomePage = () => {
+// import local css styling
+import './style.css';
+
+// import assets
+import { images } from '../../assets';
+
+const LandingPage = () => {
+    const { theme, setTheme } = useThemeContext();
 
     return (
-        <div>
-            <p>Test</p>
+        <div className="page-container">
+            <img src="" alt="" />
         </div>
     );
 }
 
-export default HomePage;
+export default LandingPage;
 

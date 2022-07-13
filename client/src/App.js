@@ -1,27 +1,25 @@
 
 // import native react modules
-import React from 'react';
-
+import React, { useState } from 'react';
+import { ThemeProvider, useThemeContext } from './providers/ThemeProvider';
 // import page components
-// import {
-//   LandingPage,
-//   RegisterPage,
-//   UserHomePage,
-//   EventPage,
-//   EventCreationPage
-// } from './pages';
+import {
+  LandingPage,
+  RegisterPage,
+  UserHomePage,
+  EventPage,
+  EventCreationPage
+} from './pages';
 
-import LandingPage from './pages/LandingPage';
-import UserHomePage from './pages/UserHomePage';
-import RegisterPage from './pages/RegisterPage';
-import EventCreationPage from './pages/EventCreationPage';
-import EventPage from './pages/EventPage';
+// import all custom css themes
+import './themes';
+
 
 function App() {
   return (
-    <div className="App">
+    <ThemeProvider>
       <LandingPage/>
-    </div>
+    </ThemeProvider>
   );
 }
 

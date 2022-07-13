@@ -1,0 +1,7 @@
+
+[data-theme='dark'] {
+    --theme-background-color-one: red;
+    --theme-background-color-two: blue;
+    --theme-color-one: blue;
+    --theme-color-two: blue;
+}
