@@ -16,19 +16,31 @@ import React from 'react';
 import { useThemeContext } from '../../providers/ThemeProvider';
 
 // import local css styling
-import './style.css';
+import './style.module.css';
 
 // import assets
 import { images } from '../../assets';
 
+
+// LandingPage component
 const LandingPage = () => {
+
+    // import global theme provider
     const { theme, setTheme } = useThemeContext();
 
+    // return page component
     return (
         <div className="page-container">
-            <img src="" alt="" />
+            <div className="intro fade-in-focus-intro">
+                <div className="logo-group">
+                    <h1 className="fade-in-focus-title">Sapient</h1>
+                    <img className="logo-base" src={images.brand.appLogo.base} alt=""/>
+                    <img className="logo-lights fade-in-lights" src={images.brand.appLogo.lights} alt=""/>
+                </div>
+            </div>
         </div>
     );
+
 }
 
 export default LandingPage;
