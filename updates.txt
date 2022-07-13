@@ -1,0 +1,7 @@
+
+
+- Will, 7/12/2022
+    * Currently there are deployment issues with deploying app to Heroku
+
+
+

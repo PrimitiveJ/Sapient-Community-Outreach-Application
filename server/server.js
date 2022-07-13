@@ -1,38 +1,20 @@
-const express = require('express');
-const { ApolloServer } = require('apollo-server-express');
+
+// Require local modules
 const path = require('path');
+const express = require('express');
 
-const { typeDefs, resolvers } = require('./schemas');
-const { authMiddleware } = require('./utils/auth');
-const db = require('./config/connection');
-
-const PORT = process.env.PORT || 3001;
+// Create express server app
 const app = express();
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: authMiddleware
-});
 
-server.applyMiddleware({ app });
+// Access .env variables
+const PORT = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended: false }));
+// Use app middleware
 app.use(express.json());
 
-// Serve up static assets
-app.use('/images', express.static(path.join(__dirname, '../client/images')));
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
-}
-
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+    res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-db.once('open', () => {
-  app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`);
-    console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-  });
-});
+// 
+app.listen(PORT, () => { console.log('running server on port: ' + PORT) });
