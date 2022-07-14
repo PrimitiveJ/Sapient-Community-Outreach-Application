@@ -1,66 +1,69 @@
-import React, { useState } from "react"
+import React, {useState} from "react"
 import RegisterUser from "./register-user"
 
 function RegisterSelect(props) {
-    const [state,  setState] = useState({
+    const [state, setState] = useState({
         userIsChecked: false,
         organizerIsChecked: false,
         businessIsChecked: false,
-        registerType : "user",
-        isLoggedIn: true,
-      });
-      
-      const handleUserChange = () => {
-        setState({ ...state, userIsChecked: !state.userIsChecked});
+        registerType: "user",
+        isLoggedIn: true
+    });
+
+    const handleUserChange = () => {
+        setState({
+            ...state,
+            userIsChecked: !state.userIsChecked
+        });
         console.log(state.userIsChecked);
         // if (e.target.checked===true) {
         //     setState({
         //         registerType: userType,
-        //     })    
-        // } else 
-        //  setState({
+        //     })
+        // } else
+        // setState({
         //     ...state,
         //     registerType: ""
-        //  })
-      }
+        // })
+    }
 
-      const renderPage = () => {
+    const renderPage = () => {
         switch (state.userIsChecked) {
             case true:
-            return <RegisterUser everystate={props.everystate} />;
-            default: return ''
-            // case organizer: 
-            // return <RegisterOrganizer />;
-            // case business:  
-            // return <RegisterBusiness />;
-          }    
+                return <RegisterUser everystate={
+                    props.everystate
+                }/>;
+            default:
+                return ''
+                // case organizer:
+                // return <RegisterOrganizer />;
+                // case business:
+                // return <RegisterBusiness />;
+        }
     };
 
     return (
-        <div>
-            <form>
-                <div className="form-group">
-            <h1>Register as a User</h1>
-            <label>
-        <input
-          type="checkbox"
-          name="userIsChecked"
-          checked={state.userIsChecked}
-          onChange={handleUserChange}
-        />
-{" "}
-        User
-      </label>
-      </div>
-      
-    </form>
-    {renderPage()}
-    </div>
-           
-        
-       
+        <div className="container">
+            <form className="form" id="form">
+                <div className="form-group col-sm-4">
+                    <h1>Register as a User
+                        <label>
+                            <input type="checkbox" name="userIsChecked"
+                                checked={
+                                    state.userIsChecked
+                                }
+                                onChange={handleUserChange}/> {" "} </label>
+                    </h1>
+                </div>
+
+            </form>
+            {
+            renderPage()
+        } </div>
+
+
     )
-   
+
 }
 
 
