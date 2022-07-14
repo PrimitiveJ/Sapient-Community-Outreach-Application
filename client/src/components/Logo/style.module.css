@@ -1,0 +1,13 @@
+
+/* Logo group; contains all components of the logo image */
+.logoGroup {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.logoGroup img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

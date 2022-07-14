@@ -8,6 +8,7 @@
     the main page content which should include selling points
     of the application, and the login/signup buttons.
 
+
 */
 
 // import native react modules
@@ -24,62 +25,46 @@ import { images } from '../../assets';
 // import utils
 import { objectToClassName as toClassName } from '../../utils';
 
+// import components
+import Logo from '../../components/Logo';
+import { Link } from 'react-router-dom';
+
 // Destructure css modules //
 // styling
 const {
-    pageContainer, 
+    pageContainer,
+    pageHeader,
     logoGroup,
-    introContainer, 
-    logoLights,
-    introBody,
-    introHiddenContent
 } = styles;
 
 // animations
 const {
-    fadeInFocusTitle, 
-    fadeInFocusIntro,
-    fadeInLights,
-    tweenHeightDown
+    fadeInPageContainer,
 } = anims;
 
 
-
 // LandingPage component
-const LandingPage = () => {
+// todo: only activate 'startMountAnimation' when being directed here from LandingPageIntro
+const LandingPage = ({ loadWithAnim }) => {
 
-    // import global theme provider
-    const { theme, setTheme } = useThemeContext();
-    const introContainerRef = useRef();
+    const pageContainerRef = useRef();
 
-    const startIntroAnimationSequence = () => {
-        // introContainerRef.current.classList.add(tweenHeightDown);
-        console.log(tweenHeightDown);
-        console.log('done');
+    const startMountAnimation = () => {
+        pageContainerRef.current.classList.add(fadeInPageContainer);
     }
 
-    // run animations after component renders
     useEffect(() => {
-        const introAnimationID = setTimeout(startIntroAnimationSequence, 5000);
-        return () => clearTimeout(introAnimationID);
+        const pageMountAnimId = setTimeout(startMountAnimation, 500);
+        return () => clearTimeout(pageMountAnimId);
     }, []);
-
 
     // return page component
     return (
-        <div className={pageContainer}>
-            <div ref={introContainerRef} className={toClassName(introContainer, fadeInFocusIntro)}>
-
-                <div className={introBody}>
-
-                    <div className={logoGroup}>
-                        <h1 className={fadeInFocusTitle}>Sapient</h1>
-                        <img className="" src={images.brand.appLogo.base} alt=""/>
-                        <img className={toClassName(logoLights, fadeInLights)} src={images.brand.appLogo.lights} alt=""/>
-                    </div>
-                    
-                </div>
-            </div>
+        <div ref={pageContainerRef} className={pageContainer}>
+            <header className={pageHeader}>
+                <Logo/>
+                <h1>Empower your neighborhood</h1>
+            </header>
         </div>
     );
 

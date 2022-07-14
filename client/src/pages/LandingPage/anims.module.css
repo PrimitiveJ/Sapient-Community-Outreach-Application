@@ -7,49 +7,6 @@
     100% { opacity: 1; }
 }
 
-@keyframes focusInKey {
-    0% { filter: blur(5px); }
-    100% { filter: blur(0px); }
+.fadeInPageContainer {
+    animation: fadeInKey 0.75s ease-in-out forwards;
 }
-
-@keyframes heightMaxToZero {
-    0% { height: 100%; }
-    100% { height: 0% }
-}
-
-
-/* .fadeIn {
-    animation-name: fadeInKey;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
-    animation-delay: 1.5s;
-}
-
-.focusIn {
-    animation-name: focusInKey;
-    animation-duration: 10s;
-    animation-fill-mode: forwards;
-    animation-delay: 1.5s;
-} */
-
-/* Fade-in the main intro screen */
-.fadeInFocusIntro {
-    animation: fadeInKey 1.5s ease-in-out 1.5s forwards,
-        focusInKey 3s ease-in-out 1.5s forwards;
-}
-
-/* Fade-in the main intro title */
-.fadeInFocusTitle {
-    animation: fadeInKey 0.5s ease-in-out 3.5s forwards,
-        focusInKey 1s ease-in-out 3.5s forwards;
-}
-
-/* Fade-in the logo lights */
-.fadeInLights {
-    animation: fadeInKey 1s ease-in-out 4.5s forwards;
-}
-
-.tweenHeightDown {
-    animation: heightMaxToZero 1s ease-in-out forwards;
-}
-
