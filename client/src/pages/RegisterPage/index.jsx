@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import "./style.css"
+import Register-Select from "./register-select"
+import Register-User from "./register-user"
 /*
 
     Page: Register Page
@@ -12,58 +14,13 @@ import "./style.css"
         * Business 
 
 */
-const regOptions = ['User', 'Organizer', 'Business'];
 
-function registerPage() {
-    const [state, setState] = useState({
-        fname: "",
-        lname: "",
-        email: "",
-      })
-    
-      const handleChange = e => {
-        setState({
-          // ...state,
-          [e.target.name]: e.target.value,
-        })
-      }
-    
+
+
+
+function registerUser() {
       return (
-        <div>
-          <h1>Register to get access to Sapient!</h1>
-          <form>
-            <label>
-              First Name:{" "}
-              <input
-                type="text"
-                name="fname"
-                value={state.fname}
-                onChange={handleChange}
-              />
-            </label>{" "}
-            <label>
-              Last Name:{" "}
-              <input
-                type="text"
-                name="lname"
-                value={state.lname}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-                Email:{" "}
-              <input
-                type="text"
-                name="email"
-                value={state.lname}
-                onChange={handleChange}
-              />
-            </label>
-          </form>
-          <h5>
-            Name: {state.fname} {state.lname}
-          </h5>
-        </div>
+        <Register-Select/>
       )
   }
 
