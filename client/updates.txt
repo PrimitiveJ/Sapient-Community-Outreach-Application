@@ -1,0 +1,16 @@
+
+
+- Will, 7/12/2022
+    * Currently there are deployment issues with deploying app to Heroku
+
+- Will, 7/13/2022
+    * Modified file structure in react app (put page components in sub-folders and moved page-layouts folder to src).
+    * Added 'style.css' files to each page folder for local styling of a given page
+    * Added 'providers' folder in src, with 'ThemeProvider.jsx' context component
+    * Added 'themes' folder in src, containing css files for custom theme data
+    * Added 'assets' folder in src, containing all potential assets we may need (including images, audio, video, etc)
+
+- James 7/14/2022 
+    * Started adding input fields and state to RegisterPage.jsx. 
+    * Pulled down most recent changes at 7:20pm 7/13/2022. 
+    * Finished adding front-end functionality to Registerpage and all associated components. 
