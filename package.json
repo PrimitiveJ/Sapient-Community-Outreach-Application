@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/PrimitiveJ/Community-Outreach-Application-Title/issues"
   },
-  "homepage": "https://github.com/PrimitiveJ/Community-Outreach-Application-Title#readme"
+  "homepage": "https://github.com/PrimitiveJ/Community-Outreach-Application-Title#readme",
+  "dependencies": {
+    "react-router-dom": "^6.3.0"
+  }
 }

@@ -1,24 +1,23 @@
-
 // import native react modules
-import React, { useState } from 'react';
-import { ThemeProvider, useThemeContext } from './providers/ThemeProvider';
+import React, { useState } from "react";
+import { ThemeProvider, useThemeContext } from "./providers/ThemeProvider";
 // import page components
 import {
   LandingPage,
   RegisterPage,
   UserHomePage,
   EventPage,
-  EventCreationPage
-} from './pages';
+  EventCreationPage,
+} from "./pages";
 
 // import all custom css themes
-import './themes';
-
+import "./themes";
 
 function App() {
   return (
     <ThemeProvider>
-      <LandingPage/>
+      <LandingPage />
+      <UserHomePage />
     </ThemeProvider>
   );
 }

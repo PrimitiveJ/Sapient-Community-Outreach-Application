@@ -17,17 +17,28 @@
 
 // import native react modules
 import React from 'react';
+import {Route, Routes} from 'react-router-dom';
 import { useThemeContext } from '../../providers/ThemeProvider';
+import Volunteer from "./Volunteer";
+import Organizer from "./Organizer";
+import Business from "./Business";
+
+
 
 const HomePage = () => {
-    const { theme, setTheme } = useThemeContext();
 
+    //     const { theme, setTheme } = useThemeContext();
+  
     return (
-        <div>
-            <p>testing {theme}</p>
+        <div className="bg-gray-800">
+          {/* <Header /> */}
+          
+            <Volunteer/>
+
+    
+    
+          {/* <Footer /> */}
         </div>
-    );
+    )
 }
-
 export default HomePage;
-
