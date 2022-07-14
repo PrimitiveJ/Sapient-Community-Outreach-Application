@@ -5,7 +5,7 @@ let businessStyle = {};
 function RegisterBusiness(props) {
     console.log(props)
     return (
-        <div className="block-example border border-dark"
+        <div className="block-example border border-dark bg-light"
             style={businessStyle}>
             <h1>Register as a Business Sponsor</h1>
             <div className="form-group">

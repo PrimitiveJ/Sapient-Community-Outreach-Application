@@ -4,7 +4,7 @@ import React from 'react'
 function RegisterOrganizer(props) {
     console.log(props)
     return (
-        <div className="block-example border border-dark">
+        <div className="block-example border border-dark bg-light">
             <h1>Register as an Organizer</h1>
             <div className="form-group">
                 <label for="inputAddress">Address</label>
@@ -19,7 +19,7 @@ function RegisterOrganizer(props) {
                     <label for="inputCity">City</label>
                     <input type="text" className="form-control" id="inputCity"/>
                 </div>
-                <div className="form-group col-md-4">
+                <div className="form-group col-md-6">
                     <label for="inputState">State</label>
                     <select id="inputState" className="form-control">
                         <option selected>Choose...</option>

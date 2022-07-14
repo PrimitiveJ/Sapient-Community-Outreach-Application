@@ -71,10 +71,10 @@ function RegisterUser(props) { // const [status, setStatus] = useState("Submit")
     return (
         <span className="border border-primary">
             <form>
-                <div className="block-example border border-dark">
+                <div className="col-sm-4 block-example border border-dark bg-light">
                     <h1>User Registration Form</h1>
-                    <div className="col-sm-2">
-                        <div className="card bg-secondary">
+                    <div className="col-sm-12 text-center">
+                        <div className="col-sm-12 bg-secondary">
                             <label>
                                 First Name:{" "}
                                 <input type="text" className="form-control" name="fname"
@@ -95,8 +95,8 @@ function RegisterUser(props) { // const [status, setStatus] = useState("Submit")
                             </label>
                         </div>
                     </div>
-                    <div className="col-sm-2">
-                        <div className="card bg-secondary">
+                    <div className="col-sm-12 text-center bg-secondary">
+                        <div className="col-sm-12 bg-secondary">
                             <label>
                                 User Name:{" "}
                                 <input type="text" name="username" className="form-control"
@@ -124,35 +124,11 @@ function RegisterUser(props) { // const [status, setStatus] = useState("Submit")
                                     }
                                     onChange={handleChange}
                                     required/>
-                            </label>
-                          
-                            <div className="col-sm-12 card bg-secondary">
-                                <div className="form-row">
-                                    <div className="form-group col-md-12">
-                                        <label for="inputCity">City</label>
-                                        <input type="text" className="form-control" id="inputCity" required/>
-                                    </div>
-                                    <div className="form-group col-md-12">
-                                        <label for="inputState" required>State</label>
-                                        <select id="inputState" className="form-control" required>
-                                            <option selected>Choose...</option>
-                                            {
-                                            props.everystate.map(state => {
-                                                return <option>{state}</option>
-
-                                        })
-                                        } </select>
-                                    </div>
-                                    <div className="form-group col-md-12">
-                                        <label for="inputZip">Zip</label>
-                                        <input type="text" className="form-control" id="inputZip" required/>
-                                    </div>
-                                </div>
-                            </div>
+                            </label>   
                         </div>
                         <button type="submit" className="btn btn-primary">Submit</button>
 
-                        <h5>
+                        <h5 className = "bg-secondary">
                             Registering as: Username: {
                             state.username
                         }
