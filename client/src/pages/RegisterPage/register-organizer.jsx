@@ -39,7 +39,7 @@ function RegisterOrganizer(props) {
     <div className="form-check">
       <input className="form-check-input" type="checkbox" id="gridCheck"/>
       <label className="form-check-label" for="gridCheck">
-        Check me out
+        Make my Events Visible to Others
       </label>
     </div>
   </div>

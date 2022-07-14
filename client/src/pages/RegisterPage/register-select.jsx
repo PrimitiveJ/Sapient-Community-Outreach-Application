@@ -40,7 +40,7 @@ function RegisterSelect(props) {
         <div>
             <form>
                 <div className="form-group">
-            <h1>Register as a User, Participant, or Business Sponsor!</h1>
+            <h1>Register as a User</h1>
             <label>
         <input
           type="checkbox"

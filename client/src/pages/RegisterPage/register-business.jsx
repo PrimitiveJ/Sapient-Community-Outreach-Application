@@ -7,12 +7,12 @@ function RegisterBusiness(props) {
         <div>
             <h1>Register as a Business Sponsor</h1>
 <div className="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St"/>
+    <label for="inputAddress">Business Address</label>
+    <input type="text" className="form-control" id="inputAddress" placeholder="Number and Street"/>
   </div>
   <div className="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
+    <label for="inputAddress2">Business Address 2</label>
+    <input type="text" className="form-control" id="inputAddress2" placeholder="Suite, Studio, or Building Number "/>
   </div>
   <div className="form-row">
     <div className="form-group col-md-6">
@@ -38,7 +38,7 @@ function RegisterBusiness(props) {
     <div className="form-check">
       <input className="form-check-input" type="checkbox" id="gridCheck"/>
       <label className="form-check-label" for="gridCheck">
-        Check me out
+        Make my Business Visible to Others
       </label>
     </div>
   </div>

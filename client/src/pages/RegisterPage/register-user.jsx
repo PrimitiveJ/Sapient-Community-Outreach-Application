@@ -129,6 +129,26 @@ function RegisterUser(props) {
                 required
               />
             </label>
+            <div className="form-row">
+    <div className="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" className="form-control" id="inputCity" required/>
+    </div>
+    <div className="form-group col-md-4">
+      <label for="inputState" required>State</label>
+      <select id="inputState" className="form-control" required>
+        <option selected>Choose...</option>
+        {props.everystate.map(state => {
+            return <option>{state}</option>
+            
+        })}
+      </select>
+    </div>
+    <div className="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" className="form-control" id="inputZip" required/>
+    </div>
+  </div>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
           
@@ -138,7 +158,7 @@ function RegisterUser(props) {
         </div>
         </div>
         <div className="form-group">
-            <h1>Register as a User, Participant, or Business Sponsor!</h1>
+            <h1>Register as a Participant, or Business Sponsor!</h1>
             <label>
         <input
           type="checkbox"
