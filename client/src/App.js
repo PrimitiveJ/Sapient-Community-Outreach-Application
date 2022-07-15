@@ -18,7 +18,7 @@ import './themes';
 function App() {
   return (
     <ThemeProvider>
-      <RegisterPage/>
+      <EventPage/>
     </ThemeProvider>
   );
 }

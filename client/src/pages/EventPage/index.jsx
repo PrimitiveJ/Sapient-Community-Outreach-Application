@@ -1,4 +1,6 @@
-
+import React, {useState} from "react";
+import "./style.module.css";
+import EventMain from "./event-main"
 
 
 /*
@@ -10,4 +12,11 @@
 
 */
 
+function EventPage() {
+return (
+<EventMain/>
+)
+}
 
+
+export default EventPage;
