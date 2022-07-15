@@ -67,6 +67,7 @@ function RegisterPage() {
         'Rhode Island',
         'South Carolina',
         'South Dakota',
+        'Swindonia',
         'Tennessee',
         'Texas',
         'Utah',
