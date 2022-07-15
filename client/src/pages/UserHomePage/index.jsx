@@ -1,5 +1,3 @@
-
-
 /*
 
     Page: User Home Page 
@@ -16,29 +14,37 @@
 */
 
 // import native react modules
-import React from 'react';
-import {Route, Routes} from 'react-router-dom';
-import { useThemeContext } from '../../providers/ThemeProvider';
-import Volunteer from "./Volunteer";
-import Organizer from "./Organizer";
-import Business from "./Business";
-
-
+import React, { useEffect, useState } from "react";
+// import { Route, Routes } from "react-router-dom";
+// import { useThemeContext } from "../../providers/ThemeProvider";
+import UserNav from "./UserNav";
+import UserCard from "./UserCard";
+// import Organizer from "./Organizer";
+// import Business from "./Business";
 
 const HomePage = () => {
+  //     const { theme, setTheme } = useThemeContext();
 
-    //     const { theme, setTheme } = useThemeContext();
-  
-    return (
-        <div className="bg-gray-800">
-          {/* <Header /> */}
-          
-            <Volunteer/>
-
-    
-    
-          {/* <Footer /> */}
-        </div>
-    )
-}
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    (async () => {
+      let userData;
+      try {
+        const response = await fetch("https://randomuser.me/api/?results=1");
+        userData = (await response.json()).results;
+      } catch (error) {
+        console.log(error, "random user");
+        userData = [];
+      }
+      setUsers(userData);
+    })();
+  }, []);
+  return (
+    <div className="container">
+      {users.map((user, index) => (
+        <UserCard userData={user} key={index} />
+      ))}
+    </div>
+  );
+};
 export default HomePage;
