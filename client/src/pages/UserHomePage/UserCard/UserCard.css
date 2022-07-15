@@ -8,7 +8,7 @@
     cursor: pointer;
     background-color: #B6D0B7;
 }
-.card:hover{
+/* .card:hover{
     transform: scale(1.01);
 }
 .cardTitle{
@@ -21,4 +21,4 @@
 }
 .cardImage img {
     border-radius: 50%;
-}
+} */

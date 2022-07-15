@@ -25,28 +25,28 @@ This file is responsible for the handling of asset imports.
 // export const images = importAll(require.context('./images'));
 
 // made an image importer :D -Will
-const importImage = fileName => {
-    const requireContext = require.context('./images');
-    const fileLocation = requireContext.keys().find(file => file.match(fileName));
-    const file = requireContext(fileLocation);
+const importImage = (fileName) => {
+  const requireContext = require.context("./images");
+  const fileLocation = requireContext
+    .keys()
+    .find((file) => file.match(fileName));
+  const file = requireContext(fileLocation);
 
-    return file;
-}
+  return file;
+};
 
 export const images = {
-    brand: {
-        appLogo: {
-            base: importImage('logo-0.png'),
-            // lights: importImage('logo-0-lights.png')
-        }
+  brand: {
+    appLogo: {
+      base: importImage("logo-0.png"),
+      // lights: importImage('logo-0-lights.png')
     },
+  },
 
-    icons: {
-        thing: importImage('idk.png')
-    }
-}
+  icons: {
+    thing: importImage("idk.png"),
+    calendarImage: importImage("calendar-placeholder.jpg"),
+  },
+};
 
-export const audio = {
-
-}
-
+export const audio = {};

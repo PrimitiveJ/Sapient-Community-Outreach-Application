@@ -1,6 +1,7 @@
 // import native react modules
 import React, { useState } from "react";
 import { ThemeProvider, useThemeContext } from "./providers/ThemeProvider";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -16,6 +17,7 @@ import {
 
 // import all custom css themes
 import "./themes";
+import UserCalendar from "./pages/UserHomePage/UserCalendar";
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
         <Route path="/home" element={<LandingPage />} />
         <Route path="/user-home" element={<UserHomePage />} />
         <Route path="/user-register" element={<RegisterPage />} />
+        <Route path="/user-calendar" element={<UserCalendar />} />
       </Routes>
     </ThemeProvider>
   );
