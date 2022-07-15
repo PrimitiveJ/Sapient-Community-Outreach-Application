@@ -6,7 +6,7 @@ import UserNav from "../UserNav";
 
 function UserCard({ userData }) {
   return (
-    <div className="userSide">
+    <div className="container">
       {/* will change cardTitle content to userName */}
       <div className="cardTitle">{userData.name.first}</div>
       <div className="cardBody">

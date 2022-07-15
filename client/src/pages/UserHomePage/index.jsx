@@ -40,7 +40,7 @@ const HomePage = () => {
     })();
   }, []);
   return (
-    <div className="container">
+    <div className="userAside">
       {users.map((user, index) => (
         <UserCard userData={user} key={index} />
       ))}
