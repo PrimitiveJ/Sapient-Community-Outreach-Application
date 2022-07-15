@@ -10,3 +10,8 @@
     * Added 'themes' folder in src, containing css files for custom theme data
     * Added 'assets' folder in src, containing all potential assets we may need (including images, audio, video, etc)
 
+- Will, 7/14/2022
+    * Created logo component 
+    * Imported React Router
+    * Finished intro animation logic
+    * Split page intro into it's own page component

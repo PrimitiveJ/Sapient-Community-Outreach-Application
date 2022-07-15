@@ -1,0 +1,114 @@
+
+
+/* --------------- */
+/* General styling */
+/* --------------- */
+/* Page content container; holds all page components */
+.pageContainer {
+    /* background-color: #35526f; #07090d; */
+    background-color: white;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+
+/* Logo group; contains all components of the logo image */
+.logoGroup {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.logoGroup img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Intro section styling */
+.introContainer {
+    opacity: 0;
+    filter: blur(5px);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.introContainer .logoGroup {
+    --size: 20vw;
+    --min-size: 150px;
+
+    width: var(--size);
+    height: var(--size);
+    min-width: var(--min-size);
+    min-height: var(--min-size);
+
+    margin-bottom: 75px;
+}
+
+.introContainer .logoGroup p {
+    z-index: 3;
+    position: absolute;
+    bottom: -40px;
+    font-weight: 400;
+    width: 100%;
+    font-size: 2vw;
+    height: 2vw;
+    text-align: center;
+}
+
+/* todo: give intro title a class name to avoid long css selectors */
+.introContainer .logoGroup h1 {
+    opacity: 0;
+    text-align: center;
+    /* position: absolute; */
+    width: 100%;
+    /* height: 1vw; */
+    top: 1vw;
+    position: absolute;
+    /* color: #3a3072; */
+    color: white;
+    /* color: #114400; */
+    z-index: 2;
+    font-size: calc(0px + 4.2vw);
+    /* text-shadow: 0 0 10px #1fffd4; */
+    text-shadow: 0 0 10px white;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+}
+
+@media screen and (max-width: 752px) {
+    .introContainer .logoGroup h1 {
+        font-size: 30px;
+        top: 5px;
+    }
+}
+
+.introContainer .logoLights {
+    opacity: 0;
+}
+
+.introBody {
+    /* background-color: blue; */
+    position: relative;
+    width: 25vw;
+    min-width: 150px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* transform: rotate(45deg); */
+}
+
+.introContainer h2 {
+    position: relative;
+    top: -50px;
+    color: #114400;
+    /* color: #3a3072; */
+    /* color: white; */
+    font-size: 2.5rem;
+}

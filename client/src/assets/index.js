@@ -37,7 +37,7 @@ export const images = {
     brand: {
         appLogo: {
             base: importImage('logo-0.png'),
-            lights: importImage('logo-0-lights.png')
+            // lights: importImage('logo-0-lights.png')
         }
     },
 
