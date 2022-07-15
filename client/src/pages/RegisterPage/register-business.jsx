@@ -5,9 +5,9 @@ function RegisterBusiness(props) {
     return (
         <Form>
             <h1>Business Sponsor Registration</h1>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="formBasicUsername">
             <Form.Label>Username</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control type="username" placeholder="Enter Username" />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
@@ -20,10 +20,10 @@ function RegisterBusiness(props) {
         
           <Form.Group className="mb-3" controlId="formBasicAddress">
             <Form.Label>Business Address</Form.Label>
-            <Form.Control type="username" placeholder="Username" />
+            <Form.Control type="address" placeholder="Address" />
           </Form.Group>
 
-          <Form.Select aria-label="Default select example">
+          <Form.Select aria-label="State Select">
             <option>Select your State</option>
             {props.everystate.map(state => {return <option>{state}</option>})}
           </Form.Select>
