@@ -1,51 +1,44 @@
-import React from 'react'
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function RegisterOrganizer(props) {
-    console.log(props)
     return (
-        <div className="block-example border border-dark bg-light">
-            <h1>Register as an Organizer</h1>
-            <div className="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St"/>
-            </div>
-            <div className="form-group">
-                <label for="inputAddress2">Address 2</label>
-                <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
-            </div>
-            <div className="form-row">
-                <div className="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" className="form-control" id="inputCity"/>
-                </div>
-                <div className="form-group col-md-6">
-                    <label for="inputState">State</label>
-                    <select id="inputState" className="form-control">
-                        <option selected>Choose...</option>
-                        {
-                        props.everystate.map(state => {
-                            return <option>{state}</option>
+        <Form>
+            <h1>Event Organizer Registration</h1>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Username</Form.Label>
+            <Form.Control type="username" placeholder="Username" />
+          </Form.Group>
+    
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
 
-                    })
-                    } </select>
-                </div>
-                <div className="form-group col-md-2">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" className="form-control" id="inputZip"/>
-                </div>
-            </div>
-            <div className="form-group">
-                <div className="form-check">
-                    <input className="form-check-input" type="checkbox" id="gridCheck"/>
-                    <label className="form-check-label" for="gridCheck">
-                        Make my Events Visible to Others
-                    </label>
-                </div>
-            </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
-        </div>
-    )
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>City</Form.Label>
+            <Form.Control type="zipcode" placeholder="Zip Code" />
+          </Form.Group>
+
+          <Form.Select aria-label="Default select example">
+            <option>Select your State</option>
+            {props.everystate.map(state => {return <option>{state}</option>})}
+          </Form.Select>
+
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Zip</Form.Label>
+            <Form.Control type="zipcode" placeholder="Zip Code" />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Register as Organizer with this username" />
+          </Form.Group>
+
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      );
 }
 
 export default RegisterOrganizer

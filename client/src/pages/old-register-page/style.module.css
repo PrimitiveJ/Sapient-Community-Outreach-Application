@@ -1,0 +1,32 @@
+ * {
+  align-items: center;  
+  justify-content: center;
+  color:rgb(0, 0, 0);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
+} 
+
+body {
+  background-image: url('../../assets/images/logo-v5-test-render.png'), url('../../assets/images/backgroundassetspaper.jpg');
+  background-repeat: no-repeat, repeat;
+  background-color: #cccccc;
+ 
+}
+
+h1 {
+  background: rgb(32, 31, 64);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(213,255,233,0.8631827731092436) 0%, rgb(19, 101, 104) 0%);
+  border:2px solid black;
+  box-shadow: 6px 5px 10px #555555;
+  color:antiquewhite;
+  border-radius: 1%;
+  text-shadow: 2px 2px #6c899a;
+  
+}
+
+
+.form {
+  display:flex;
+  padding:4px;
+}
+

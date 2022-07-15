@@ -1,53 +1,47 @@
-import React from 'react'
-
-let businessStyle = {};
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function RegisterBusiness(props) {
-    console.log(props)
     return (
-        <div className="block-example border border-dark bg-light"
-            style={businessStyle}>
-            <h1>Register as a Business Sponsor</h1>
-            <div className="form-group">
-                <label for="inputAddress">Business Address</label>
-                <input type="text" className="form-control" id="inputAddress" placeholder="Number and Street"/>
-            </div>
-            <div className="form-group">
-                <label for="inputAddress2">Business Address 2</label>
-                <input type="text" className="form-control" id="inputAddress2" placeholder="Suite, Studio, or Building Number "/>
-            </div>
-            <div className="form-row">
-                <div className="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" className="form-control" id="inputCity"/>
-                </div>
-                <div className="form-group col-md-4">
-                    <label for="inputState">State</label>
-                    <select id="inputState" className="form-control">
-                        <option selected>Choose...</option>
-                        {
-                        props.everystate.map(state => {
-                            return <option>{state}</option>
+        <Form>
+            <h1>Business Sponsor Registration</h1>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Username</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+    
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
+        
+          <Form.Group className="mb-3" controlId="formBasicAddress">
+            <Form.Label>Business Address</Form.Label>
+            <Form.Control type="username" placeholder="Username" />
+          </Form.Group>
 
-                    })
-                    } </select>
-                </div>
-                <div className="form-group col-md-2">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" className="form-control" id="inputZip"/>
-                </div>
-            </div>
-            <div className="form-group">
-                <div className="form-check">
-                    <input className="form-check-input" type="checkbox" id="gridCheck"/>
-                    <label className="form-check-label" for="gridCheck">
-                        Make my Business Visible to Others
-                    </label>
-                </div>
-            </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
-        </div>
-    )
+          <Form.Select aria-label="Default select example">
+            <option>Select your State</option>
+            {props.everystate.map(state => {return <option>{state}</option>})}
+          </Form.Select>
+
+          <Form.Group className="mb-3" controlId="formBasicZipCode">
+            <Form.Label>Zip</Form.Label>
+            <Form.Control type="zipcode" placeholder="Zip Code" />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Register as business with this username" />
+          </Form.Group>
+
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      );
 }
 
 export default RegisterBusiness
