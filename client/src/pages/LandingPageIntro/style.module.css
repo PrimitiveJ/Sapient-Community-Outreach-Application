@@ -6,7 +6,8 @@
 /* Page content container; holds all page components */
 .pageContainer {
     /* background-color: #35526f; #07090d; */
-    background-color: white;
+    /* background-color: white; */
+    /* background-color: #85ae86; */
     width: 100vw;
     min-height: 100vh;
 }
@@ -71,12 +72,15 @@
     top: 1vw;
     position: absolute;
     /* color: #3a3072; */
-    color: white;
+    /* color: white; */
     /* color: #114400; */
+    /* color: #fdffa0; */
     z-index: 2;
-    font-size: calc(0px + 4.2vw);
+    font-size: 4.2vw;
     /* text-shadow: 0 0 10px #1fffd4; */
-    text-shadow: 0 0 10px white;
+    /* text-shadow: 0 0 10px white; */
+    /* text-shadow: 0 0 10px black; */
+    text-shadow: 5px 5px #12361a;
     font-family: 'Edu NSW ACT Foundation', cursive;
 }
 
@@ -104,11 +108,13 @@
     /* transform: rotate(45deg); */
 }
 
+/* The 'Welcome' title */
 .introContainer h2 {
     position: relative;
     top: -50px;
-    color: #114400;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    /* color: #114400; */
     /* color: #3a3072; */
     /* color: white; */
-    font-size: 2.5rem;
+    font-size: 3rem;
 }

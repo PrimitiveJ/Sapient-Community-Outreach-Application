@@ -15,6 +15,11 @@
 
 This file is responsible for the handling of asset imports.
 
+use case example:
+
+    import { images } from '...';
+    console.log(images.appLogo.base)  //--> '../assets/images/brand/logo-0.png'
+
 ==================================================================================================================================
 
 */
@@ -42,7 +47,11 @@ export const images = {
     },
 
     icons: {
-        thing: importImage('idk.png')
+        thing: importImage('idk.png'),
+    },
+
+    backgrounds: {
+        landingPageHeader: importImage('landing-page-header.png'),
     }
 }
 

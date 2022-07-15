@@ -42,6 +42,8 @@ const {
 // LandingPage component
 const LandingPageIntro = ({ children }) => {
 
+    const defaultStaticTheme = 'default';
+
     // get intro page elements
     const introContainerRef = useRef();
     const introBodyRef = useRef();
@@ -67,7 +69,7 @@ const LandingPageIntro = ({ children }) => {
 
         // wait for intro screen to close, then redirect
         setTimeout(() => {
-            window.location = '/home'; // todo: use react router to naviage here instead
+            window.location = '/home'; // todo: use react router to navigate here instead
         }, 6000);
     }
 
@@ -83,15 +85,16 @@ const LandingPageIntro = ({ children }) => {
 
 
     // return page component
+    // todo: add 'light up' animation after logo renders
     return (
-        <div className={pageContainer}>
+        <div data-theme={defaultStaticTheme} className={toClassName(pageContainer, "theme-background-color-one")}>
             <div ref={introContainerRef} className={introContainer}>
-                <h2 ref={welcomeTitleRef}>Welcome</h2>
+                <h2 data-theme={defaultStaticTheme} ref={welcomeTitleRef} className={"theme-color-one"}>Welcome</h2>
 
                 <div ref={introBodyRef} className={introBody}>
 
-                    <div className={logoGroup}>
-                        <h1 ref={primaryTitleRef}>Sapient</h1>
+                    <div className={toClassName(logoGroup, "priv-class")}>
+                        <h1 ref={primaryTitleRef} data-theme={defaultStaticTheme} className="theme-color-two">Sapient</h1>
                         <img className="" src={images.brand.appLogo.base} alt=""/>
                         {/* <img className={toClassName(logoLights, fadeInLights)} src={images.brand.appLogo.lights} alt=""/> */}
                         {/* <p ref={mottoTextRef}>Globally scoped, locally focused.</p> */}

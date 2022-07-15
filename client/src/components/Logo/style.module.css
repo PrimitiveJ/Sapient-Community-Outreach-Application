@@ -1,13 +1,16 @@
 
-/* Logo group; contains all components of the logo image */
-.logoGroup {
-    position: relative;
-    width: 200px;
-    height: 200px;
+.logoTopText {
+    position: absolute;
+    width: calc(100% + 10px);
+    left: -10px;
+    top: 0;
+    z-index: 3;
+    text-align: center;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    text-shadow: 3px 3px black;
 }
 
-.logoGroup img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+.logoGroup {
+    min-width: 100px;
+    min-height: 100px;
 }

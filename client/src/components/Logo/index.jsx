@@ -3,20 +3,17 @@
 import { images } from '../../assets';
 
 import styles from './style.module.css';
-import { objectToClassName as toClassName } from '../../utils';
 
 const {
+    logoTopText,
     logoGroup
 } = styles;
 
-const Logo = ({ children }) => {
+const Logo = ({ children, topText, size }) => {
 
     // return logo component
     return (
-        <div className={logoGroup}>
-            <img src={images.brand.appLogo.base} alt="our logo" />
-            {children}
-        </div>
+        <></>
     );
 
 }

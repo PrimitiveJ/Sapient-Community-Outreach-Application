@@ -1,5 +1,10 @@
 
-import './default.css';
-import './dark.css';
+import _default from './default.json';
+import dark from './dark.json';
 
-import './utils.css';
+const themeList = {
+    "default": _default,
+    dark
+}
+
+export default themeList;

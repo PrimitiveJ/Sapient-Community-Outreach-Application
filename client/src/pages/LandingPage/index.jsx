@@ -13,30 +13,21 @@
 
 // import native react modules
 import React, { useRef, useEffect } from 'react';
-import { useThemeContext } from '../../providers/ThemeProvider';
+import { useThemeContext } from '../../providers/ThemeSelectionProvider';
 
 // import local css modules
-import styles from './style.module.css';
 import anims from './anims.module.css';
 
 // import assets
 import { images } from '../../assets';
 
-// import utils
-import { objectToClassName as toClassName } from '../../utils';
-
 // import components
 import Logo from '../../components/Logo';
 import { Link } from 'react-router-dom';
+import { StyledHeader } from './styled/StyledHeader.style';
+import { StyledPageContainer } from '../../components/styles/StyledPageContainer.style';
 
 // Destructure css modules //
-// styling
-const {
-    pageContainer,
-    pageHeader,
-    logoGroup,
-} = styles;
-
 // animations
 const {
     fadeInPageContainer,
@@ -47,12 +38,15 @@ const {
 // todo: only activate 'startMountAnimation' when being directed here from LandingPageIntro
 const LandingPage = ({ loadWithAnim }) => {
 
+    const { theme } = useThemeContext();
     const pageContainerRef = useRef();
 
+    // on page load animations
     const startMountAnimation = () => {
         pageContainerRef.current.classList.add(fadeInPageContainer);
     }
 
+    // load landing page mount animations
     useEffect(() => {
         const pageMountAnimId = setTimeout(startMountAnimation, 500);
         return () => clearTimeout(pageMountAnimId);
@@ -60,12 +54,9 @@ const LandingPage = ({ loadWithAnim }) => {
 
     // return page component
     return (
-        <div ref={pageContainerRef} className={pageContainer}>
-            <header className={pageHeader}>
-                <Logo/>
-                <h1>Empower your neighborhood</h1>
-            </header>
-        </div>
+        <StyledPageContainer ref={pageContainerRef}>
+            <StyledHeader/>
+        </StyledPageContainer>
     );
 
 }
