@@ -95,8 +95,8 @@ const LandingPageIntro = () => {
 
     // run animations after component renders
     useEffect(() => {
-        // const pageMountAnimId = setTimeout(startMountAnimation, 1000);
-        // return () => clearTimeout(pageMountAnimId);
+        const pageMountAnimId = setTimeout(startMountAnimation, 1000);
+        return () => clearTimeout(pageMountAnimId);
     }, []);
 
 

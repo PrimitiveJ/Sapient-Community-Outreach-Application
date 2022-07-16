@@ -29,6 +29,8 @@ import { Link } from 'react-router-dom';
 import BackgroundImage from '../../components/BackgroundImage';
 import Header from './Header';
 import { StyledPageContainer } from '../../components/styles/StyledPageContainer.style';
+import GlobalStyle from '../../components/styles/GlobalStyle.style';
+import Navbar from './Navbar';
 
 // Destructure css modules //
 // animations
@@ -42,6 +44,8 @@ const StyledLandingPageBody = styled.div`
     margin-left: auto;
     margin-right: auto;
     background-color: ${({theme}) => theme.backgroundOne};
+    border-left: 20px solid #49685e69;
+    border-right: 20px solid #49685e69;
 `
 
 // LandingPage component
@@ -58,16 +62,19 @@ const LandingPage = ({ loadWithAnim }) => {
 
     // load landing page mount animations
     useEffect(() => {
-        const pageMountAnimId = setTimeout(startMountAnimation, 500);
-        return () => clearTimeout(pageMountAnimId);
+        // const pageMountAnimId = setTimeout(startMountAnimation, 500);
+        // return () => clearTimeout(pageMountAnimId);
     }, []);
 
     // return page component
+    // todo: look into removing 'Container' and 'Row' components as they may be redundant
     return (
         // Main page container
         <StyledPageContainer 
         ref={pageContainerRef}
         position="relative">
+
+            <GlobalStyle/>
             
             {/* Page container background */}
             <BackgroundImage 
@@ -77,9 +84,18 @@ const LandingPage = ({ loadWithAnim }) => {
                 {/* Bootstrap container */}
                 <Container>
                     <Row style={{justifyContent: 'center'}}>
-                        <Col xl={8} lg={9} >
+                        <Col xl={9} lg={9} >
                             <StyledLandingPageBody>
                                <Header/>
+                               <Navbar/>
+                               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam tenetur, saepe facilis deserunt voluptatem praesentium dolorem sequi excepturi. Minima inventore iste odit nihil sint quod quos iure officia omnis. Impedit, sunt sapiente exercitationem, aut assumenda esse voluptates doloribus nobis placeat nemo facere nostrum a? Veritatis non consequatur dolores cupiditate nam ipsam quasi! Pariatur ullam provident quas, modi reiciendis dolorem nemo voluptatibus aperiam consequuntur sequi deleniti voluptas, natus repudiandae! Quisquam modi odio excepturi sint quasi consequatur eius beatae recusandae tenetur deserunt, facilis dolorem. Nemo reprehenderit quas omnis tempora. Fuga, fugit eum nisi voluptas ipsam quisquam cupiditate sit vero saepe qui ex!</p>
+                               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam tenetur, saepe facilis deserunt voluptatem praesentium dolorem sequi excepturi. Minima inventore iste odit nihil sint quod quos iure officia omnis. Impedit, sunt sapiente exercitationem, aut assumenda esse voluptates doloribus nobis placeat nemo facere nostrum a? Veritatis non consequatur dolores cupiditate nam ipsam quasi! Pariatur ullam provident quas, modi reiciendis dolorem nemo voluptatibus aperiam consequuntur sequi deleniti voluptas, natus repudiandae! Quisquam modi odio excepturi sint quasi consequatur eius beatae recusandae tenetur deserunt, facilis dolorem. Nemo reprehenderit quas omnis tempora. Fuga, fugit eum nisi voluptas ipsam quisquam cupiditate sit vero saepe qui ex!</p>
+                               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam tenetur, saepe facilis deserunt voluptatem praesentium dolorem sequi excepturi. Minima inventore iste odit nihil sint quod quos iure officia omnis. Impedit, sunt sapiente exercitationem, aut assumenda esse voluptates doloribus nobis placeat nemo facere nostrum a? Veritatis non consequatur dolores cupiditate nam ipsam quasi! Pariatur ullam provident quas, modi reiciendis dolorem nemo voluptatibus aperiam consequuntur sequi deleniti voluptas, natus repudiandae! Quisquam modi odio excepturi sint quasi consequatur eius beatae recusandae tenetur deserunt, facilis dolorem. Nemo reprehenderit quas omnis tempora. Fuga, fugit eum nisi voluptas ipsam quisquam cupiditate sit vero saepe qui ex!</p>
+                               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam tenetur, saepe facilis deserunt voluptatem praesentium dolorem sequi excepturi. Minima inventore iste odit nihil sint quod quos iure officia omnis. Impedit, sunt sapiente exercitationem, aut assumenda esse voluptates doloribus nobis placeat nemo facere nostrum a? Veritatis non consequatur dolores cupiditate nam ipsam quasi! Pariatur ullam provident quas, modi reiciendis dolorem nemo voluptatibus aperiam consequuntur sequi deleniti voluptas, natus repudiandae! Quisquam modi odio excepturi sint quasi consequatur eius beatae recusandae tenetur deserunt, facilis dolorem. Nemo reprehenderit quas omnis tempora. Fuga, fugit eum nisi voluptas ipsam quisquam cupiditate sit vero saepe qui ex!</p>
+                               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam tenetur, saepe facilis deserunt voluptatem praesentium dolorem sequi excepturi. Minima inventore iste odit nihil sint quod quos iure officia omnis. Impedit, sunt sapiente exercitationem, aut assumenda esse voluptates doloribus nobis placeat nemo facere nostrum a? Veritatis non consequatur dolores cupiditate nam ipsam quasi! Pariatur ullam provident quas, modi reiciendis dolorem nemo voluptatibus aperiam consequuntur sequi deleniti voluptas, natus repudiandae! Quisquam modi odio excepturi sint quasi consequatur eius beatae recusandae tenetur deserunt, facilis dolorem. Nemo reprehenderit quas omnis tempora. Fuga, fugit eum nisi voluptas ipsam quisquam cupiditate sit vero saepe qui ex!</p>
+                               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam tenetur, saepe facilis deserunt voluptatem praesentium dolorem sequi excepturi. Minima inventore iste odit nihil sint quod quos iure officia omnis. Impedit, sunt sapiente exercitationem, aut assumenda esse voluptates doloribus nobis placeat nemo facere nostrum a? Veritatis non consequatur dolores cupiditate nam ipsam quasi! Pariatur ullam provident quas, modi reiciendis dolorem nemo voluptatibus aperiam consequuntur sequi deleniti voluptas, natus repudiandae! Quisquam modi odio excepturi sint quasi consequatur eius beatae recusandae tenetur deserunt, facilis dolorem. Nemo reprehenderit quas omnis tempora. Fuga, fugit eum nisi voluptas ipsam quisquam cupiditate sit vero saepe qui ex!</p>
+                               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam tenetur, saepe facilis deserunt voluptatem praesentium dolorem sequi excepturi. Minima inventore iste odit nihil sint quod quos iure officia omnis. Impedit, sunt sapiente exercitationem, aut assumenda esse voluptates doloribus nobis placeat nemo facere nostrum a? Veritatis non consequatur dolores cupiditate nam ipsam quasi! Pariatur ullam provident quas, modi reiciendis dolorem nemo voluptatibus aperiam consequuntur sequi deleniti voluptas, natus repudiandae! Quisquam modi odio excepturi sint quasi consequatur eius beatae recusandae tenetur deserunt, facilis dolorem. Nemo reprehenderit quas omnis tempora. Fuga, fugit eum nisi voluptas ipsam quisquam cupiditate sit vero saepe qui ex!</p>
+                               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam tenetur, saepe facilis deserunt voluptatem praesentium dolorem sequi excepturi. Minima inventore iste odit nihil sint quod quos iure officia omnis. Impedit, sunt sapiente exercitationem, aut assumenda esse voluptates doloribus nobis placeat nemo facere nostrum a? Veritatis non consequatur dolores cupiditate nam ipsam quasi! Pariatur ullam provident quas, modi reiciendis dolorem nemo voluptatibus aperiam consequuntur sequi deleniti voluptas, natus repudiandae! Quisquam modi odio excepturi sint quasi consequatur eius beatae recusandae tenetur deserunt, facilis dolorem. Nemo reprehenderit quas omnis tempora. Fuga, fugit eum nisi voluptas ipsam quisquam cupiditate sit vero saepe qui ex!</p>
                             </StyledLandingPageBody>
                         </Col>
                     </Row>

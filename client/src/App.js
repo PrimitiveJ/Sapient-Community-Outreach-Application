@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { ThemeSelectionProvider } from './providers/ThemeSelectionProvider';
 import { Route, Routes } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
 
 // import page components
 import {
@@ -15,7 +14,6 @@ import {
   LandingPageIntro,
   TestPage
 } from './pages';
-
 
 
 function App() {

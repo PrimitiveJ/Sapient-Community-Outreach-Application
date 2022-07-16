@@ -41,7 +41,7 @@ const importImage = fileName => {
 export const images = {
     brand: {
         appLogo: {
-            base: importImage('logo-0.png'),
+            base: importImage('logo-05.png'),
             // lights: importImage('logo-0-lights.png')
         }
     },

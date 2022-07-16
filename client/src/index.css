@@ -1,7 +1,7 @@
 
 * {
 
-    /* border: 1px solid red; */
+    /* outline: 1px solid red; */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -16,18 +16,6 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
-/* Logo group; contains all components of the logo image */
-.logo-group {
-    /* padding: 10px; */
-    position: relative;
-    width: 200px;
-    height: 200px;
+.wireframe * {
+    outline: 1px solid red;
 }
-
-.logo-group img {
-    /* position: absolute; */
-    width: 100%;
-    height: 100%;
-}
-
-
