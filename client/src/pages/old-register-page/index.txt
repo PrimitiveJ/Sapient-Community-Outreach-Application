@@ -1,15 +1,19 @@
 import React, {useState} from "react";
 import "./style.module.css";
-import RegisterSelect from './register-select'
+import RegisterSelect from "./register-select";
+import RegisterUser from "./register-user";
 
 /*
+
     Page: Register Page
+
     Purpose: Provides components which are responsible for allowing the
     user to create/login to an account, and also includes conditional 
     rendering for different types of registry, such as:
         * Normal User 
         * Organizer 
         * Business 
+
 */
 
 
@@ -75,10 +79,10 @@ function RegisterPage() {
         'Wisconsin',
         'Wyoming'
     ]
-
-return (
-<RegisterSelect everystate={everystate}/>
-)
+    
+    return (
+        <RegisterSelect everystate={everystate}/>
+    )
 }
 
 
