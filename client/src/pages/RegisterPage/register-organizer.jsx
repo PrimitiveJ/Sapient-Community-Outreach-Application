@@ -5,6 +5,7 @@ function RegisterOrganizer(props) {
     return (
         <Form>
             <h1>Event Organizer Registration</h1>
+            <h4>Please Re-Enter your Username and Password:</h4>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Username</Form.Label>
             <Form.Control type="username" placeholder="Username" />
@@ -14,7 +15,7 @@ function RegisterOrganizer(props) {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" />
           </Form.Group>
-
+          <h4>Please Fill out the following:</h4>
           <Form.Group className="mb-3" controlId="formBasicCity">
             <Form.Label>City</Form.Label>
             <Form.Control type="city" placeholder="City" />
