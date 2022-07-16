@@ -3,6 +3,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import assets from '../../assets';
 
 
 const TestPage = () => {

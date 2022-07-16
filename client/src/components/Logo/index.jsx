@@ -31,7 +31,7 @@ export const Logo = ({ children, topText, size, padding, className }) => {
         <StyledLogoContainer padding={padding} size={size} className={className}>
             <div>
                 <img
-                    src={images.brand.appLogo.base} 
+                    src={images.branding.appLogo.base} 
                     alt="our logo" 
                 />
                 {children}

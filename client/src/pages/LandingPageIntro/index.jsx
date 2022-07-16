@@ -10,6 +10,8 @@
 
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from "react-router-dom";
+import { useThemeContext } from '../../providers/ThemeSelectionProvider';
 
 // import local css modules
 import anims from './anims.module.css';
@@ -99,6 +101,8 @@ const StyledIntroContainer = styled.div`
 // LandingPage component
 const LandingPageIntro = () => {
 
+    const navigate = useNavigate();
+
     // get intro page elements
     const introContainerRef = useRef();
     const introBodyRef = useRef();
@@ -124,7 +128,11 @@ const LandingPageIntro = () => {
 
         // wait for intro screen to close, then redirect
         setTimeout(() => {
-            window.location = '/home'; // todo: use react router to navigate here instead
+            // // todo: use react router to navigate here instead
+            // window.location = '/home'; 
+            localStorage.setItem('loadWithIntro', true);
+            navigate('/home');
+            // navigate(`/home?${new URLSearchParams({load_with_intro: true})}`);
         }, 6000);
     }
 
@@ -139,7 +147,7 @@ const LandingPageIntro = () => {
     // todo: add 'light up' animation after logo renders
     // todo: look into method for styled-component altering
     return (
-        <StyledPageContainer>
+        <StyledPageContainer backgroundColor="backgroundOne">
             <StyledIntroContainer ref={introContainerRef}>
                 <h2 ref={welcomeTitleRef}>Welcome</h2>
                 <div ref={introBodyRef}>
