@@ -15,9 +15,9 @@ function RegisterOrganizer(props) {
             <Form.Control type="password" placeholder="Password" />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3" controlId="formBasicCity">
             <Form.Label>City</Form.Label>
-            <Form.Control type="zipcode" placeholder="Zip Code" />
+            <Form.Control type="city" placeholder="City" />
           </Form.Group>
 
           <Form.Select aria-label="Default select example">
