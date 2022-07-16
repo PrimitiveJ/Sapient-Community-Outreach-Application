@@ -1,3 +1,7 @@
+import React, { useState } from "react";
+import "./style.module.css";
+import EventMain from "./event-main";
+
 /*
 
     Page: EventPage
@@ -5,16 +9,19 @@
     Purpose: The literal event page that the user is routed to once
     they click on an event in an event listing from a user home page.
 
+    *IMAGE*
+    *TITLE*
+    *DATE/TIME/LOCATION*
+    *DESCRIPTION*
+    *ORGANIZER*
+    *SPONSOR*
+    *COMMENTS*
+    *PARTICIPANTS*
+
 */
 
-import React from "react";
+function EventPage() {
+  return <EventMain />;
+}
 
-const Events = () => {
-  return (
-    <div>
-      <h1>This is the event page</h1>
-    </div>
-  );
-};
-
-export default Events;
+export default EventPage;
