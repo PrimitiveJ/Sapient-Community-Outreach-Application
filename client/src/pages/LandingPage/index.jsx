@@ -12,9 +12,11 @@
 */
 
 // import native react modules
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useThemeContext } from '../../providers/ThemeSelectionProvider';
 import { Container, Row, Col } from 'react-bootstrap';
+import { getIfNumber } from '../../utils';
 import styled from 'styled-components';
 
 // import local css modules
@@ -48,22 +50,78 @@ const StyledLandingPageBody = styled.div`
     border-right: 20px solid #49685e69;
 `
 
+const StyledIntroTransition = styled.div`
+
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+
+    @keyframes slideUp {
+        0% { top: 0; }
+        100% { top: -50vh; }
+    }
+
+    @keyframes slideDown {
+        0% { bottom: 0; }
+        100% { bottom: -50vh; }
+    }
+
+    > div[data-side="bottom"],
+    > div[data-side="top"] {
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    }
+
+    > div[data-side="bottom"] {
+        bottom: 0;
+        animation-name: slideDown;
+    }
+
+    > div[data-side="top"] {
+        top: 0;
+        animation-name: slideUp;
+    }
+
+`
+
+const StyledIntroSlide = styled.div`
+
+    position: absolute;
+    width: 100vw;
+    height: 50vh;
+    background-color: ${({theme}) => theme.backgroundOne};
+
+`
+
+const IntroTransition = () => {
+
+    return (
+        <StyledIntroTransition>
+            <StyledIntroSlide data-side="top"/>
+            <StyledIntroSlide data-side="bottom"/>
+        </StyledIntroTransition>
+    );
+}
+
 // LandingPage component
 // todo: only activate 'startMountAnimation' when being directed here from LandingPageIntro
-const LandingPage = ({ loadWithAnim }) => {
+const LandingPage = () => {
+
+    // const [searchParams, setSearchParams] = useSearchParams();
 
     const { theme } = useThemeContext();
     const pageContainerRef = useRef();
 
-    // on page load animations
-    const startMountAnimation = () => {
-        pageContainerRef.current.classList.add(fadeInPageContainer);
-    }
+    // get persistent state for loading the mount page animation
+    const loadWithIntro = JSON.parse(localStorage.getItem('loadWithIntro'));
 
     // load landing page mount animations
     useEffect(() => {
-        // const pageMountAnimId = setTimeout(startMountAnimation, 500);
-        // return () => clearTimeout(pageMountAnimId);
+        // after page renders, disable page intro animation until this value is toggled again
+        localStorage.setItem('loadWithIntro', false);
     }, []);
 
     // return page component
@@ -74,6 +132,9 @@ const LandingPage = ({ loadWithAnim }) => {
         ref={pageContainerRef}
         position="relative">
 
+            {loadWithIntro && <IntroTransition/>}
+
+            {/* use global styles */}
             <GlobalStyle/>
             
             {/* Page container background */}
@@ -91,9 +152,7 @@ const LandingPage = ({ loadWithAnim }) => {
                             </StyledLandingPageBody>
                         </Col>
                     </Row>
-
                 </Container>
-
             </BackgroundImage>
         </StyledPageContainer>
     );

@@ -18,7 +18,7 @@ export const ThemeSelectionProvider = ({ children }) => {
     const [themeData, setThemeData] = useState(themeList[theme])
 
     return (
-        <ThemeSelectionContext.Provider value={{theme, setTheme}}>
+        <ThemeSelectionContext.Provider value={{theme, themeData, setThemeData, setTheme}}>
             <ThemeProvider theme={{...themeData}}>
                 {children}
             </ThemeProvider>
