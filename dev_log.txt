@@ -14,3 +14,7 @@
     * Started adding input fields and state to RegisterPage.jsx. 
     * Pulled down most recent changes at 7:20pm 7/13/2022. 
     * Finished adding front-end functionality to Registerpage and all associated components. 
+
+- Will, 7/16/2022
+    * Polished intro/landing page UI
+    * Refactored CSS framework with styled components
