@@ -59,3 +59,7 @@ export const audio = {
 
 }
 
+export default {
+    images,
+    audio
+}
