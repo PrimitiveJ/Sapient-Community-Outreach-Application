@@ -4,34 +4,41 @@ import React from 'react';
 import styled from 'styled-components';
 import { images } from '../../assets';
 
-const StyledLogoContainer = styled.div`
+export const StyledLogoContainer = styled.div`
     --size: ${({ size }) => size || '100px'};
     padding: ${({ padding }) => padding || '0px'};
     width: var(--size);
     height: var(--size);
     position: relative;
 
+    > div {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
     img {
         width: 100%;
         height: 100%;
-        /* position: absolute; */
+        position: absolute;
     }
 `
 
-const Logo = ({ children, topText, size, padding }) => {
+export const Logo = ({ children, topText, size, padding, className }) => {
 
     // return logo component
     return (
-        <StyledLogoContainer padding={padding} size={size}>
-            <img
-                src={images.brand.appLogo.base} 
-                alt="our logo" 
-            />
-            {children}
+        <StyledLogoContainer padding={padding} size={size} className={className}>
+            <div>
+                <img
+                    src={images.brand.appLogo.base} 
+                    alt="our logo" 
+                />
+                {children}
+            </div>
         </StyledLogoContainer>
     );
 
 }
 
-export default Logo;
 

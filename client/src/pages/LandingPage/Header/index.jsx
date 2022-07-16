@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // import BackgroundImage from '../../../components/BackgroundImage';
-import Logo from '../../../components/Logo';
+import {Logo} from '../../../components/Logo';
 import { StyledRoundButton } from '../../../components/styles/StyledButton.style';
 import { Container, Row, Col } from 'react-bootstrap';
 

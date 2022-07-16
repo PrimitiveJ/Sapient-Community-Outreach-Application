@@ -16,7 +16,7 @@ import anims from './anims.module.css';
 
 // import components
 import { StyledPageContainer } from '../../components/styles/StyledPageContainer.style';
-import Logo from '../../components/Logo';
+import {Logo, StyledLogoContainer} from '../../components/Logo';
 
 // Destructure css modules //
 // animations
@@ -41,11 +41,34 @@ const StyledIntroContainer = styled.div`
     align-items: center;
     background-color: ${({theme}) => theme.backgroundOne};
 
+    h1 {
+        opacity: 0;
+        text-align: center;
+        /* position: absolute; */
+        width: 100%;
+        /* height: 1vw; */
+        top: 1vw;
+        position: absolute;
+        z-index: 2;
+        font-size: 4.2vw;
+        color: ${({theme}) => theme.textColorTwo};
+        text-shadow: 3px 3px #12361a;
+        font-family: 'Edu NSW ACT Foundation', cursive;
+    }
+
+    @media screen and (max-width: 752px) {
+        h1 {
+            font-size: 30px;
+            top: 5px;
+        }
+    }
+
     h2 {
         position: relative;
         top: -50px;
         font-family: 'Edu VIC WA NT Beginner', cursive;
         font-size: 3rem;
+        color: ${({theme}) => theme.textColorOne};
     }
 
     > div {
@@ -57,6 +80,18 @@ const StyledIntroContainer = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .introLogo {
+        --size: 20vw;
+        --min-size: 150px;
+
+        width: var(--size);
+        height: var(--size);
+        min-width: var(--min-size);
+        min-height: var(--min-size);
+
+        margin-bottom: 75px;
     }
 
 `
@@ -79,7 +114,7 @@ const LandingPageIntro = () => {
 
         setTimeout(() => {
             primaryTitleRef.current.classList.add(fadeInFocusTitle);
-        }, 1000);
+        }, 1500);
 
         //close the intro screen
         setTimeout(() => {
@@ -102,29 +137,14 @@ const LandingPageIntro = () => {
 
     // return page component
     // todo: add 'light up' animation after logo renders
+    // todo: look into method for styled-component altering
     return (
-        // <div data-theme={defaultStaticTheme} className={toClassName(pageContainer, "theme-background-color-one")}>
-        //     <div ref={introContainerRef} className={introContainer}>
-        //         <h2 data-theme={defaultStaticTheme} ref={welcomeTitleRef} className={"theme-color-one"}>Welcome</h2>
-
-        //         <div ref={introBodyRef} className={introBody}>
-
-        //             <div className={toClassName(logoGroup, "priv-class")}>
-        //                 <h1 ref={primaryTitleRef} data-theme={defaultStaticTheme} className="theme-color-two">Sapient</h1>
-        //                 <img className="" src={images.brand.appLogo.base} alt=""/>
-        //                 {/* <img className={toClassName(logoLights, fadeInLights)} src={images.brand.appLogo.lights} alt=""/> */}
-        //                 {/* <p ref={mottoTextRef}>Globally scoped, locally focused.</p> */}
-        //             </div>
-                    
-        //         </div>
-        //     </div>
-        // </div>
         <StyledPageContainer>
             <StyledIntroContainer ref={introContainerRef}>
                 <h2 ref={welcomeTitleRef}>Welcome</h2>
-                <div>
-                    <Logo>
-
+                <div ref={introBodyRef}>
+                    <Logo className="introLogo">
+                        <h1 ref={primaryTitleRef}>Sapient</h1>
                     </Logo>
                 </div>
             </StyledIntroContainer>
