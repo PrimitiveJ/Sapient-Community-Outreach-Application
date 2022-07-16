@@ -1,18 +1,19 @@
 import React, {useState} from "react";
 import "./style.module.css";
-import RegisterSelect from './register-select'
-import Card from 'react-bootstrap/Card';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import RegisterSelect from "./register-select";
+import RegisterUser from "./register-user";
 
 /*
+
     Page: Register Page
+
     Purpose: Provides components which are responsible for allowing the
     user to create/login to an account, and also includes conditional 
     rendering for different types of registry, such as:
         * Normal User 
         * Organizer 
         * Business 
+
 */
 
 
@@ -67,7 +68,6 @@ function RegisterPage() {
         'Rhode Island',
         'South Carolina',
         'South Dakota',
-        'Swindonia',
         'Tennessee',
         'Texas',
         'Utah',
@@ -79,35 +79,10 @@ function RegisterPage() {
         'Wisconsin',
         'Wyoming'
     ]
-
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-return (
-    <>
-    <Button variant="primary" onClick={handleShow}>
-      Register as a User/Business/Organizer
-    </Button>
-
-    <Modal show={show} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Select Registration Type</Modal.Title>
-      </Modal.Header>
-      <Modal.Body><RegisterSelect everystate={everystate}/></Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={handleClose}>
-          Save Changes
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  </>
-
-)
+    
+    return (
+        <RegisterSelect everystate={everystate}/>
+    )
 }
 
 
