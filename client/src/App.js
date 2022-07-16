@@ -1,7 +1,6 @@
 // import native react modules
 import React, { useState } from "react";
 import { ThemeProvider, useThemeContext } from "./providers/ThemeProvider";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -28,6 +27,7 @@ function App() {
         <Route path="/user-home" element={<UserHomePage />} />
         <Route path="/user-register" element={<RegisterPage />} />
         <Route path="/user-calendar" element={<UserCalendar />} />
+        <Route path="/event-page" element={<EventPage />} />
       </Routes>
     </ThemeProvider>
   );

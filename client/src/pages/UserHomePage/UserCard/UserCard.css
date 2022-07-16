@@ -1,24 +1,21 @@
 .container {
-    width: 20%;
-    height: 100%;
-    margin: 0;
-    padding: 1.5rem;
     /* box-shadow: 2px 2px 3px black; */
     transition: transform .3s ease;
-    cursor: pointer;
     background-color: #B6D0B7;
 }
-/* .card:hover{
+.card:hover{
     transform: scale(1.01);
 }
 .cardTitle{
+   
     font-weight: 800;
     font-size: 1.5rem;
 }
 .cardImage {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 .cardImage img {
+    width: 10rem;
     border-radius: 50%;
-} */
+}

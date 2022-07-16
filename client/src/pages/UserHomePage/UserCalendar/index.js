@@ -8,8 +8,8 @@ import { images } from "../../../assets";
 const UserCalendar = () => {
   return (
     <Container>
-      <Row>
-        <Col>
+      <Row className="justify-content-md-center">
+        <Col md="auto">
           <h1>User Calendar</h1>
           <img src={images.icons.calendarImage} alt="" />
         </Col>

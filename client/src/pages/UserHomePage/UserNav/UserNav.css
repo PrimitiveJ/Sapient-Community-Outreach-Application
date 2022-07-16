@@ -16,4 +16,6 @@
 ul li button {
     /* box-shadow: -10px 10px 10px black; */
     border: 0.5px solid #4A6765;
+    cursor: pointer;
+
 }
