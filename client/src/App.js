@@ -23,12 +23,7 @@ import './themes';
 function App() {
   return (
     <ThemeProvider>
-      <Routes>
-        <Route path="/" element={<LandingPageIntro/>}/>
-        <Route path="/home" element={<LandingPage/>}/>
-        <Route path="/user-home" element={<UserHomePage/>}/>
-        <Route path="/user-register" element={<RegisterPage/>}/>
-      </Routes>
+     <EventPage/>
     </ThemeProvider>
   );
 }
