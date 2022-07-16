@@ -10,12 +10,12 @@ const StyledNavbarContainer = styled.nav`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #234734;
+    background-color: #445e50;
     position: sticky;
     top: 0;
 
     button {
-        background-color: #183118;
+        background-color: #4c764e;
         padding: 20px;
         font-size: 1rem;
         color: white;
@@ -24,16 +24,16 @@ const StyledNavbarContainer = styled.nav`
         font-family: 'Edu VIC WA NT Beginner', cursive;
     }
 
-    button[data-state="active"] {
+    button:hover {
         background-color: #3d5e3e;
     }
 
-    button:hover {
-        background-color: #4c764e;
+    button[data-state="active"] {
+        background-color: #7da57d;
     }
 
     @media screen and (max-width: 576px) {
-        background-color: #183118;
+        background-color: #4c764e;
     }
 `
 
@@ -44,7 +44,7 @@ const Navbar = () => {
         ['mission', 'Our Mission']
     ];
 
-    const [currentLink, setCurrentLink] = useState();
+    const [currentLink, setCurrentLink] = useState('about');
 
     return (
         <StyledNavbarContainer>
