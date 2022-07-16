@@ -14,6 +14,8 @@ import {
   TestPage,
 } from "./pages";
 
+import UserCalendar from "./pages/UserHomePage";
+
 function App() {
   return (
     <ThemeSelectionProvider>
