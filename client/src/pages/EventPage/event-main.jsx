@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import "./style.module.css";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,8 +8,32 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
 import EventComments from './event-comments'
+import styled from 'styled-components';
+
+const HoverEffect = styled.div`
+.button {
+    transition: background-color 0.5s;
+}
+    & .button:hover {
+        background-color: green !important;
+    }
+.card {
+    transition: background-color 0.5s;
+}
+    & .card:hover {
+        background-color: green !important;
+       
+    }
+`
+
+const something = () => { console.log('something');}
 
 function EventMain() {
+    const box = useRef();
+
+    const changeBackgroundColor = () => {
+        box.current.style.backgroundColor = "green";
+    }
     return (
         <Container>
             <Card className="bg-light">
@@ -37,7 +61,7 @@ function EventMain() {
                 <Accordion defaultActiveKey="0">
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>Comments</Accordion.Header>
-                        <Accordion.Body>
+                        <Accordion.Body >
                             <> {
                                 [
                                     'Primary',
@@ -49,7 +73,7 @@ function EventMain() {
                                     'Light',
                                     'Dark',
                                 ].map((variant) => (
-                                    <Card bg={
+                                    <HoverEffect><Card bg={
                                             variant.toLowerCase()
                                         }
                                         key={variant}
@@ -68,14 +92,14 @@ function EventMain() {
                                                 EXAMPLECOMMENTHERE
                                             </Card.Text>
                                         </Card.Body>
-                                    </Card>
+                                    </Card></HoverEffect>
                                 ))
                             } </>
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
             </Card>
-            <Button variant="primary">Submit a Comment</Button>
+            <HoverEffect> <Button variant="primary">Submit a Comment</Button></HoverEffect>
                 {' '}
         </Container>
 
