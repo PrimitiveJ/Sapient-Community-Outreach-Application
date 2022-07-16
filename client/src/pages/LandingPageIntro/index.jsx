@@ -9,27 +9,16 @@
 */
 
 import React, { useRef, useEffect } from 'react';
+import styled from 'styled-components';
 
 // import local css modules
-import styles from './style.module.css';
 import anims from './anims.module.css';
 
-// import assets
-import { images } from '../../assets';
-
-// import utils
-import { objectToClassName as toClassName } from '../../utils';
+// import components
+import { StyledPageContainer } from '../../components/styles/StyledPageContainer.style';
+import Logo from '../../components/Logo';
 
 // Destructure css modules //
-// styling
-const {
-    logoGroup,
-    introContainer, 
-    logoLights,
-    introBody,
-    pageContainer
-} = styles;
-
 // animations
 const {
     fadeInFocusTitle, 
@@ -39,10 +28,41 @@ const {
     fadeOutWelcomeTitle
 } = anims;
 
-// LandingPage component
-const LandingPageIntro = ({ children }) => {
+const StyledIntroContainer = styled.div`
 
-    const defaultStaticTheme = 'default';
+    opacity: 0;
+    filter: blur(5px);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: ${({theme}) => theme.backgroundOne};
+
+    h2 {
+        position: relative;
+        top: -50px;
+        font-family: 'Edu VIC WA NT Beginner', cursive;
+        font-size: 3rem;
+    }
+
+    > div {
+        position: relative;
+        width: 25vw;
+        min-width: 150px;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+`
+
+// LandingPage component
+const LandingPageIntro = () => {
 
     // get intro page elements
     const introContainerRef = useRef();
@@ -73,36 +93,42 @@ const LandingPageIntro = ({ children }) => {
         }, 6000);
     }
 
-    // const onIntroAnimationFinished = () => {
-
-    // }
-
     // run animations after component renders
     useEffect(() => {
-        const pageMountAnimId = setTimeout(startMountAnimation, 1000);
-        return () => clearTimeout(pageMountAnimId);
+        // const pageMountAnimId = setTimeout(startMountAnimation, 1000);
+        // return () => clearTimeout(pageMountAnimId);
     }, []);
 
 
     // return page component
     // todo: add 'light up' animation after logo renders
     return (
-        <div data-theme={defaultStaticTheme} className={toClassName(pageContainer, "theme-background-color-one")}>
-            <div ref={introContainerRef} className={introContainer}>
-                <h2 data-theme={defaultStaticTheme} ref={welcomeTitleRef} className={"theme-color-one"}>Welcome</h2>
+        // <div data-theme={defaultStaticTheme} className={toClassName(pageContainer, "theme-background-color-one")}>
+        //     <div ref={introContainerRef} className={introContainer}>
+        //         <h2 data-theme={defaultStaticTheme} ref={welcomeTitleRef} className={"theme-color-one"}>Welcome</h2>
 
-                <div ref={introBodyRef} className={introBody}>
+        //         <div ref={introBodyRef} className={introBody}>
 
-                    <div className={toClassName(logoGroup, "priv-class")}>
-                        <h1 ref={primaryTitleRef} data-theme={defaultStaticTheme} className="theme-color-two">Sapient</h1>
-                        <img className="" src={images.brand.appLogo.base} alt=""/>
-                        {/* <img className={toClassName(logoLights, fadeInLights)} src={images.brand.appLogo.lights} alt=""/> */}
-                        {/* <p ref={mottoTextRef}>Globally scoped, locally focused.</p> */}
-                    </div>
+        //             <div className={toClassName(logoGroup, "priv-class")}>
+        //                 <h1 ref={primaryTitleRef} data-theme={defaultStaticTheme} className="theme-color-two">Sapient</h1>
+        //                 <img className="" src={images.brand.appLogo.base} alt=""/>
+        //                 {/* <img className={toClassName(logoLights, fadeInLights)} src={images.brand.appLogo.lights} alt=""/> */}
+        //                 {/* <p ref={mottoTextRef}>Globally scoped, locally focused.</p> */}
+        //             </div>
                     
+        //         </div>
+        //     </div>
+        // </div>
+        <StyledPageContainer>
+            <StyledIntroContainer ref={introContainerRef}>
+                <h2 ref={welcomeTitleRef}>Welcome</h2>
+                <div>
+                    <Logo>
+
+                    </Logo>
                 </div>
-            </div>
-        </div>
+            </StyledIntroContainer>
+        </StyledPageContainer>
     );
 
 }

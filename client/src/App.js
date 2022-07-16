@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { ThemeSelectionProvider } from './providers/ThemeSelectionProvider';
 import { Route, Routes } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 // import page components
 import {
@@ -11,7 +12,7 @@ import {
   // UserHomePage,
   // EventPage,
   // EventCreationPage,
-  // LandingPageIntro,
+  LandingPageIntro,
   TestPage
 } from './pages';
 
@@ -21,7 +22,7 @@ function App() {
   return (
     <ThemeSelectionProvider>
       <Routes>
-        {/* <Route path="/" element={<LandingPageIntro/>}/> */}
+        <Route path="/" element={<LandingPageIntro/>}/>
         <Route path="/home" element={<LandingPage/>}/>
         {/* <Route path="/user-home" element={<UserHomePage/>}/>
         <Route path="/user-register" element={<RegisterPage/>}/> */}

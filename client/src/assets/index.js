@@ -51,7 +51,7 @@ export const images = {
     },
 
     backgrounds: {
-        landingPageHeader: importImage('landing-page-header.png'),
+        landingPageHeader: importImage('landing-page-header.jpg'),
     }
 }
 

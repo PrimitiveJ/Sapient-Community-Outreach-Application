@@ -2,26 +2,41 @@
 
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { TestComponent, ListItem, ListFrame } from '../../components/styles/TestComponent.style';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
-const theme = {
-    background: 'blue',
-}
 
 const TestPage = () => {
+    console.log(Button);
     return (
-        <ThemeProvider theme={theme}>
-            <div>
-                <TestComponent>
-                    test
-                    <ListFrame>
-                        <ListItem>Something 1</ListItem>
-                        <ListItem>Something 2</ListItem>
-                        <ListItem>Something 3</ListItem>
-                    </ListFrame>
-                </TestComponent>
-            </div>   
-        </ThemeProvider>
+        <div>
+            <Container>
+                <Row className="rows">
+                    <Col md={3} sm={6} xs={6}>
+                        <div
+                        style={{
+                            backgroundColor: 'red',
+                            width: "100%",
+                            height: '150px'
+                        }}
+                        >
+                            <Button>test</Button>
+                            <p>test</p>
+                        </div>
+                    </Col>
+                    <Col sm={3} lg={5} xs={2}>
+                        <div
+                        style={{
+                            backgroundColor: 'red',
+                            width: "100%",
+                            height: '150px'
+                        }}
+                        >
+                            <p>test</p>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
     );
 }
 

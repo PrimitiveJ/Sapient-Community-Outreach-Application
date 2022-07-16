@@ -4,7 +4,7 @@ import LandingPage from './LandingPage';
 // import UserHomePage from './UserHomePage';
 // import EventPage from './EventPage';
 // import EventCreationPage from './EventCreationPage';
-// import LandingPageIntro from './LandingPageIntro';
+import LandingPageIntro from './LandingPageIntro';
 import TestPage from './TestPage';
 
 export {
@@ -13,7 +13,7 @@ export {
     // UserHomePage,
     // EventPage,
     // EventCreationPage,
-    // LandingPageIntro,
+    LandingPageIntro,
     TestPage
 }
 
