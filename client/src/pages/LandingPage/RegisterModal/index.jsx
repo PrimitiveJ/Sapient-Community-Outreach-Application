@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import "./style.module.css";
 import RegisterSelect from './register-select'
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';

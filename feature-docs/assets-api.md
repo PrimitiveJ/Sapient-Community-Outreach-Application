@@ -63,7 +63,7 @@ export const images = {
 
 Once you have an image added to the `assets` folder and added it in the `index.js` code, you can retrieve it by indexing the assets object that you imported. Using the icon example from before, you could access that image by doing this:
 
-```javascript
+```jsx
 import { images } from '.../assets';
 
 // the reference to your image

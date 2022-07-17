@@ -17,4 +17,10 @@
 
 - Will, 7/16/2022
     * Polished intro/landing page UI
-    * Refactored CSS framework with styled components
+    * Refactored CSS framework with styled-components
+
+- Will, 7/17/2022
+    * Integrated James' user registry modal into landing page
+    * Migrated event page styling to styled-components
+    * Fixed global issue with CSS backgrounds
+    * Moved all images into the 'branding', 'backgrounds', and 'icons' sub-folders of the 'assets.images' folder.

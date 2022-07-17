@@ -35,6 +35,7 @@ import GlobalStyle from '../../components/styles/GlobalStyle.style';
 import Navbar from './Navbar';
 import AboutUsPage from './AboutUsPage';
 import ContactPage from './ContactPage';
+import Footer from './Footer';
 
 // Destructure css modules //
 // animations
@@ -49,8 +50,10 @@ const StyledLandingPageBody = styled.div`
     margin-right: auto;
     /* background-color: ${({theme}) => theme.backgroundOne}; */
     background-color: #819984;
-    border-left: 20px solid #49685e69;
-    border-right: 20px solid #49685e69;
+    /* border-left: 20px solid #49685e69;
+    border-right: 20px solid #49685e69; */
+    border-left: 20px solid #483922;
+    border-right: 20px solid #483922;
 `
 
 
@@ -153,7 +156,7 @@ const LandingPage = () => {
             image={images.backgrounds.landingPageHeader}/>
 
             <Container style={{position: 'relative', display: 'flex', justifyContent: 'center'}}>
-                <Col xl={8} lg={9} sm={12}>
+                <Col xl={9} lg={9} sm={12}>
                     <StyledLandingPageBody>
                         <Header/>
                         <Navbar>
@@ -163,6 +166,7 @@ const LandingPage = () => {
                     </StyledLandingPageBody>
                 </Col>
             </Container>
+            <Footer/>
         </StyledPageContainer>
     );
 

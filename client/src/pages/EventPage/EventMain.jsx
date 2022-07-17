@@ -1,14 +1,15 @@
 import React, {useState, useRef} from "react";
-import "./style.css";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Image from '../../assets/images/lake-cleanup.jpg'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
-import EventComments from './event-comments'
+import EventComments from './EventComments'
 import styled from 'styled-components';
+import BackgroundImage from "../../components/BackgroundImage";
+import { images } from '../../assets';
+import { StyledPageContainer } from "../../components/styles/StyledPageContainer.style";
 
 const HoverEffect = styled.div`
 .button {
@@ -35,6 +36,9 @@ function EventMain() {
         box.current.style.backgroundColor = "green";
     }
     return (
+        <StyledPageContainer relative={true}>
+            <BackgroundImage image={images.backgrounds.landingPageHeader}/>
+
         <Container>
             <Card className="bg-light">
                 <Row>
@@ -43,7 +47,7 @@ function EventMain() {
                     </Col>
                     <Col sm={4}>Date:01/02/03</Col>
                 </Row>
-                <img src={Image}/>
+                <img src={images.backgrounds.lakeCleanup}/>
                 <Row>
                     <Col sm>
                         <h2>Location</h2>
@@ -102,7 +106,7 @@ function EventMain() {
             <HoverEffect> <Button variant="primary">Submit a Comment</Button></HoverEffect>
                 {' '}
         </Container>
-
+    </StyledPageContainer>
     );
 }
 

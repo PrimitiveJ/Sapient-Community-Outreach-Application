@@ -28,18 +28,18 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .modal-content .btn.btn-primary:hover {
-        background-color: #afd0a9;
-        border-color: #9ab597;
+        background-color: #7eaf74;
+        border-color: #7eaf74;
     }
 
     .modal-content .btn.btn-secondary {
-        background-color: #9e7373;
-        border-color: #796666;
+        background-color: #2c5632;
+        border-color: #2c5632;
     }
 
     .modal-content .btn.btn-secondary:hover {
-        background-color: #775757;
-        border-color: #796666;
+        background-color: #1c3a1f;
+        /* border-color: #796666; */
     }
 
     .modal-body input[type="checkbox"] {

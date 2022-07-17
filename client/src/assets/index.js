@@ -64,6 +64,8 @@ export const images = {
 
     backgrounds: {
         landingPageHeader: importImage('landing-page-header.jpg'),
+        lakeCleanup: importImage('lake-cleanup.jpg'),
+        eventPageBackground: importImage('treesimage.jpg'),
     }
 }
 

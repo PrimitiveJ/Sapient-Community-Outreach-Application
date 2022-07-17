@@ -10,7 +10,8 @@ const StyledNavbarContainer = styled.nav`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #445e50;
+    /* background-color: #445e50; */
+    background-color: #483922;
     position: sticky;
     top: 0;
     z-index: 2; /* ? might be able to replace this with position relative instead */

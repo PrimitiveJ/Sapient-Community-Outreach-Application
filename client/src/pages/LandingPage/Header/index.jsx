@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import {Logo} from '../../../components/Logo';
 import { StyledRoundButton } from '../../../components/styles/StyledButton.style';
 import { Container, Row, Col } from 'react-bootstrap';
-import RegisterModal from '../../RegisterPage';
+import RegisterModal from '../RegisterModal';
 
 // import { images } from '../../../assets';
 
