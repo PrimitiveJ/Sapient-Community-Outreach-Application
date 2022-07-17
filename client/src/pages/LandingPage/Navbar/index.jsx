@@ -34,7 +34,7 @@ const StyledNavbarContainer = styled.nav`
         background-color: #7da57d;
     }
 
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 574px) {
         background-color: #4c764e;
     }
 `
@@ -46,6 +46,8 @@ const StyledContentContainer = styled.div`
     /* margin-bottom: 100px; */
     padding: 20px;
     overflow: hidden;
+    /* font-family: 'Edu SA Beginner', cursive; */
+    font-family: 'Josefin Sans', sans-serif;
 
     @keyframes fadeIn {
         0% { opacity: 0; }
@@ -66,6 +68,32 @@ const StyledContentContainer = styled.div`
 
         animation: fadeIn 0.5s linear forwards,
             slideIn 0.25s ease-out forwards;
+    }
+
+    h2 {
+        text-align: center;
+        font-family: 'Edu VIC WA NT Beginner', cursive;
+        font-size: 2.1rem;
+        color: #3b473d;
+        margin-bottom: 2rem;
+        font-weight: 900;
+    }
+
+    .centerText {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .centerText > * {
+        margin-bottom: 25px;
+    }
+
+    .centerText p {
+        color: white;
+        font-weight: 600;
+        font-size: 1.4rem;
+        text-align: center;
+        letter-spacing: 1px;
     }
 `
 

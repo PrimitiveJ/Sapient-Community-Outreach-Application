@@ -35,6 +35,7 @@ import GlobalStyle from '../../components/styles/GlobalStyle.style';
 import Navbar from './Navbar';
 import AboutUsPage from './AboutUsPage';
 import ContactPage from './ContactPage';
+import MissionPage from './MissionPage';
 import Footer from './Footer';
 
 // Destructure css modules //
@@ -162,6 +163,7 @@ const LandingPage = () => {
                         <Navbar>
                             <AboutUsPage nav="about"/>
                             <ContactPage nav="contact"/>
+                            <MissionPage nav="mission"/>
                         </Navbar>
                     </StyledLandingPageBody>
                 </Col>

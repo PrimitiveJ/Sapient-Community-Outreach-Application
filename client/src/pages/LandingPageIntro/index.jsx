@@ -32,6 +32,7 @@ const {
 
 const StyledIntroContainer = styled.div`
 
+    pointer-events: none;
     opacity: 0;
     filter: blur(5px);
     width: 100vw;

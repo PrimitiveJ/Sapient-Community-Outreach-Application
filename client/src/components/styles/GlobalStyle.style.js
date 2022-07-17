@@ -6,6 +6,12 @@ const GlobalStyle = createGlobalStyle`
         color: ${({theme}) => theme.textColorOne};
     }
 
+    /*
+        Override bootstrap
+    */
+    .container {
+        padding: 0;
+    }
 
     /*
         Global modal styles start
