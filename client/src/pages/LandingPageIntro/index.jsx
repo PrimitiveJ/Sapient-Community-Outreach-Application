@@ -9,27 +9,18 @@
 */
 
 import React, { useRef, useEffect } from 'react';
+import styled from 'styled-components';
+import { useNavigate } from "react-router-dom";
+import { useThemeContext } from '../../providers/ThemeSelectionProvider';
 
 // import local css modules
-import styles from './style.module.css';
 import anims from './anims.module.css';
 
-// import assets
-import { images } from '../../assets';
-
-// import utils
-import { objectToClassName as toClassName } from '../../utils';
+// import components
+import { StyledPageContainer } from '../../components/styles/StyledPageContainer.style';
+import {Logo, StyledLogoContainer} from '../../components/Logo';
 
 // Destructure css modules //
-// styling
-const {
-    logoGroup,
-    introContainer, 
-    logoLights,
-    introBody,
-    pageContainer
-} = styles;
-
 // animations
 const {
     fadeInFocusTitle, 
@@ -39,8 +30,79 @@ const {
     fadeOutWelcomeTitle
 } = anims;
 
+const StyledIntroContainer = styled.div`
+
+    pointer-events: none;
+    opacity: 0;
+    filter: blur(5px);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: ${({theme}) => theme.backgroundOne};
+
+    h1 {
+        opacity: 0;
+        text-align: center;
+        /* position: absolute; */
+        width: 100%;
+        /* height: 1vw; */
+        top: 1vw;
+        position: absolute;
+        z-index: 2;
+        font-size: 4.2vw;
+        color: ${({theme}) => theme.textColorTwo};
+        text-shadow: 3px 3px #12361a;
+        font-family: 'Edu NSW ACT Foundation', cursive;
+    }
+
+    @media screen and (max-width: 752px) {
+        h1 {
+            font-size: 30px;
+            top: 5px;
+        }
+    }
+
+    h2 {
+        position: relative;
+        top: -50px;
+        font-family: 'Edu VIC WA NT Beginner', cursive;
+        font-size: 3rem;
+        color: ${({theme}) => theme.textColorOne};
+    }
+
+    > div {
+        position: relative;
+        width: 25vw;
+        min-width: 150px;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .introLogo {
+        --size: 20vw;
+        --min-size: 150px;
+
+        width: var(--size);
+        height: var(--size);
+        min-width: var(--min-size);
+        min-height: var(--min-size);
+
+        margin-bottom: 75px;
+    }
+
+`
+
 // LandingPage component
-const LandingPageIntro = ({ children }) => {
+const LandingPageIntro = () => {
+
+    const navigate = useNavigate();
 
     // get intro page elements
     const introContainerRef = useRef();
@@ -57,7 +119,7 @@ const LandingPageIntro = ({ children }) => {
 
         setTimeout(() => {
             primaryTitleRef.current.classList.add(fadeInFocusTitle);
-        }, 1000);
+        }, 1500);
 
         //close the intro screen
         setTimeout(() => {
@@ -67,13 +129,13 @@ const LandingPageIntro = ({ children }) => {
 
         // wait for intro screen to close, then redirect
         setTimeout(() => {
-            window.location = '/home'; // todo: use react router to naviage here instead
+            // // todo: use react router to navigate here instead
+            // window.location = '/home'; 
+            localStorage.setItem('loadWithIntro', true);
+            navigate('/home');
+            // navigate(`/home?${new URLSearchParams({load_with_intro: true})}`);
         }, 6000);
     }
-
-    // const onIntroAnimationFinished = () => {
-
-    // }
 
     // run animations after component renders
     useEffect(() => {
@@ -83,23 +145,19 @@ const LandingPageIntro = ({ children }) => {
 
 
     // return page component
+    // todo: add 'light up' animation after logo renders
+    // todo: look into method for styled-component altering
     return (
-        <div className={pageContainer}>
-            <div ref={introContainerRef} className={introContainer}>
+        <StyledPageContainer backgroundColor="backgroundOne">
+            <StyledIntroContainer ref={introContainerRef}>
                 <h2 ref={welcomeTitleRef}>Welcome</h2>
-
-                <div ref={introBodyRef} className={introBody}>
-
-                    <div className={logoGroup}>
+                <div ref={introBodyRef}>
+                    <Logo className="introLogo">
                         <h1 ref={primaryTitleRef}>Sapient</h1>
-                        <img className="" src={images.brand.appLogo.base} alt=""/>
-                        {/* <img className={toClassName(logoLights, fadeInLights)} src={images.brand.appLogo.lights} alt=""/> */}
-                        {/* <p ref={mottoTextRef}>Globally scoped, locally focused.</p> */}
-                    </div>
-                    
+                    </Logo>
                 </div>
-            </div>
-        </div>
+            </StyledIntroContainer>
+        </StyledPageContainer>
     );
 
 }
