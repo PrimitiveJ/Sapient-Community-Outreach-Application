@@ -1,5 +1,6 @@
 const {Schema, model} = require("mongoose");
 const bcrypt = require("bcrypt");
+const dateFormat = require('../utils/dateFormat');
 
 // import schema from Book.js
 const Event = require("./Event");
@@ -36,12 +37,12 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Comment'
     }
-], createdAt : createdAt : {
-    type: Date,
-    default: Date.now(),
-    get: (val) => formatDate(val)
+], createdAt: {
+  type: Date,
+  default: Date.now,
+  get: timestamp => dateFormat(timestamp)
 },
-}
+},
 
 // set this to use virtual below
     {
@@ -69,12 +70,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
 userSchema.virtual("eventCount").get(function () {
     return this.savedEvents.length;
 });
-
-function formatDate() {
-    console.log(`The current date is ${
-        this.createdAt
-    }`)
-}
 
 
 const User = model("User", userSchema);

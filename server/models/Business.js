@@ -1,4 +1,5 @@
 const {Schema} = require("mongoose");
+const dateFormat = require('../utils/dateFormat');
 
 const businessSchema = new Schema({
     address: {
@@ -10,18 +11,17 @@ const businessSchema = new Schema({
     state: {
         type: String
     },
-    registeredAt: {
+    createdAt: {
         type: Date,
-        default: Date.now(),
-        get: (val) => formatDate(val)
-    }
+        default: Date.now,
+        get: timestamp => dateFormat(timestamp)
+      },
+},
+{
+    toJSON: {
+        getters: true
+    },
 })
-
-function formatDate() {
-    console.log(`The current date is ${
-        this.createdAt
-    }`)
-}
 
 
 module.exports = Business;

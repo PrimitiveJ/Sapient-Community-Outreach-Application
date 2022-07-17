@@ -1,4 +1,5 @@
 const {Schema, model} = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
 // Reaction Schema for use within the Thought Model.
 const reactionSchema = new Schema({
@@ -17,31 +18,28 @@ const reactionSchema = new Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.now(),
-        get: (val) => formatDate(val)
-        // Use getter method to format timestamp on query.
-    }
+        default: Date.now,
+        get: timestamp => dateFormat(timestamp)
+      },
 }, {
     toJSON: {
         getters: true
     },
-    id: false
 })
 
 // Comment schema defining the thought model
 const commentSchema = new Schema({
     commentText: {
         type: String,
-        required: true,
+        required: 'You need to leave a comment!',
         minLength: 1,
         maxLength: 180
     },
     createdAt: {
         type: Date,
-        default: Date.now(),
-        get: (val) => formatDate(val)
-        // Use a getter method to format the timestamp on query
-    },
+        default: Date.now,
+        get: timestamp => dateFormat(timestamp)
+      },
     username: {
         type: String,
         required: true,
@@ -57,13 +55,6 @@ const commentSchema = new Schema({
     },
     id: false
 })
-
-// Get Method for Date for Thought
-function formatDate() {
-    console.log(`The current date is ${
-        this.createdAt
-    }`)
-}
 
 // Virtual for reaction count
 commentSchema.virtual('reactionCount').get(function () {

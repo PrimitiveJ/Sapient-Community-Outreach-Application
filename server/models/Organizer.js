@@ -1,4 +1,5 @@
 const {Schema} = require("mongoose");
+const dateFormat = require('../utils/dateFormat');
 
 const organizerSchema = new Schema({
     city: {
@@ -13,17 +14,18 @@ const organizerSchema = new Schema({
             ref: 'eventSchema'
         }
     ],
-    registeredAt: {
+    createdAt: {
         type: Date,
-        default: Date.now(),
-        get: (val) => formatDate(val)
-    }
+        default: Date.now,
+        get: timestamp => dateFormat(timestamp)
+      },
+},{
+    toJSON: {
+        getters: true
+    },
+    id: false
 })
 
-function formatDate() {
-    console.log(`The current date is ${
-        this.createdAt
-    }`)
-}
+
 
 module.exports = Organizer;
