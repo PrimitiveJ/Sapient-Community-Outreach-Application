@@ -1,6 +1,7 @@
 const {Schema} = require("mongoose");
 const dateFormat = require('../utils/dateFormat');
 
+// SUBDOC
 const businessSchema = new Schema({
     address: {
         type: String
@@ -15,12 +16,11 @@ const businessSchema = new Schema({
         type: Date,
         default: Date.now,
         get: timestamp => dateFormat(timestamp)
-      },
-},
-{
+    }
+}, {
     toJSON: {
         getters: true
-    },
+    }
 })
 
 

@@ -1,6 +1,7 @@
 const {Schema} = require("mongoose");
 const dateFormat = require('../utils/dateFormat');
 
+//SUBDOC
 const organizerSchema = new Schema({
     city: {
         type: String

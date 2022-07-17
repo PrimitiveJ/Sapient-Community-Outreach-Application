@@ -1,7 +1,7 @@
 const {Schema, model} = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-// Reaction Schema for use within the Thought Model.
+// SUBDOC TO COMMENTS
 const reactionSchema = new Schema({
     reactionId: {
         type: Schema.Types.ObjectId,
@@ -27,7 +27,7 @@ const reactionSchema = new Schema({
     },
 })
 
-// Comment schema defining the thought model
+// Comment MODEL
 const commentSchema = new Schema({
     commentText: {
         type: String,
@@ -43,7 +43,7 @@ const commentSchema = new Schema({
     username: {
         type: String,
         required: true,
-        // User that creates the "thought"
+        // User that creates the "comment"
     },
     reactions: [reactionSchema]
 },
