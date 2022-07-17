@@ -2,7 +2,7 @@ const {Schema, model} = require("mongoose");
 const bcrypt = require("bcrypt");
 
 // import schema from Book.js
-const bookSchema = require("./Event");
+const Event = require("./Event");
 const organizerSchema = require("./Organizer");
 const businessSchema = require("./Business");
 
@@ -27,8 +27,11 @@ const userSchema = new Schema({
         required: true
     },
     // Events that a user has signed up to participate in.
-    savedEvents: [eventSchema]
-}, businessSponsor : [businessSchema], organizer : [organizerSchema], comments : [
+    savedEvents: [{
+      type: Schema.Types.ObjectId,
+      ref: "Event"
+    }],
+     businessSponsor : [businessSchema], organizer : [organizerSchema], comments : [
     {
         type: Schema.Types.ObjectId,
         ref: 'Comment'
@@ -38,6 +41,7 @@ const userSchema = new Schema({
     default: Date.now(),
     get: (val) => formatDate(val)
 },
+}
 
 // set this to use virtual below
     {

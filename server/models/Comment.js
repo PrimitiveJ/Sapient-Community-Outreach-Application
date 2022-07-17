@@ -28,7 +28,7 @@ const reactionSchema = new Schema({
     id: false
 })
 
-// Thought schema defining the thought model
+// Comment schema defining the thought model
 const commentSchema = new Schema({
     commentText: {
         type: String,
@@ -66,11 +66,11 @@ function formatDate() {
 }
 
 // Virtual for reaction count
-thoughtSchema.virtual('reactionCount').get(function () {
+commentSchema.virtual('reactionCount').get(function () {
     return this.reactions.length
 });
 
 
-const Thought = model('Comment', commentSchema);
+const Comment = model('Comment', commentSchema);
 
 module.exports = Comment;
