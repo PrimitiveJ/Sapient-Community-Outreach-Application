@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
-import "./style.module.css";
-import EventMain from "./event-main";
-=======
-import React, {useState} from "react";
-import EventMain from "./EventMain"
-import LocalStylesheet from './local.style';
-
->>>>>>> develop
+import EventMain from "./EventMain";
+import LocalStylesheet from "./local.style";
 
 /*
 
@@ -28,15 +21,11 @@ import LocalStylesheet from './local.style';
 */
 
 function EventPage() {
-<<<<<<< HEAD
-  return <EventMain />;
-=======
-    return (
-        <LocalStylesheet>
-            <EventMain/>
-        </LocalStylesheet>
-    )
->>>>>>> develop
+  return (
+    <LocalStylesheet>
+      <EventMain />
+    </LocalStylesheet>
+  );
 }
 
 export default EventPage;

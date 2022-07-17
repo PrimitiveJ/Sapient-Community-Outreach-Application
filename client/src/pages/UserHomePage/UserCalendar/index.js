@@ -1,21 +1,18 @@
-import React from "react";
-import "./UserCalendar.css";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Modal } from "react-bootstrap";
 import { images } from "../../../assets";
 
-const UserCalendar = () => {
+const UserCalendarModal = ({ modalActive, hideModal }) => {
   return (
-    <Container>
-      <Row className="justify-content-md-center">
-        <Col md="auto">
-          <h1>User Calendar</h1>
-          <img src={images.icons.calendarImage} alt="" />
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <Modal show={modalActive} onHide={hideModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>My Event Calendar</Modal.Title>
+        </Modal.Header>
+        <img src={images.icons.calendarImage} alt="calendar" />;
+        <Modal.Body></Modal.Body>
+      </Modal>
+    </>
   );
 };
 
-export default UserCalendar;
+export default UserCalendarModal;

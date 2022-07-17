@@ -1,7 +1,9 @@
 .nav {
-    border-right: 1px solid white;
+    
     height: 100%;
 }
-ul li button {
+button {
     cursor: pointer;
+    background-color: #B6D0B7!important;
+    border-color: white !important;
 }

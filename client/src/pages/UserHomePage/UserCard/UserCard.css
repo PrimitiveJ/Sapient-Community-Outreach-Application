@@ -1,20 +1,20 @@
-.container {
-    /* box-shadow: 2px 2px 3px black; */
-    transition: transform .3s ease;
-    background-color: #B6D0B7;
+.profile-card {
+    height: 100vh;
+    background-color: #629764!important;
 }
-.card:hover{
-    transform: scale(1.01);
+.title {
+    color: white;
+    text-shadow: 1px 1px 1px #4A6765;
 }
-.cardTitle{
-   
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: blue;
+.text {
+    color: white;
+    text-shadow: 1px 1px 1px #4A6765;
 }
+
 .cardImage {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    margin: 1rem;
 }
 .cardImage img {
     width: 10rem;

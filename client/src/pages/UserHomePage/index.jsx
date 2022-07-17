@@ -16,16 +16,21 @@
 // import native react modules
 import React, { useEffect, useState } from "react";
 // import { Route, Routes } from "react-router-dom";
-// import { useThemeContext } from "../../providers/ThemeProvider";
+
 import UserNav from "./UserNav";
 import UserCard from "./UserCard";
+import UserEvents from "./UserEvents";
 import "./UserHome.css";
-import EventPage from "../EventPage";
-// import Organizer from "./Organizer";
-// import Business from "./Business";
+import { images } from "../../assets";
+import BackgroundImage from "../../components/BackgroundImage";
+import { StyledPageContainer } from "../../components/styles/StyledPageContainer.style";
+import GlobalStyle from "../../components/styles/GlobalStyle.style";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+// import Organizer from "./Organizer";
+// import Business from "./Business";
 
 const HomePage = () => {
   //     const { theme, setTheme } = useThemeContext();
@@ -45,24 +50,47 @@ const HomePage = () => {
     })();
   }, []);
   return (
-    <Container>
+    <StyledPageContainer
+      // ref={pageContainerRef}
+      backgroundColor="backgroundOne"
+      relative={false}
+    >
+      {/* conditionally render intro animation
+      {loadWithIntro && <IntroTransition />} */}
+
+      {/* use global styles */}
+      <GlobalStyle />
+
+      {/* Page container background */}
+      <BackgroundImage
+        opacity="0.5"
+        backgroundColor="white"
+        image={images.backgrounds.landingPageHeader}
+      />
+
       <Row>
-        <Col lg={1}>
-          <UserNav />
-        </Col>
-        <Col>
-          <div lg={4}>
+        <Col sm={12} lg={4}>
+          <div>
             {users.map((user, index) => (
               <UserCard userData={user} key={index} />
             ))}
           </div>
         </Col>
 
-        <Col xs={8} lg={7}>
-          <EventPage />
+        <Col sm={12} lg={7}>
+          <Row>
+            <Col className="event-header">
+              <h1>Upcoming Events</h1>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <UserEvents />
+            </Col>
+          </Row>
         </Col>
       </Row>
-    </Container>
+    </StyledPageContainer>
   );
 };
 export default HomePage;

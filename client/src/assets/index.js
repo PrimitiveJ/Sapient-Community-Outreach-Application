@@ -65,12 +65,13 @@ export const images = {
     calendarImage: importImage("calendar-placeholder.jpg"),
   },
 
-    backgrounds: {
-        landingPageHeader: importImage('landing-page-header.jpg'),
-        lakeCleanup: importImage('lake-cleanup.jpg'),
-        eventPageBackground: importImage('treesimage.jpg'),
-    }
-}
+  backgrounds: {
+    landingPageHeader: importImage("landing-page-header.jpg"),
+    lakeCleanup: importImage("lake-cleanup.jpg"),
+    eventPageBackground: importImage("treesimage.jpg"),
+    roadway: importImage("roadway.jpeg"),
+  },
+};
 
 // nothing here yet
 export const audio = {};
