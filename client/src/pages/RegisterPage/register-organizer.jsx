@@ -20,10 +20,17 @@ function RegisterOrganizer(props) {
             <Form.Control type="city" placeholder="City" />
           </Form.Group>
 
-          <Form.Select aria-label="Default select example">
+          <Form.Group>
+            <Form.Label>Choose a state:</Form.Label>
+            <Form.Select aria-label="Default select example">
+              <option>Select your State</option>
+              {props.everystate.map(state => {return <option>{state}</option>})}
+            </Form.Select>
+          </Form.Group>
+          {/* <Form.Select aria-label="Default select example">
             <option>Select your State</option>
             {props.everystate.map(state => {return <option>{state}</option>})}
-          </Form.Select>
+          </Form.Select> */}
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Zip</Form.Label>

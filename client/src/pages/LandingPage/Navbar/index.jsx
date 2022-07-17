@@ -13,6 +13,7 @@ const StyledNavbarContainer = styled.nav`
     background-color: #445e50;
     position: sticky;
     top: 0;
+    z-index: 2; /* ? might be able to replace this with position relative instead */
 
     button {
         background-color: #4c764e;
@@ -37,26 +38,60 @@ const StyledNavbarContainer = styled.nav`
     }
 `
 
-const Navbar = () => {
+const StyledContentContainer = styled.div`
+    margin-top: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* margin-bottom: 100px; */
+    padding: 20px;
+    overflow: hidden;
+
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+        0% { left: -100%; }
+        100% { left: 0; }
+    }
+
+    > div {
+        position: relative;
+        left: -100%;
+        opacity: 0;
+
+        animation: fadeIn 0.5s linear forwards,
+            slideIn 0.25s ease-out forwards;
+    }
+`
+
+const Navbar = ({children}) => {
     const navLinkData = [
         ['about', 'About Us'],
         ['contact', 'Contact'],
         ['mission', 'Our Mission']
     ];
 
+    console.log(children);
     const [currentLink, setCurrentLink] = useState('about');
 
     return (
-        <StyledNavbarContainer>
-            {navLinkData.map(([linkState, linkName]) => {
-                return <StyledDefaultButton 
-                    key={linkState}
-                    onClick={() => setCurrentLink(linkState)}
-                    data-state={linkState === currentLink ? 'active' : 'inactive'}>
-                        {linkName}
-                    </StyledDefaultButton>
-            })}
-        </StyledNavbarContainer>
+        <>
+            <StyledNavbarContainer>
+                {navLinkData.map(([linkState, linkName]) => {
+                    return <StyledDefaultButton 
+                        key={linkState}
+                        onClick={() => setCurrentLink(linkState)}
+                        data-state={linkState === currentLink ? 'active' : 'inactive'}>
+                            {linkName}
+                        </StyledDefaultButton>
+                })}
+            </StyledNavbarContainer>
+            <StyledContentContainer>
+                {children.map(child => child.props.nav === currentLink && child)}
+            </StyledContentContainer>
+        </>
     );
 }
 

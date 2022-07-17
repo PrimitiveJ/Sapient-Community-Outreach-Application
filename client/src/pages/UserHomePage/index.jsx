@@ -17,14 +17,12 @@
 
 // import native react modules
 import React from 'react';
-import { useThemeContext } from '../../providers/ThemeProvider';
 
 const HomePage = () => {
-    const { theme, setTheme } = useThemeContext();
 
     return (
         <div>
-            <p>testing {theme}</p>
+            <p>testing</p>
         </div>
     );
 }

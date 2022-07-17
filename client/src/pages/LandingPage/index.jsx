@@ -34,6 +34,7 @@ import { StyledPageContainer } from '../../components/styles/StyledPageContainer
 import GlobalStyle from '../../components/styles/GlobalStyle.style';
 import Navbar from './Navbar';
 import AboutUsPage from './AboutUsPage';
+import ContactPage from './ContactPage';
 
 // Destructure css modules //
 // animations
@@ -59,7 +60,7 @@ const StyledLandingPageBody = styled.div`
 const StyledIntroTransition = styled.div`
 
     position: fixed;
-    z-index: 100;
+    z-index: 1000;
     width: 100vw;
     height: 100vh;
     pointer-events: none;
@@ -111,13 +112,6 @@ const IntroTransition = () => {
     );
 }
 
-const StyledContentContainer = styled.div`
-    margin-top: 100px;
-    margin-left: 10px;
-    margin-right: 10px;
-    /* margin-bottom: 100px; */
-    padding: 20px;
-`
 
 // LandingPage component
 // todo: only activate 'startMountAnimation' when being directed here from LandingPageIntro
@@ -143,7 +137,8 @@ const LandingPage = () => {
         // Main page container
         <StyledPageContainer 
         ref={pageContainerRef}
-        position="relative">
+        backgroundColor="backgroundOne"
+        relative={false}>
 
             {/* conditionally render intro animation */}
             {loadWithIntro && <IntroTransition/>}
@@ -154,23 +149,20 @@ const LandingPage = () => {
             {/* Page container background */}
             <BackgroundImage 
             opacity="0.5" 
-            image={images.backgrounds.landingPageHeader}>
+            backgroundColor="white"
+            image={images.backgrounds.landingPageHeader}/>
 
-                {/* Bootstrap container */}
-                <Container>
-                    <Row style={{justifyContent: 'center'}}>
-                        <Col xl={9} lg={9} >
-                            <StyledLandingPageBody>
-                                <Header/>
-                                <Navbar/>
-                                <StyledContentContainer>
-                                    <AboutUsPage/>
-                                </StyledContentContainer>
-                            </StyledLandingPageBody>
-                        </Col>
-                    </Row>
-                </Container>
-            </BackgroundImage>
+            <Container style={{position: 'relative', display: 'flex', justifyContent: 'center'}}>
+                <Col xl={8} lg={9} sm={12}>
+                    <StyledLandingPageBody>
+                        <Header/>
+                        <Navbar>
+                            <AboutUsPage nav="about"/>
+                            <ContactPage nav="contact"/>
+                        </Navbar>
+                    </StyledLandingPageBody>
+                </Col>
+            </Container>
         </StyledPageContainer>
     );
 

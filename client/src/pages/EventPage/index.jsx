@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./style.module.css";
+import "./style.css";
 import EventMain from "./event-main"
 
 

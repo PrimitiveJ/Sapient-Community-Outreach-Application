@@ -19,18 +19,14 @@ import React from 'react';
 import { 
     StyledBackgroundImage, 
     StyledBackgroundImageContainer, 
-    StyledBackgroundImageChildren 
 } from '../styles/StyledBackgroundImage.style';
 
-function BackgroundImage({ children, opacity, image }) {
+function BackgroundImage({ children, opacity, image, backgroundColor, style }) {
 
     // return background component
     return (
-        <StyledBackgroundImageContainer>
+        <StyledBackgroundImageContainer backgroundColor={backgroundColor} style={style}>
             <StyledBackgroundImage opacity={opacity} src={image}/>
-            <StyledBackgroundImageChildren>
-                {children}
-            </StyledBackgroundImageChildren>
         </StyledBackgroundImageContainer>
     );
 }

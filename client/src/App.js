@@ -7,10 +7,10 @@ import { Route, Routes } from 'react-router-dom';
 // import page components
 import {
   LandingPage,
-  // RegisterPage,
-  // UserHomePage,
-  // EventPage,
-  // EventCreationPage,
+  RegisterPage,
+  UserHomePage,
+  EventPage,
+  EventCreationPage,
   LandingPageIntro,
   TestPage
 } from './pages';
@@ -22,8 +22,9 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPageIntro/>}/>
         <Route path="/home" element={<LandingPage/>}/>
-        {/* <Route path="/user-home" element={<UserHomePage/>}/>
-        <Route path="/user-register" element={<RegisterPage/>}/> */}
+        <Route path="/user-home" element={<UserHomePage/>}/>
+        <Route path="/user-register" element={<RegisterPage/>}/>
+        <Route path="/event/:id" element={<EventPage/>}/>
         <Route path="/dev" element={<TestPage/>}/>
       </Routes>
     </ThemeSelectionProvider>

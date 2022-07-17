@@ -29,11 +29,11 @@ const StyledPageContainer = styled.div`
     }
 `
 
-const AboutUsPage = () => {
+const ContactPage = () => {
 
     return (
         <StyledPageContainer>
-            <h2>About Us</h2>
+            <h2>Contact</h2>
             <Col xl={8} lg={8} className="centerText">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium labore quos, alias assumenda et, animi minima praesentium pariatur obcaecati amet ducimus officia delectus perferendis eligendi hic veritatis dolorem illum sed necessitatibus a, totam quia earum repellendus sit! Blanditiis excepturi qui laudantium cumque dolorum dolores reiciendis voluptatem corrupti. Fuga, dolore fugiat.</p>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur adipisci, voluptates error eligendi quibusdam, velit tempore soluta ducimus sit temporibus vitae repudiandae laudantium, praesentium eveniet optio. Voluptatibus, quae quaerat dignissimos voluptates possimus commodi laudantium expedita, ipsam laboriosam, provident est adipisci consequatur quisquam totam explicabo. Ipsa?</p>
@@ -42,4 +42,4 @@ const AboutUsPage = () => {
     );
 }
 
-export default AboutUsPage;
+export default ContactPage;

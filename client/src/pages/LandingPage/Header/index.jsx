@@ -1,12 +1,13 @@
 
 
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // import BackgroundImage from '../../../components/BackgroundImage';
 import {Logo} from '../../../components/Logo';
 import { StyledRoundButton } from '../../../components/styles/StyledButton.style';
 import { Container, Row, Col } from 'react-bootstrap';
+import RegisterModal from '../../RegisterPage';
 
 // import { images } from '../../../assets';
 
@@ -47,7 +48,7 @@ const StyledHeader = styled.header`
     }
 
     .loginBtn {
-        background-color: #72b39d;
+        background-color: #6f9674;
     }
 
     .registerBtn:hover {
@@ -69,6 +70,10 @@ const StyledHeader = styled.header`
 
 const Header = () => {
 
+    const [modalIsVisible, setModalVisible] = useState(false);
+    const showRegisterModal = () => setModalVisible(true);
+    const hideRegisterModal = () => setModalVisible(false);
+
     return (
         <StyledHeader>
             <div className="headerLogo">
@@ -80,8 +85,9 @@ const Header = () => {
             </div>
             <div className="registerButtonContainer">
                 <StyledRoundButton className="registerBtn loginBtn">Login</StyledRoundButton>
-                <StyledRoundButton className="registerBtn signupBtn">Sign Up</StyledRoundButton>
+                <StyledRoundButton onClick={showRegisterModal} className="registerBtn signupBtn">Sign Up</StyledRoundButton>
             </div>
+            <RegisterModal isVisible={modalIsVisible} hideModal={hideRegisterModal}/>
         </StyledHeader>
     );
 }
