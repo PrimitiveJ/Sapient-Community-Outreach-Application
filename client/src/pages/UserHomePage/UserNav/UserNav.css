@@ -1,21 +1,7 @@
-
-.userNav {
-    display: flex;
-    justify-content: flex-start;
-    margin: 0;
-    padding: 0;
-    
-    
+.nav {
+    border-right: 1px solid white;
+    height: 100%;
 }
-.userNav li {
-
-    list-style: none;
-    margin-top: 1rem;
-}
-
 ul li button {
-    /* box-shadow: -10px 10px 10px black; */
-    border: 0.5px solid #4A6765;
     cursor: pointer;
-
 }

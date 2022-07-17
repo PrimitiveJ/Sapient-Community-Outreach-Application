@@ -20,6 +20,7 @@ import React, { useEffect, useState } from "react";
 import UserNav from "./UserNav";
 import UserCard from "./UserCard";
 import "./UserHome.css";
+import EventPage from "../EventPage";
 // import Organizer from "./Organizer";
 // import Business from "./Business";
 import Container from "react-bootstrap/Container";
@@ -46,52 +47,19 @@ const HomePage = () => {
   return (
     <Container>
       <Row>
-        <Col xs={2}>
+        <Col lg={1}>
           <UserNav />
         </Col>
-        <Col lg={true} xs={2}>
-          <div className="userAside">
+        <Col>
+          <div lg={4}>
             {users.map((user, index) => (
               <UserCard userData={user} key={index} />
             ))}
           </div>
         </Col>
 
-        <Col xs={8} lg={true}>
-          <div className="event-list">
-            <ul>
-              <li>
-                <div className="card">
-                  <h3>School Year End Trash Pickup</h3>
-                  <p>6/12/23</p>
-                </div>
-              </li>
-              <li>
-                <div className="card">
-                  <h3>Coat Drive!</h3>
-                  <p>11/01/22</p>
-                </div>
-              </li>
-              <li>
-                <div className="card">
-                  <h3>Food Drive!</h3>
-                  <p>3/23/23</p>
-                </div>
-              </li>
-              <li>
-                <div className="card">
-                  <h3>Give Us Your Plasma, MotherFuckers!</h3>
-                  <p>Every Sunday in July</p>
-                </div>
-              </li>
-              <li>
-                <div className="card">
-                  <h3>Peaceful Protest about Something</h3>
-                  <p>5/28/23</p>
-                </div>
-              </li>
-            </ul>
-          </div>
+        <Col xs={8} lg={7}>
+          <EventPage />
         </Col>
       </Row>
     </Container>

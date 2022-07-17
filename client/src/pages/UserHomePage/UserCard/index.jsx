@@ -1,32 +1,32 @@
 // import native react modules
 import React from "react";
 import "./UserCard.css";
+import { images } from "../../../assets/";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import UserImage from "./userImage";
 import UserNav from "../UserNav";
 
 function UserCard({ userData }) {
   return (
-    <Container>
-      <Row>
-        <Col>
-          <div className="container">
-            {/* will change cardTitle content to userName */}
-            <div className="cardTitle">{userData.name.first}</div>
-            <p className="cardTitle">{userData.name.last}</p>
-
-            <div className="cardBody">
-              <UserImage image={userData.picture.large} />
-              {/* <div className="cardImage">
-          <img src={userData.picture.medium} alt="users photo" />
-        </div> */}
-            </div>
-          </div>
-        </Col>
-      </Row>
-    </Container>
+    <Card style={{ width: "18rem" }}>
+      <Card.Img variant="top" src={images.backgrounds.landingPageHeader} />
+      <UserImage image={userData.picture.large} />
+      <Card.Body>
+        <Card.Title>
+          {userData.name.first} {userData.name.last}
+        </Card.Title>
+        <Card.Text>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+          voluptatibus, ad laborum nihil sed officia rem! Sit ab debitis ipsum
+          voluptas minus quis, harum qui labore saepe, a at quaerat!
+        </Card.Text>
+        <Button variant="primary">Something</Button>
+      </Card.Body>
+    </Card>
   );
 }
 export default UserCard;
