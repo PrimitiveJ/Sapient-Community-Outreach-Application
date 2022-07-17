@@ -18,8 +18,21 @@ export const ThemeSelectionProvider = ({ children }) => {
     const [themeData, setThemeData] = useState(themeList[theme])
 
     return (
+
+        /*
+            This is our custom theme provider which passes down:
+                * theme: name of current selected theme
+                * themeData: an object of theme data about the currently selected theme
+                * setThemeData: update the global theme data object
+                * setTheme: update the global theme, which will also change the themeData upon re-render
+        */
         <ThemeSelectionContext.Provider value={{theme, themeData, setThemeData, setTheme}}>
-            <ThemeProvider theme={{...themeData}}>
+
+            {/* 
+                This is the ThemeProvider from the styled-components library. This allows us to
+                access the 'theme' object inside the props of styled-components.
+            */}
+            <ThemeProvider theme={themeData}>
                 {children}
             </ThemeProvider>
         </ThemeSelectionContext.Provider>

@@ -6,7 +6,6 @@ import { Route, Routes } from "react-router-dom";
 // import page components
 import {
   LandingPage,
-  RegisterPage,
   UserHomePage,
   EventPage,
   EventCreationPage,
@@ -20,13 +19,11 @@ function App() {
   return (
     <ThemeSelectionProvider>
       <Routes>
-        <Route path="/" element={<LandingPageIntro />} />
-        <Route path="/home" element={<LandingPage />} />
-        <Route path="/user-home" element={<UserHomePage />} />
-        <Route path="/user-register" element={<RegisterPage />} />
-        <Route path="/user-calendar" element={<UserCalendar />} />
-        <Route path="/event-page" element={<EventPage />} />
-        <Route path="/dev" element={<TestPage />} />
+        <Route path="/" element={<LandingPageIntro/>}/>
+        <Route path="/home" element={<LandingPage/>}/>
+        <Route path="/user-home" element={<UserHomePage/>}/>
+        <Route path="/event/:id" element={<EventPage/>}/>
+        <Route path="/dev" element={<TestPage/>}/>
       </Routes>
     </ThemeSelectionProvider>
   );

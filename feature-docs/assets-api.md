@@ -32,7 +32,7 @@ console.log( assets.audio ) // --> all audio
 Currently, there are three sub-categories of images:
 - `backgrounds`
     * For holding images that are specifically intended to be used as a background
-- `brand`
+- `branding`
     * For holding images that are related to our brand
 - `icons`
     * For holding any small images that can be used for buttons, status indicators, labels, etc.
@@ -44,15 +44,15 @@ For example, if you wanted to add a new icon to the image references, it would l
 ```javascript
 export const images = {
     backgrounds: {
-        backgroundName: 'file.png',
+        backgroundName: importImage('file.png'),
     },
 
     branding: {
-        logo: 'file.png'
+        logo: importImage('file.png'),
     },
 
     icons: {
-        myNewIcon: 'myIcon.png'; // <--- your new icon
+        myNewIcon: importImage('myIcon.png'), // <--- your new icon
     }
 }
 ```
@@ -63,7 +63,7 @@ export const images = {
 
 Once you have an image added to the `assets` folder and added it in the `index.js` code, you can retrieve it by indexing the assets object that you imported. Using the icon example from before, you could access that image by doing this:
 
-```javascript
+```jsx
 import { images } from '.../assets';
 
 // the reference to your image

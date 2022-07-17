@@ -15,3 +15,4 @@ export const StyledPageContainer = styled.div`
     background-color: ${({backgroundColor, theme}) => theme[backgroundColor] || backgroundColor || ""};
 `;
 
+

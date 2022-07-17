@@ -1,5 +1,5 @@
 {
-  "name": "mern-shopping",
+  "name": "community-outreach-application-title",
   "version": "1.0.0",
   "description": "An application for planning community-based tasks and goals working with local business and people to create positive change.",
   "main": "server/server.js",
@@ -10,21 +10,17 @@
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^5.1.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PrimitiveJ/Community-Outreach-Application-Title.git"
   },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/PrimitiveJ/Community-Outreach-Application-Title/issues"
-  },
-  "homepage": "https://github.com/PrimitiveJ/Community-Outreach-Application-Title#readme",
-  "dependencies": {
-    "react-router-dom": "^6.3.0"
   }
 }

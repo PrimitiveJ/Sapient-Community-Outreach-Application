@@ -1,6 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand:300,400,700);
 
-body {
+/*
+  * Hey James!
+
+  I moved all the CSS from here into the 'local.style.js' file. That file is a styled component that wraps
+  around the entire page, so it's basically like having a local 'body' element just for that page. All future
+  CSS styling can just be written in 'local.style.css'.
+
+  I'm leaving this file here for now in case you still wanted to reference the color gradient properties
+  you had in this 'body' tag.
+
+  -Will, 07/17/2022 6:30AM
+*/
+
+/* body {
   font-family: 'quicksand';
   font-weight: lighter;
   background: rgba(92,129,202,1);
@@ -20,8 +33,8 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-size: auto, cover;
   color:rgb(0, 0, 0);
-}
-
+} */
+/* 
 .accordion {
    box-shadow: 0px 13px 23px -13px rgba(0,0,0,0.5);
    width: 420px;
@@ -110,4 +123,4 @@ body {
 .arrow-wrapper {
   position: absolute;
   margin-left: 375px;
-}
+} */

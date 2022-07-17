@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import "./style.module.css";
 import RegisterSelect from './register-select'
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
@@ -16,7 +15,7 @@ import Button from 'react-bootstrap/Button';
 */
 
 
-function RegisterPage() {
+function RegisterPage({ modalActive, hideModal }) {
     const everystate = [
         'Alabama',
         'Alaska',
@@ -80,27 +79,22 @@ function RegisterPage() {
         'Wyoming'
     ]
 
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
 return (
     <>
-    <Button variant="primary" onClick={handleShow}>
+    {/* <Button variant="primary" onClick={handleShow}>
       Register as a User/Business/Organizer
-    </Button>
+    </Button> */}
 
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={modalActive} onHide={hideModal}>
       <Modal.Header closeButton>
         <Modal.Title>Select Registration Type</Modal.Title>
       </Modal.Header>
       <Modal.Body><RegisterSelect everystate={everystate}/></Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
+        <Button variant="secondary" onClick={hideModal}>
           Close
         </Button>
-        <Button variant="primary" onClick={handleClose}>
+        <Button variant="primary" onClick={hideModal}>
           Save Changes
         </Button>
       </Modal.Footer>

@@ -1,12 +1,14 @@
 
 
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // import BackgroundImage from '../../../components/BackgroundImage';
 import {Logo} from '../../../components/Logo';
 import { StyledRoundButton } from '../../../components/styles/StyledButton.style';
 import { Container, Row, Col } from 'react-bootstrap';
+import RegisterModal from '../RegisterModal';
+import LoginModal from '../LoginModal';
 
 // import { images } from '../../../assets';
 
@@ -47,7 +49,7 @@ const StyledHeader = styled.header`
     }
 
     .loginBtn {
-        background-color: #72b39d;
+        background-color: #6f9674;
     }
 
     .registerBtn:hover {
@@ -69,6 +71,17 @@ const StyledHeader = styled.header`
 
 const Header = () => {
 
+    /*
+        Modal active states:
+            * none: no modals are visible
+            * register: register modal is visible
+            * login: login modal is visible
+    */
+    const [activeModal, setActiveModal] = useState('none');
+    const hideModal = () => setActiveModal('none');
+    const showLoginModal = () => setActiveModal('login');
+    const showRegisterModal = () => setActiveModal('register');
+
     return (
         <StyledHeader>
             <div className="headerLogo">
@@ -79,9 +92,11 @@ const Header = () => {
                 </Col>
             </div>
             <div className="registerButtonContainer">
-                <StyledRoundButton className="registerBtn loginBtn">Login</StyledRoundButton>
-                <StyledRoundButton className="registerBtn signupBtn">Sign Up</StyledRoundButton>
+                <StyledRoundButton onClick={showLoginModal} className="registerBtn loginBtn">Login</StyledRoundButton>
+                <StyledRoundButton onClick={showRegisterModal} className="registerBtn signupBtn">Sign Up</StyledRoundButton>
             </div>
+            <RegisterModal modalActive={activeModal === 'register'} hideModal={hideModal}/>
+            <LoginModal modalActive={activeModal === 'login'} hideModal={hideModal}/>
         </StyledHeader>
     );
 }
