@@ -22,6 +22,11 @@ const GlobalStyle = createGlobalStyle`
         color: white;
     }
 
+    .modal-content input,
+    .modal-content select {
+        margin-bottom: 15px;
+    }
+
     .modal-content button {
         background-color: #81b88f;
         border-color: #7b9175;

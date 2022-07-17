@@ -15,7 +15,7 @@ import Button from 'react-bootstrap/Button';
 */
 
 
-function RegisterPage({ isVisible, hideModal }) {
+function RegisterPage({ modalActive, hideModal }) {
     const everystate = [
         'Alabama',
         'Alaska',
@@ -85,7 +85,7 @@ return (
       Register as a User/Business/Organizer
     </Button> */}
 
-    <Modal show={isVisible} onHide={hideModal}>
+    <Modal show={modalActive} onHide={hideModal}>
       <Modal.Header closeButton>
         <Modal.Title>Select Registration Type</Modal.Title>
       </Modal.Header>

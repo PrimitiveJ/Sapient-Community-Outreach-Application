@@ -40,7 +40,7 @@ const StyledNavbarContainer = styled.nav`
 `
 
 const StyledContentContainer = styled.div`
-    margin-top: 70px;
+    /* margin-top: 70px; */
     margin-left: 10px;
     margin-right: 10px;
     /* margin-bottom: 100px; */
@@ -58,6 +58,8 @@ const StyledContentContainer = styled.div`
     }
 
     > div {
+        margin-top: 50px;
+        margin-bottom: 50px;
         position: relative;
         left: -100%;
         opacity: 0;
@@ -74,7 +76,6 @@ const Navbar = ({children}) => {
         ['mission', 'Our Mission']
     ];
 
-    console.log(children);
     const [currentLink, setCurrentLink] = useState('about');
 
     return (
