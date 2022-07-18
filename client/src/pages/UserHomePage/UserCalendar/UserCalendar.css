@@ -6,3 +6,9 @@
 .fadeInPageContainer {
     animation: fadeInKey 0.75s ease-in-out forwards;
 }
+
+.calendar {
+    
+    height: 500;
+    margin: 20px;
+}
