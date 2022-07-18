@@ -1,31 +1,6 @@
 const {Schema, model} = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
-
-// SUBDOC TO COMMENTS
-const reactionSchema = new Schema({
-    reactionId: {
-        type: Schema.Types.ObjectId,
-        default: () => new Types.ObjectId()
-    },
-    reactionBody: {
-        type: String,
-        required: true,
-        maxLength: 280
-    },
-    username: {
-        type: String,
-        required: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-        get: timestamp => dateFormat(timestamp)
-      },
-}, {
-    toJSON: {
-        getters: true
-    },
-})
+const reactionSchema = require('./Reaction');
 
 // Comment MODEL
 const commentSchema = new Schema({
@@ -53,7 +28,6 @@ const commentSchema = new Schema({
         getters: true,
         virtuals: true
     },
-    id: false
 })
 
 // Virtual for reaction count

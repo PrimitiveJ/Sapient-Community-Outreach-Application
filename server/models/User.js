@@ -4,8 +4,6 @@ const dateFormat = require('../utils/dateFormat');
 
 // MODEL
 const Event = require("./Event");
-const organizerSchema = require("./Organizer");
-const businessSchema = require("./Business");
 
 const userSchema = new Schema({
     username: {
@@ -34,14 +32,45 @@ const userSchema = new Schema({
             ref: "Event"
         }
     ],
-    businessSponsor: [businessSchema],
-    organizer: [organizerSchema],
-    comments: [
+    businessSponsor: 
         {
-            type: Schema.Types.ObjectId,
-            ref: 'Comment'
+            address: {
+                type: String
+            },
+            busCity: {
+                type: String
+            },
+            busState: {
+                type: String
+            },
+            createdAt: {
+                type: Date,
+                default: Date.now,
+                get: timestamp => dateFormat(timestamp)
+            }
         }
-    ],
+    ,
+    organizer: 
+        {
+            orgCity: {
+                type: String
+            },
+            orgState: {
+                type: String
+            },
+            createdEvents: [
+                {
+                    type: Schema.Types.ObjectId,
+                    ref: 'eventSchema'
+                }
+            ],
+            createdAt: {
+                type: Date,
+                default: Date.now,
+                get: timestamp => dateFormat(timestamp)
+            }
+        }
+    ,
     createdAt: {
         type: Date,
         default: Date.now,

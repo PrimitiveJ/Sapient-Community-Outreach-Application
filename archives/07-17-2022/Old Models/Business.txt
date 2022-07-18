@@ -1,32 +1,27 @@
 const {Schema} = require("mongoose");
 const dateFormat = require('../utils/dateFormat');
 
-//SUBDOC
-const organizerSchema = new Schema({
-    city: {
+// SUBDOC
+const businessSchema = new Schema({
+    address: {
         type: String
     },
-    state: {
+    busCity: {
         type: String
     },
-    createdEvents: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'eventSchema'
-        }
-    ],
+    busState: {
+        type: String
+    },
     createdAt: {
         type: Date,
         default: Date.now,
         get: timestamp => dateFormat(timestamp)
-      },
-},{
+    }
+}, {
     toJSON: {
         getters: true
-    },
-    id: false
+    }
 })
 
 
-
-module.exports = Organizer;
+module.exports = Business;
