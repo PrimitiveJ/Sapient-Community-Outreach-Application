@@ -41,10 +41,9 @@ todo:   Finish implementing apollo server & mongodb connection
 ==================================================================================================================================
 */
 
-
 // Require local modules
-const path = require('path');
-const express = require('express');
+const path = require("path");
+const express = require("express");
 
 // Create express server app
 const app = express();
@@ -63,5 +62,7 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-// 
-app.listen(PORT, () => { console.log('running server on port: ' + PORT) });
+//
+app.listen(PORT, () => {
+  console.log("running server on port: " + PORT);
+});

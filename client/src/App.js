@@ -1,8 +1,7 @@
-
 // import native react modules
-import React, { useState } from 'react';
-import { ThemeSelectionProvider } from './providers/ThemeSelectionProvider';
-import { Route, Routes } from 'react-router-dom';
+import React, { useState } from "react";
+import { ThemeSelectionProvider } from "./providers/ThemeSelectionProvider";
+import { Route, Routes } from "react-router-dom";
 
 // import page components
 import {
@@ -11,9 +10,10 @@ import {
   EventPage,
   EventCreationPage,
   LandingPageIntro,
-  TestPage
-} from './pages';
+  TestPage,
+} from "./pages";
 
+import UserCalendar from "./pages/UserHomePage";
 
 function App() {
   return (

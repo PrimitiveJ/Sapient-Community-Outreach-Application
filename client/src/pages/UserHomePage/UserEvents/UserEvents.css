@@ -1,0 +1,14 @@
+.events {
+    scrollbar-arrow-color: blue gray;
+    scroll-behavior: smooth;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.events-header {
+    color: blue;
+}
+
+.event-body{
+    width: 100%;
+}

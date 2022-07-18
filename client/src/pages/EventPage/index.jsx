@@ -1,7 +1,6 @@
-import React, {useState} from "react";
-import EventMain from "./EventMain"
-import LocalStylesheet from './local.style';
-
+import React, { useState } from "react";
+import EventMain from "./EventMain";
+import LocalStylesheet from "./local.style";
 
 /*
 
@@ -22,12 +21,11 @@ import LocalStylesheet from './local.style';
 */
 
 function EventPage() {
-    return (
-        <LocalStylesheet>
-            <EventMain/>
-        </LocalStylesheet>
-    )
+  return (
+    <LocalStylesheet>
+      <EventMain />
+    </LocalStylesheet>
+  );
 }
-
 
 export default EventPage;
