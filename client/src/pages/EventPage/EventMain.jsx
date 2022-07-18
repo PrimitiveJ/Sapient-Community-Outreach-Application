@@ -5,11 +5,12 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
-import EventComments from './EventComments'
+import CommentReaction from './CommentReaction'
 import styled from 'styled-components';
 import BackgroundImage from "../../components/BackgroundImage";
 import { images } from '../../assets';
 import { StyledPageContainer } from "../../components/styles/StyledPageContainer.style";
+import CommentForm from './CommentForm'
 
 const HoverEffect = styled.div `
 .button {
@@ -27,20 +28,33 @@ const HoverEffect = styled.div `
     }
 `
 
+
 const something = () => {
     console.log('something');
 }
 
 function EventMain() {
+    const [state, setState] = useState(false)
+
+    function handleReaction () {
+        setState(true)
+    }
+
+    function hideModal () {
+        setState(false)
+    }
+
     const box = useRef();
 
     const changeBackgroundColor = () => {
         box.current.style.backgroundColor = "green";
+
+        
     }
     return (
         <StyledPageContainer relative={true}>
             <BackgroundImage image={images.backgrounds.landingPageHeader}/>
-
+            <CommentReaction show={state} hideModal={hideModal}/>
             <Container>
         <Card className="bg-light">
             <Row>
@@ -49,7 +63,7 @@ function EventMain() {
                 </Col>
                 <Col sm={4}>Date:01/02/03</Col>
             </Row>
-            <img src={Image}/>
+            <img src={images.backgrounds.lakeCleanup}/>
             <Row>
                 <Col sm>
                     <h2>Location</h2>
@@ -90,6 +104,7 @@ function EventMain() {
                                     style={
                                         {width: '30%vw'}
                                     }
+                                    onClick = {handleReaction}
                                     className="mb-4">
                                     <Card.Header>Date/Time of comment</Card.Header>
                                     <Card.Body>
@@ -105,13 +120,13 @@ function EventMain() {
                     </Accordion.Body>
                     <Accordion defaultActiveKey="0">
                         <Accordion.Item eventKey="0">
-                            <Accordion.Header>First Accordion</Accordion.Header>
+                            <Accordion.Header>Leave a Comment</Accordion.Header>
                             <Accordion.Body>
-                                <CommentReaction/>
+                                <CommentForm/>
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="1">
-                            <Accordion.Header>Second Accordion</Accordion.Header>
+                            <Accordion.Header>Interaction/Moderation Policy</Accordion.Header>
                             <Accordion.Body>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  
                                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim  
