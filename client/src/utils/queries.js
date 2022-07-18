@@ -7,15 +7,29 @@ export const GET_ME = gql`
       _id
       username
       email
-      bookCount
-      savedBooks {
-        bookId
-        authors
-        description
-        title
-        image
-        link
-      }
+      eventCount
+      savedEvents{
+          eventId
+          title
+          description
+          date
+          image
+          location{
+            city
+            state
+            zip
+          }
+          organizer
+          businessSponsor
+          comments {
+            commentText
+            username
+            reactions {
+                reactionBody
+                username
+            }
+          }          
+        }
     }
   }
 `;

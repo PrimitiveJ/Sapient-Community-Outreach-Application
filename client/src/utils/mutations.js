@@ -25,12 +25,28 @@ export const ADD_USER = gql `
         email
         eventCount
         savedEvents {
-          date
           eventId
-          image
-          link
           title
           description
+          date
+          image
+          location{
+            city
+            state
+            zip
+          }
+          organizer
+          businessSponsor
+          comments {
+            commentText
+            username
+            reactions {
+                reactionBody
+                username
+            }
+          }
+
+          
         }
       }
     }
