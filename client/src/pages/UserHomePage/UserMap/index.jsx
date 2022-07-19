@@ -10,14 +10,14 @@ import { Modal } from "react-bootstrap";
 //   },
 // ];
 
-const UserMapModal = ({ modalActive, hideModal }) => {
+const UserMapModal = ({ modalActive, hideModal, apiKey }) => {
   return (
     <>
       <Modal size="lg" show={modalActive} onHide={hideModal}>
         <Modal.Header closeButton>
           <Modal.Title>Events Near Me</Modal.Title>
         </Modal.Header>
-        <UserMap />
+        <UserMap apiKey={apiKey} />
         <Modal.Body></Modal.Body>
       </Modal>
     </>

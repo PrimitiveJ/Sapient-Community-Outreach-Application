@@ -3,7 +3,6 @@ import GoogleMapReact from "google-map-react";
 import "./UserMap.css";
 import { Icon } from "@iconify/react";
 import locationIcon from "@iconify/icons-mdi/map-marker";
-const MAP_API_KEY = process.env.REACT_APP_MAP_API_KEY;
 
 const LocationPin = ({ text }) => (
   <div className="pin">
@@ -12,7 +11,7 @@ const LocationPin = ({ text }) => (
   </div>
 );
 
-const UserMap = ({ location, zoomLevel }) => {
+const UserMap = ({ location, zoomLevel, apiKey }) => {
   const localEvents = {
     name: "Food Drive!",
 
@@ -29,7 +28,7 @@ const UserMap = ({ location, zoomLevel }) => {
 
       <div className="google-map">
         <GoogleMapReact
-          bootstrapURLKeys={{ key: MAP_API_KEY }}
+          bootstrapURLKeys={{ key: apiKey }}
           defaultCenter={localEvents.center}
           defaultZoom={localEvents.zoom}
         >

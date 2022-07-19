@@ -1,8 +1,9 @@
 
 // import assets
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { images } from '../../assets';
+
 
 export const StyledLogoContainer = styled.div`
     --size: ${({ size }) => size || '100px'};
@@ -11,18 +12,20 @@ export const StyledLogoContainer = styled.div`
     height: var(--size);
     position: relative;
 
-    > div {
-        position: relative;
+    > div, img {
         width: 100%;
         height: 100%;
     }
 
+    > div {
+        position: relative;
+    }
+
     img {
-        width: 100%;
-        height: 100%;
         position: absolute;
     }
 `
+
 
 export const Logo = ({ children, topText, size, padding, className }) => {
 
