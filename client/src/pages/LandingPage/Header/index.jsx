@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import auth from '../../../utils/auth';
+
 // import BackgroundImage from '../../../components/BackgroundImage';
 import { Logo } from "../../../components/Logo";
 import { StyledRoundButton } from "../../../components/styles/StyledButton.style";
@@ -35,7 +37,8 @@ const StyledHeader = styled.header`
   }
 
   .signupBtn,
-  .loginBtn {
+  .loginBtn,
+  .logoutBtn {
     font-weight: 700;
     background: none;
     box-shadow: 0 0 5px black;
@@ -48,6 +51,10 @@ const StyledHeader = styled.header`
 
   .loginBtn {
     background-color: #6f9674;
+  }
+
+  .logoutBtn {
+    background-color: #304631;
   }
 
   .registerBtn:hover {
@@ -74,43 +81,48 @@ const Header = () => {
             * register: register modal is visible
             * login: login modal is visible
     */
-  const [activeModal, setActiveModal] = useState("none");
-  const hideModal = () => setActiveModal("none");
-  const showLoginModal = () => setActiveModal("login");
-  const showRegisterModal = () => setActiveModal("register");
+    const [activeModal, setActiveModal] = useState('none');
 
-  return (
-    <StyledHeader>
-      <div className="headerLogo">
-        <Logo size="200px" padding="15px" />
-        <h1>Sapient</h1>
-        <Col lg={4} md={6} xs={12}>
-          <p>
-            Globally scoped, locally focused. Because compassion is in our DNA.
-          </p>
-        </Col>
-      </div>
-      <div className="registerButtonContainer">
-        <StyledRoundButton
-          onClick={showLoginModal}
-          className="registerBtn loginBtn"
-        >
-          Login
-        </StyledRoundButton>
-        <StyledRoundButton
-          onClick={showRegisterModal}
-          className="registerBtn signupBtn"
-        >
-          Sign Up
-        </StyledRoundButton>
-      </div>
-      <RegisterModal
-        modalActive={activeModal === "register"}
-        hideModal={hideModal}
-      />
-      <LoginModal modalActive={activeModal === "login"} hideModal={hideModal} />
-    </StyledHeader>
-  );
-};
+
+    // handlers
+    const hideModal = () => setActiveModal('none');
+    const showLoginModal = () => setActiveModal('login');
+    const showRegisterModal = () => setActiveModal('register');
+
+    const handleLogout = () => {
+      auth.logout();
+      window.location.assign('/home');
+    }
+
+    // !debug
+    console.log('is logged in: ', auth.loggedIn());
+
+    return (
+        <StyledHeader>
+            <div className="headerLogo">
+                <Logo size="200px" padding="15px"/>
+                <h1>Sapient</h1>
+                <Col lg={4} md={6} xs={12}>
+                    <p>Globally scoped, locally focused. Because compassion is in our DNA.</p>
+                </Col>
+            </div>
+            {
+                // user is logged in
+                auth.loggedIn() 
+                ? <div className="registerButtonContainer">
+                    <StyledRoundButton onClick={handleLogout} className="registerBtn logoutBtn">Logout</StyledRoundButton>
+                  </div> 
+
+                // user is not logged in
+                : <div className="registerButtonContainer">
+                    <StyledRoundButton onClick={showLoginModal} className="registerBtn loginBtn">Login</StyledRoundButton>
+                    <StyledRoundButton onClick={showRegisterModal} className="registerBtn signupBtn">Sign Up</StyledRoundButton>
+                </div>
+            }
+            <RegisterModal modalActive={activeModal === 'register'} hideModal={hideModal}/>
+            <LoginModal modalActive={activeModal === 'login'} hideModal={hideModal}/>
+        </StyledHeader>
+    );
+}
 
 export default Header;
