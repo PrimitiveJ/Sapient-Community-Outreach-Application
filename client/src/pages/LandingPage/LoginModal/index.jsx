@@ -1,5 +1,3 @@
-import React from "react";
-import style from "styled-components";
 
 import React, { useState } from 'react';
 import style from 'styled-components';
