@@ -42,17 +42,11 @@ const UserNav = () => {
   const API_KEY = useRef();
 
   const showUserMapModal = () => {
+    // API_KEY.current = useQuery(GET_MAP_API_KEY, {
+    //   variables: {},
+    // });
     setActiveModal("user-map");
   };
-
-  // mount hook - only runs code once per page load
-  useEffect(() => {
-    API_KEY.current = useQuery(GET_MAP_API_KEY, {
-      variables: {},
-    });
-
-    console.log("API KEY RESPONSE: ", API_KEY.current);
-  }, []);
 
   return (
     <LocalStyles>

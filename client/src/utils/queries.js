@@ -50,7 +50,7 @@ export const GET_EVENT = gql`
   }
 `;
 
-const GET_MAP_API_KEY = gql`
+export const GET_MAP_API_KEY = gql`
   query getMapAPIKey {
     getMapAPIKey
   }
