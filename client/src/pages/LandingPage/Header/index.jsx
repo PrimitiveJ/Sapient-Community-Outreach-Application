@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import auth from '../../../utils/auth';
+
 // import BackgroundImage from '../../../components/BackgroundImage';
 import { Logo } from "../../../components/Logo";
 import { StyledRoundButton } from "../../../components/styles/StyledButton.style";
@@ -74,43 +76,40 @@ const Header = () => {
             * register: register modal is visible
             * login: login modal is visible
     */
-  const [activeModal, setActiveModal] = useState("none");
-  const hideModal = () => setActiveModal("none");
-  const showLoginModal = () => setActiveModal("login");
-  const showRegisterModal = () => setActiveModal("register");
+    const [activeModal, setActiveModal] = useState('none');
 
-  return (
-    <StyledHeader>
-      <div className="headerLogo">
-        <Logo size="200px" padding="15px" />
-        <h1>Sapient</h1>
-        <Col lg={4} md={6} xs={12}>
-          <p>
-            Globally scoped, locally focused. Because compassion is in our DNA.
-          </p>
-        </Col>
-      </div>
-      <div className="registerButtonContainer">
-        <StyledRoundButton
-          onClick={showLoginModal}
-          className="registerBtn loginBtn"
-        >
-          Login
-        </StyledRoundButton>
-        <StyledRoundButton
-          onClick={showRegisterModal}
-          className="registerBtn signupBtn"
-        >
-          Sign Up
-        </StyledRoundButton>
-      </div>
-      <RegisterModal
-        modalActive={activeModal === "register"}
-        hideModal={hideModal}
-      />
-      <LoginModal modalActive={activeModal === "login"} hideModal={hideModal} />
-    </StyledHeader>
-  );
-};
+    // login state
+    const [isLoggedIn, setLoggedIn] = useState(auth.loggedIn());
+
+
+    // handlers
+    const hideModal = () => setActiveModal('none');
+    const showLoginModal = () => setActiveModal('login');
+    const showRegisterModal = () => setActiveModal('register');
+
+    // !debug
+    console.log('is logged in: ', isLoggedIn);
+
+    return (
+        <StyledHeader>
+            <div className="headerLogo">
+                <Logo size="200px" padding="15px"/>
+                <h1>Sapient</h1>
+                <Col lg={4} md={6} xs={12}>
+                    <p>Globally scoped, locally focused. Because compassion is in our DNA.</p>
+                </Col>
+            </div>
+            {
+                isLoggedIn ? <button>Logout</button> :
+                <div className="registerButtonContainer">
+                    <StyledRoundButton onClick={showLoginModal} className="registerBtn loginBtn">Login</StyledRoundButton>
+                    <StyledRoundButton onClick={showRegisterModal} className="registerBtn signupBtn">Sign Up</StyledRoundButton>
+                </div>
+            }
+            <RegisterModal modalActive={activeModal === 'register'} hideModal={hideModal}/>
+            <LoginModal modalActive={activeModal === 'login'} hideModal={hideModal} setLoggedIn={setLoggedIn}/>
+        </StyledHeader>
+    );
+}
 
 export default Header;
