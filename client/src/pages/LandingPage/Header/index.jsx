@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import auth from '../../../utils/auth';
+
 // import BackgroundImage from '../../../components/BackgroundImage';
 import {Logo} from '../../../components/Logo';
 import { StyledRoundButton } from '../../../components/styles/StyledButton.style';
@@ -78,9 +80,18 @@ const Header = () => {
             * login: login modal is visible
     */
     const [activeModal, setActiveModal] = useState('none');
+
+    // login state
+    const [isLoggedIn, setLoggedIn] = useState(auth.loggedIn());
+
+
+    // handlers
     const hideModal = () => setActiveModal('none');
     const showLoginModal = () => setActiveModal('login');
     const showRegisterModal = () => setActiveModal('register');
+
+    // !debug
+    console.log('is logged in: ', isLoggedIn);
 
     return (
         <StyledHeader>
@@ -91,12 +102,15 @@ const Header = () => {
                     <p>Globally scoped, locally focused. Because compassion is in our DNA.</p>
                 </Col>
             </div>
-            <div className="registerButtonContainer">
-                <StyledRoundButton onClick={showLoginModal} className="registerBtn loginBtn">Login</StyledRoundButton>
-                <StyledRoundButton onClick={showRegisterModal} className="registerBtn signupBtn">Sign Up</StyledRoundButton>
-            </div>
+            {
+                isLoggedIn ? <button>Logout</button> :
+                <div className="registerButtonContainer">
+                    <StyledRoundButton onClick={showLoginModal} className="registerBtn loginBtn">Login</StyledRoundButton>
+                    <StyledRoundButton onClick={showRegisterModal} className="registerBtn signupBtn">Sign Up</StyledRoundButton>
+                </div>
+            }
             <RegisterModal modalActive={activeModal === 'register'} hideModal={hideModal}/>
-            <LoginModal modalActive={activeModal === 'login'} hideModal={hideModal}/>
+            <LoginModal modalActive={activeModal === 'login'} hideModal={hideModal} setLoggedIn={setLoggedIn}/>
         </StyledHeader>
     );
 }
