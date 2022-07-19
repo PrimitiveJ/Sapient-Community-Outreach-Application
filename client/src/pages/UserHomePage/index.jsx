@@ -72,18 +72,14 @@ const HomePage = () => {
 
       <Row className="mx-auto">
         <Col sm={12} md={4}>
-          <div>
+          <div className="userCard">
             {users.map((user, index) => (
-              <UserCard
-                userData={user}
-                key={index}
-                className="userCard mx=auto"
-              />
+              <UserCard userData={user} key={index} />
             ))}
           </div>
         </Col>
 
-        <Col w-auto sm={12} md={7}>
+        <Col sm={12} md={7}>
           <Row>
             <Col sm={12} lg={true}>
               <UserEvents />

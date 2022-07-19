@@ -10,17 +10,18 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import UserCalendarModal from "../UserCalendar";
+import UserMapModal from "../UserMap";
 
 const UserNav = () => {
   const [activeModal, setActiveModal] = useState("none");
   const hideModal = () => setActiveModal("none");
   const showUserCalendarModal = () => setActiveModal("user-calendar");
-  // const showUserMapModal = () => setActiveModal("user-map");
+  const showUserMapModal = () => setActiveModal("user-map");
 
   return (
     <Nav defaultActiveKey="/home" className="flex-column nav">
       <ButtonGroup vertical>
-        <Button>Events</Button>
+        <Button onClick={showUserMapModal}>Events Near Me</Button>
         <Button onClick={showUserCalendarModal} variant="primary">
           My Calendar
         </Button>
@@ -29,6 +30,10 @@ const UserNav = () => {
 
         <UserCalendarModal
           modalActive={activeModal === "user-calendar"}
+          hideModal={hideModal}
+        />
+        <UserMapModal
+          modalActive={activeModal === "user-map"}
           hideModal={hideModal}
         />
       </ButtonGroup>

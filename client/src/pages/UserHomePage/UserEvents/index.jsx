@@ -8,28 +8,38 @@ const UserEvents = () => {
   return (
     <Container className="events">
       {[
-        "Primary",
-        "Secondary",
-        "Success",
-        "Danger",
-        "Warning",
-        "Info",
-        "Light",
-        "Dark",
-      ].map((variant) => (
+        {
+          name: "Carrboro Canned Food Drive",
+          location: "Carrboro, NC",
+          date: "6/27/2022 to 6/28/2022",
+        },
+        {
+          name: "Chapel Hill Shoes",
+          location: "Chapel Hill, NC",
+          date: "7/13/2022 to 7/20/2022",
+        },
+        {
+          name: "End of Grade Litter Gathering",
+          location: "Carrboro, NC",
+          date: "6/6/2022 to 6/8/2022",
+        },
+      ].map((event) => (
         <Card
-          bg={variant.toLowerCase()}
-          key={variant}
-          text={variant.toLowerCase() === "light" ? "dark" : "white"}
-          //   style={{ width: "40rem" }}
-          className="mb-2"
+          bg="secondary"
+          key={event.name}
+          text="white"
+          className="event-body mb-2"
         >
-          <Card.Header>9/11/2022</Card.Header>
-          <Card.Body className="event-body">
-            <Card.Title>{variant} Card Title </Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+          <Card.Header>
+            {event.date} {event.location}
+          </Card.Header>
+          <Card.Body>
+            <Card.Title>{event.name} </Card.Title>
+            <Card.Text className="event-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, nam
+              ipsa iste aut aliquam praesentium temporibus placeat iusto omnis.
+              Odit, quisquam. Commodi nesciunt magni explicabo accusamus quam
+              ipsam pariatur numquam!
             </Card.Text>
             <Button>Sign Up</Button>
           </Card.Body>

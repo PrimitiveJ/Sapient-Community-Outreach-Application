@@ -1,7 +1,14 @@
 .events {
+    margin-top: 2rem;
+}
+
+.event-body {
     /* scroll-behavior: smooth; */
-    height: 100vh;
-    overflow-y: scroll;
+    height: auto;
+    /* overflow-y: scroll; */
+    background-color: gray;
+    opacity: 85%;
+
 }
 
 /* .event-body{

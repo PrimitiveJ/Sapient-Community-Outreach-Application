@@ -16,14 +16,15 @@ import {
 import UserCalendar from "./pages/UserHomePage";
 
 function App() {
+  console.log(process.env);
   return (
     <ThemeSelectionProvider>
       <Routes>
-        <Route path="/" element={<LandingPageIntro/>}/>
-        <Route path="/home" element={<LandingPage/>}/>
-        <Route path="/user-home" element={<UserHomePage/>}/>
-        <Route path="/event/:id" element={<EventPage/>}/>
-        <Route path="/dev" element={<TestPage/>}/>
+        <Route path="/" element={<LandingPageIntro />} />
+        <Route path="/home" element={<LandingPage />} />
+        <Route path="/user-home" element={<UserHomePage />} />
+        <Route path="/event/:id" element={<EventPage />} />
+        <Route path="/dev" element={<TestPage />} />
       </Routes>
     </ThemeSelectionProvider>
   );

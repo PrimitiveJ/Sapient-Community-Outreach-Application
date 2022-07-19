@@ -24,3 +24,7 @@
     * Migrated event page styling to styled-components
     * Fixed global issue with CSS backgrounds
     * Moved all images into the 'branding', 'backgrounds', and 'icons' sub-folders of the 'assets.images' folder.
+
+-Zac, 7/19/2022
+    * Integrated map and calendar apis into UserHomePage (onClick modal), still needs some tweaking. 
+    
