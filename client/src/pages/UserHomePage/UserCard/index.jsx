@@ -17,7 +17,7 @@ function UserCard({ userData }) {
   const hideModal = () => setActiveModal("none");
   const showUserCalendarModal = () => setActiveModal("user-calendar");
   return (
-    <Card style={{ width: "18rem" }} className="profile-card text-center">
+    <Card className="profile-card text-center">
       <Card.Img variant="top" src={images.backgrounds.roadway} />
 
       <UserImage image={userData.picture.large} />

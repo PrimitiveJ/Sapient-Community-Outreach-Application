@@ -70,21 +70,17 @@ const HomePage = () => {
         image={images.backgrounds.landingPageHeader}
       />
 
-      <Row className="mx-auto">
-        <Col sm={12} md={4}>
-          <div className="userCard">
+      <Row>
+        <Col sm={12} md={3} lg={3}>
+          <div>
             {users.map((user, index) => (
               <UserCard userData={user} key={index} />
             ))}
           </div>
         </Col>
 
-        <Col sm={12} md={7}>
-          <Row>
-            <Col sm={12} lg={true}>
-              <UserEvents />
-            </Col>
-          </Row>
+        <Col sm={12} md={8} lg={8}>
+          <UserEvents />
         </Col>
       </Row>
     </StyledPageContainer>

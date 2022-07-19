@@ -15,7 +15,7 @@
     display: flex;
     align-items: center;
     width: 30px;
-    color: var(--main-blue);
+    color: blue;
   }
   
   .pin-icon {
@@ -24,9 +24,10 @@
   
   .pin-text {
     font-size: 1.3em;
-    color: white;
-    text-shadow: 1px 1px 1px black;
-    background-color: white;
+    color: blue;
+    text-shadow: 1px 1px 1px white;
+    background-color: gray;
+    border-radius: 10%;
   }
   
   @media screen and (min-width: 799px) {
