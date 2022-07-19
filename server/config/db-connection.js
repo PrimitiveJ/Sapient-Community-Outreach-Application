@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/sapient', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/sapient', {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
 });
