@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { StyledRoundButton, StyledDefaultButton } from '../../../components/styles/StyledButton.style';
 // import { Container, Row, Col } from 'react-bootstrap';
+import auth from '../../../utils/auth';
 
 const StyledNavbarContainer = styled.nav`
     width: 100%;
@@ -101,7 +102,8 @@ const Navbar = ({children}) => {
     const navLinkData = [
         ['about', 'About Us'],
         ['contact', 'Contact'],
-        ['mission', 'Our Mission']
+        ['mission', 'Our Mission'],
+        ['profile', 'My Profile', {textDecoration: 'underline', color: '#74cfd8', background: 'none'}]
     ];
 
     const [currentLink, setCurrentLink] = useState('about');
@@ -109,10 +111,13 @@ const Navbar = ({children}) => {
     return (
         <>
             <StyledNavbarContainer>
-                {navLinkData.map(([linkState, linkName]) => {
+                {navLinkData.map(([linkState, linkName, style]) => {
                     return <StyledDefaultButton 
                         key={linkState}
                         onClick={() => setCurrentLink(linkState)}
+                        // conditionally render nav button for 'my profile'
+                        style={{...style, display: (linkState === 'profile' ? (auth.loggedIn() ? 'block' : 'none') : 'block')}}
+                        //
                         data-state={linkState === currentLink ? 'active' : 'inactive'}>
                             {linkName}
                         </StyledDefaultButton>

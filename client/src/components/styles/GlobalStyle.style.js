@@ -38,9 +38,12 @@ const GlobalStyle = createGlobalStyle`
         border-color: #7b9175;
     }
 
-    .modal-content .btn.btn-primary:hover {
+    .modal-content .btn-primary:hover,
+    .modal-content .btn-primary:active,
+    .modal-content .btn-primary:focus {
         background-color: #7eaf74;
         border-color: #7eaf74;
+        box-shadow: none;
     }
 
     .modal-content .btn.btn-secondary {
@@ -65,8 +68,9 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .modal-body .form-label {
-        color: #aeefaf;
-        letter-spacing: 1px;
+        color: #abcaab;
+        font-family: cursive;
+        /* letter-spacing: 1px; */
     }
 
     .modal-body small {
