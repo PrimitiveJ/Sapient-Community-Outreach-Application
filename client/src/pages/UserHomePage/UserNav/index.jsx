@@ -20,9 +20,7 @@ const UserNav = () => {
   return (
     <Nav defaultActiveKey="/home" className="flex-column nav">
       <ButtonGroup vertical>
-        <Button onClick={showUserMapModal} variant="primary">
-          Events
-        </Button>
+        <Button>Events</Button>
         <Button onClick={showUserCalendarModal} variant="primary">
           My Calendar
         </Button>
