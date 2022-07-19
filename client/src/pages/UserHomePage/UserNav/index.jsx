@@ -15,11 +15,14 @@ const UserNav = () => {
   const [activeModal, setActiveModal] = useState("none");
   const hideModal = () => setActiveModal("none");
   const showUserCalendarModal = () => setActiveModal("user-calendar");
+  // const showUserMapModal = () => setActiveModal("user-map");
 
   return (
     <Nav defaultActiveKey="/home" className="flex-column nav">
       <ButtonGroup vertical>
-        <Button>Events</Button>
+        <Button onClick={showUserMapModal} variant="primary">
+          Events
+        </Button>
         <Button onClick={showUserCalendarModal} variant="primary">
           My Calendar
         </Button>

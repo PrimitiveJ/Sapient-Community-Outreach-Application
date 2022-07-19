@@ -21,7 +21,7 @@ const UserEvents = () => {
           bg={variant.toLowerCase()}
           key={variant}
           text={variant.toLowerCase() === "light" ? "dark" : "white"}
-          style={{ width: "40rem" }}
+          //   style={{ width: "40rem" }}
           className="mb-2"
         >
           <Card.Header>9/11/2022</Card.Header>

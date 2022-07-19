@@ -54,6 +54,8 @@ const HomePage = () => {
       // ref={pageContainerRef}
       backgroundColor="backgroundOne"
       relative={false}
+      sm={11}
+      mx-auto
     >
       {/* conditionally render intro animation
       {loadWithIntro && <IntroTransition />} */}
@@ -68,23 +70,22 @@ const HomePage = () => {
         image={images.backgrounds.landingPageHeader}
       />
 
-      <Row>
-        <Col sm={12} lg={4}>
+      <Row className="mx-auto">
+        <Col sm={12} md={4}>
           <div>
             {users.map((user, index) => (
-              <UserCard userData={user} key={index} />
+              <UserCard
+                userData={user}
+                key={index}
+                className="userCard mx=auto"
+              />
             ))}
           </div>
         </Col>
 
-        <Col sm={12} lg={7}>
+        <Col w-auto sm={12} md={7}>
           <Row>
-            <Col className="event-header">
-              <h1>Upcoming Events</h1>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
+            <Col sm={12} lg={true}>
               <UserEvents />
             </Col>
           </Row>

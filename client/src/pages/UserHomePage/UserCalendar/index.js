@@ -46,6 +46,10 @@ const events = [
 const UserCalendarModal = ({ modalActive, hideModal }) => {
   const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
   const [allEvents, setAllEvents] = useState(events);
+
+  const addEvent = () => {
+    setAllEvents([...allEvents, newEvent]);
+  };
   return (
     <>
       <Modal size="lg" show={modalActive} onHide={hideModal}>
