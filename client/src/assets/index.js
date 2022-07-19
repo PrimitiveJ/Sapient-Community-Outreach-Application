@@ -37,6 +37,7 @@ const importImage = (fileName) => {
     .find((file) => file.match(fileName));
   const file = requireContext(fileLocation);
 
+  // change this back to 'return file.default;' if using react-scripts 4.0.3
   return file;
 };
 

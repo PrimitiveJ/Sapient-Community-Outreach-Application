@@ -32,11 +32,23 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+/*
+  changed react-scripts from 5.0.1 to 4.0.3 to solve
+  weird proxy issue
+
+  if we need to revert back to 5.0.1, use this code:
+*/
 const httpLink = createHttpLink({
   uri: process.env.NODE_ENV === 'production' 
     ? '/graphql'
     : 'http://localhost:3001/graphql'
 });
+
+// use this proxy link for react-scripts 4.0.3
+// const httpLink = createHttpLink({
+//   uri: '/graphql'
+// });
+//
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),

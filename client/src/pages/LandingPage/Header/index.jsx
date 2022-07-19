@@ -37,7 +37,8 @@ const StyledHeader = styled.header`
   }
 
   .signupBtn,
-  .loginBtn {
+  .loginBtn,
+  .logoutBtn {
     font-weight: 700;
     background: none;
     box-shadow: 0 0 5px black;
@@ -50,6 +51,10 @@ const StyledHeader = styled.header`
 
   .loginBtn {
     background-color: #6f9674;
+  }
+
+  .logoutBtn {
+    background-color: #304631;
   }
 
   .registerBtn:hover {
@@ -78,17 +83,19 @@ const Header = () => {
     */
     const [activeModal, setActiveModal] = useState('none');
 
-    // login state
-    const [isLoggedIn, setLoggedIn] = useState(auth.loggedIn());
-
 
     // handlers
     const hideModal = () => setActiveModal('none');
     const showLoginModal = () => setActiveModal('login');
     const showRegisterModal = () => setActiveModal('register');
 
+    const handleLogout = () => {
+      auth.logout();
+      window.location.assign('/home');
+    }
+
     // !debug
-    console.log('is logged in: ', isLoggedIn);
+    console.log('is logged in: ', auth.loggedIn());
 
     return (
         <StyledHeader>
@@ -100,14 +107,20 @@ const Header = () => {
                 </Col>
             </div>
             {
-                isLoggedIn ? <button>Logout</button> :
-                <div className="registerButtonContainer">
+                // user is logged in
+                auth.loggedIn() 
+                ? <div className="registerButtonContainer">
+                    <StyledRoundButton onClick={handleLogout} className="registerBtn logoutBtn">Logout</StyledRoundButton>
+                  </div> 
+
+                // user is not logged in
+                : <div className="registerButtonContainer">
                     <StyledRoundButton onClick={showLoginModal} className="registerBtn loginBtn">Login</StyledRoundButton>
                     <StyledRoundButton onClick={showRegisterModal} className="registerBtn signupBtn">Sign Up</StyledRoundButton>
                 </div>
             }
             <RegisterModal modalActive={activeModal === 'register'} hideModal={hideModal}/>
-            <LoginModal modalActive={activeModal === 'login'} hideModal={hideModal} setLoggedIn={setLoggedIn}/>
+            <LoginModal modalActive={activeModal === 'login'} hideModal={hideModal}/>
         </StyledHeader>
     );
 }

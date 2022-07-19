@@ -11,12 +11,26 @@
 */
 
 // import native react modules
+import { useQuery, useMutation } from '@apollo/client';
 import React, { useRef, useEffect, useState } from "react";
 // import { useSearchParams } from 'react-router-dom';
 import { useThemeContext } from "../../providers/ThemeSelectionProvider";
 import { Container, Row, Col } from "react-bootstrap";
 // import { getIfNumber } from '../../utils';
 import styled from "styled-components";
+
+
+// import gql schemas
+import { 
+  GET_USER,
+  GET_SELF,
+  GET_EVENT
+} from '../../utils/queries';
+
+import { 
+  LOGIN_USER,
+  POST_EVENT
+} from '../../utils/mutations';
 
 // import local css modules
 // import anims from './anims.module.css';
@@ -118,10 +132,46 @@ const IntroTransition = () => {
   );
 };
 
+
 // LandingPage component
 // todo: only activate 'startMountAnimation' when being directed here from LandingPageIntro
+// todo: figure out why this component is loading twice on page load
 const LandingPage = () => {
   // const [searchParams, setSearchParams] = useSearchParams();
+  const [postEvent] = useMutation(POST_EVENT);
+
+  // {
+  //   console.log('----------------------- REQUESTER -----------------------');
+  //   console.log('AHHHH');
+  //   const { loading, error, data } = useQuery(GET_SELF, {variables: { username: 'james' }});
+  //   console.log('GET_SELF RESPONSE: ', data);
+  // }
+
+  // {
+  //   const { loading, error, data } = useQuery(GET_EVENT, {variables: { id: '62d6f96eeae7c8fd3abe6004' }});
+  //   console.log('GET_EVENT RESPONSE: ', data);
+  //   console.log('---------------------------------------------------------');
+  // }
+
+    const handlePostEvent = async () => {
+
+      const data = await postEvent({
+        variables: {
+          author: 'jack',
+          inputPayload: {
+            title: 'some event idk',
+            description: 'do cool shit',
+            location: {
+              city: 'somewhere',
+              state: 'somewhere else'
+            }
+          }
+        }
+      });
+
+      console.log('POST_EVENT RESPONSE: ', data);
+
+    }
 
   const { theme } = useThemeContext();
   const pageContainerRef = useRef();
@@ -133,6 +183,7 @@ const LandingPage = () => {
   useEffect(() => {
     // after page renders, disable page intro animation until this value is toggled again
     localStorage.setItem("loadWithIntro", false);
+    console.log('loaded');
   }, []);
 
   // return page component
@@ -166,7 +217,7 @@ const LandingPage = () => {
       >
         <Col xl={9} lg={9} sm={12}>
           <StyledLandingPageBody>
-            <Header />
+            <Header/>
             <Navbar>
               <AboutUsPage nav="about" />
               <ContactPage nav="contact" />

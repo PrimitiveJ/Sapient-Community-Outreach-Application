@@ -103,7 +103,7 @@ const Navbar = ({children}) => {
         ['about', 'About Us'],
         ['contact', 'Contact'],
         ['mission', 'Our Mission'],
-        ['profile', 'My Profile', {textDecoration: 'underline', color: '#74cfd8'}]
+        ['profile', 'My Profile', {textDecoration: 'underline', color: '#74cfd8', background: 'none'}]
     ];
 
     const [currentLink, setCurrentLink] = useState('about');

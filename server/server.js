@@ -85,8 +85,9 @@ const startApolloServer = async () => {
     dbConnection.once('open', async () => {
         console.log('database is open');
 
-        await seed.plantUsers();
-        console.log('seeds planted!');
+        // await seed.plantUsers();
+        // await seed.plantEvents();
+        // console.log('seeds planted!');
 
         app.listen(PORT, () => {
         console.log(`API server running on port ${PORT}!`);

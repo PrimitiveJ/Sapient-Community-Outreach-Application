@@ -14,10 +14,10 @@ const eventSchema = new mongoose.Schema({
     },
 
     comments: [{
-        title: String,
+        author: String,
         content: String,
         replies: [{
-            title: String,
+            author: String,
             content: String
         }]
     }],
