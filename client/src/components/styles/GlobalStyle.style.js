@@ -42,6 +42,19 @@ const GlobalStyle = createGlobalStyle`
         margin-bottom: 15px;
     }
 
+    .btn {
+        transition: filter 0.25s;
+    }
+
+    .btn:active,
+    .btn:focus {
+        box-shadow: none !important;
+    }
+
+    .btn:hover {
+        filter: sepia(0.6);
+    }
+
     .modal-content .btn-close {
         background-color: #8bb888;
         opacity: 1;
@@ -79,7 +92,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .modal-body form h1,
-    .modal-body form h2 {
+    .modal-body form h2,
+    .modal-header h2 {
         color: white;
         margin-top: 20px;
         margin-bottom: 20px;
@@ -97,6 +111,22 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .modal-body small {
+        color: white;
+    }
+
+    .calendar button {
+        background-color: #c9ffdb;
+    }
+
+    .rbc-day-bg {
+        background-color: #44664b;
+    }
+
+    .rbc-button-link {
+        background: none !important;
+    }
+
+    .rbc-button-link {
         color: white;
     }
     /*

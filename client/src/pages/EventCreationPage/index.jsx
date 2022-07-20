@@ -11,86 +11,21 @@ import React, {useState} from "react";
 import Card from 'react-bootstrap/Card';
 import {Modal, ModalHeader, ModalBody, ModalFooter, Form} from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
-
-const everystate = [
-    'Alabama',
-    'Alaska',
-    'American Samoa',
-    'Arizona',
-    'Arkansas',
-    'California',
-    'Colorado',
-    'Connecticut',
-    'Delaware',
-    'District of Columbia',
-    'Federated States of Micronesia',
-    'Florida',
-    'Georgia',
-    'Guam',
-    'Hawaii',
-    'Idaho',
-    'Illinois',
-    'Indiana',
-    'Iowa',
-    'Kansas',
-    'Kentucky',
-    'Louisiana',
-    'Maine',
-    'Marshall Islands',
-    'Maryland',
-    'Massachusetts',
-    'Michigan',
-    'Minnesota',
-    'Mississippi',
-    'Missouri',
-    'Montana',
-    'Nebraska',
-    'Nevada',
-    'New Hampshire',
-    'New Jersey',
-    'New Mexico',
-    'New York',
-    'North Carolina',
-    'North Dakota',
-    'Northern Mariana Islands',
-    'Ohio',
-    'Oklahoma',
-    'Oregon',
-    'Palau',
-    'Pennsylvania',
-    'Puerto Rico',
-    'Rhode Island',
-    'South Carolina',
-    'South Dakota',
-    'Swindonia',
-    'Tennessee',
-    'Texas',
-    'Utah',
-    'Vermont',
-    'Virgin Island',
-    'Virginia',
-    'Washington',
-    'West Virginia',
-    'Wisconsin',
-    'Wyoming'
-]
-
+import everystate from '../../utils/state-list.json';
+import auth from '../../utils/auth';
 export default class EventCreationPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: true,
             title: '',
             description: '',
             date: '',
             time: '',
             location: {},
             city: '',
-            state: ''
-
+            state: '',
         };
 
-        this.toggle = this.toggle.bind(this);
         this.handleChangeTitle = this.handleChangeTitle.bind(this);
         this.handleChangeDesc = this.handleChangeDesc.bind(this);
         this.handleChangeDate = this.handleChangeDate.bind(this);
@@ -100,12 +35,11 @@ export default class EventCreationPage extends React.Component {
     }
 
 
-    toggle() {
-        this.setState({
-            ...this.state,
-            modal: !this.state.modal
-        });
-    }
+
+    isShown() {
+        return this.isShown
+    }   
+
     handleChangeTitle(event) {
         this.setState({
             ...this.state,
@@ -141,27 +75,43 @@ export default class EventCreationPage extends React.Component {
     }
 
 
-    handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
+        this.props.onHide();
+
+        const form = {
+            title: this.state.title,
+            description: this.state.description,
+            location: this.state.location
+        }
+        console.log('form data:', form);
+
+        const data = (await this.props.postFunc({
+            variables: { author: auth.getProfile().data.username, inputPayload: form }
+        })).data.createEvent;
+
+        
+        window.location.assign('/user-home');
     }
 
 
     render(props) {
+
         return (
 
             <div>
-                <h1>Create Event Button</h1>
+                {/* <h1>Create Event Button</h1>
                 <Button color="success"
                     onClick={
                         this.toggle
-                }>Create Event</Button>
+                }>Create Event</Button> */}
                 <Modal show={
-                    this.state.modal
+                    this.props.isShown
                 }>
                     <form onSubmit={
                         this.handleSubmit
                     }>
-                        <ModalHeader><h1>Event Information:</h1></ModalHeader>
+                        <ModalHeader><h2>Event Information:</h2></ModalHeader>
                         <ModalBody>
                             <div className="row">
                                 <div className="form-group col-md-12">
@@ -246,10 +196,10 @@ export default class EventCreationPage extends React.Component {
                             </form>
                         </ModalBody>
                         <ModalFooter>
-                            <input type="submit" value="Submit" color="primary" className="btn btn-primary"/>
+                            <Button onClick={this.handleSubmit}>Submit</Button>
                             <Button color="danger"
                                 onClick={
-                                    this.toggle
+                                    this.props.onHide
                             }>Cancel</Button>
                         </ModalFooter>
                     </form>

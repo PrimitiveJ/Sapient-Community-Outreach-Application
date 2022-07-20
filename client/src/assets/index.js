@@ -64,6 +64,7 @@ export const images = {
   icons: {
     thing: importImage("idk.png"),
     calendarImage: importImage("calendar-placeholder.jpg"),
+    profileTemp: importImage("sirisaac.png")
   },
 
   backgrounds: {

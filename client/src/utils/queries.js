@@ -56,6 +56,7 @@ export const GET_10_EVENTS = gql`
 
     query get10Events {
         get10Events {
+            _id
             author
             title
             description

@@ -3,9 +3,14 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import "./UserEvents.css";
+// import { useNavigate } from 'react-router-dom';
 
 
 const EventCard = ({ eventData }) => {
+
+  const handleEventLink = (id) => {
+    window.location.assign('event/' + id);
+  }
 
   return (
         <Card
@@ -18,7 +23,7 @@ const EventCard = ({ eventData }) => {
             <Card.Text>
               {eventData.description}
             </Card.Text>
-            <Button className="eventCardBtn">Visit</Button>
+            <Button className="eventCardBtn" onClick={() => handleEventLink(eventData._id)}>Visit</Button>
           </Card.Body>
         </Card>
   );

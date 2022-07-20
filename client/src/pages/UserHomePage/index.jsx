@@ -74,7 +74,7 @@ const HomePage = () => {
           </Col>
 
           <Col>
-            <div style={{width: '100%', height: '100%', padding: '10px'}}>
+            <div style={{width: '100%', height: '100vh', padding: '10px'}}>
             {
               // wait for data to finish loading until resuming
               eventsLoading 
