@@ -27,7 +27,7 @@ const LocalStyles = styled.div`
 
   button {
       cursor: pointer;
-      background-color: #B6D0B7!important;
+      background-color: #4d714e!important;
       border-color: white !important;
   }
 

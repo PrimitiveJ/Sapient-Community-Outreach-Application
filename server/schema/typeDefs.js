@@ -61,6 +61,7 @@ const typeDefs = `
         getSelf: User
         getUser(username: String!): User
         getEvent(id: ID!): Event
+        get10Events: [Event]
     }
 
     input EventInput {

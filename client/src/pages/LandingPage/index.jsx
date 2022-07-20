@@ -53,7 +53,7 @@ const IntroTransition = () => {
 // LandingPage component
 // todo: only activate 'startMountAnimation' when being directed here from LandingPageIntro
 // todo: figure out why this component is loading twice on page load
-const LandingPage = () => {
+const LandingPage = ({ prompt }) => {
   // const [searchParams, setSearchParams] = useSearchParams();
   const { theme } = useThemeContext();
   const pageContainerRef = useRef();
@@ -95,7 +95,7 @@ const LandingPage = () => {
       >
         <Col xl={9} lg={9} sm={12}>
           <StyledLandingPageBody>
-            <Header/>
+            <Header prompt={prompt}/>
             <Navbar>
               <AboutUsPage nav="about" />
               <ContactPage nav="contact" />

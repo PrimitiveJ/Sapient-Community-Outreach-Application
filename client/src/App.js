@@ -1,7 +1,7 @@
 // import native react modules
 import React, { useState } from 'react';
 import { ThemeSelectionProvider } from './providers/ThemeSelectionProvider';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { setContext } from "@apollo/client/link/context";
 import GlobalStyle from './components/styles/GlobalStyle.style';
 
@@ -22,6 +22,8 @@ import {
   LandingPageIntro,
   TestPage,
 } from "./pages";
+import auth from './utils/auth';
+import { Nav } from 'react-bootstrap';
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
@@ -56,6 +58,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -67,6 +70,7 @@ function App() {
           <Route path="/home" element={<LandingPage/>}/>
           <Route path="/user-home" element={<UserHomePage/>}/>
           <Route path="/event/:id" element={<EventPage/>}/>
+          <Route path="/redirect" element={<Navigate to="/home"/>}/>
           <Route path="/dev" element={<TestPage/>}/>
         </Routes>
       </ThemeSelectionProvider>
