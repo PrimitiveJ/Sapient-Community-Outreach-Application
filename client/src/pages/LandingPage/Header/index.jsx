@@ -22,6 +22,13 @@ const Header = () => {
     const [registerType, setRegisterType] = useState('none');
     const hideModal = () => setRegisterType('none');
 
+    // form error state for login/signup modals
+    const [formError, setFormError] = useState({
+      invalidUsername: { hidden: true, message: '' },
+      invalidPassword: { hidden: true, message: '' },
+      default: { hidden: true, message: '' }
+    });
+
     const handleLogout = () => {
       auth.logout();
       window.location.assign('/home');
@@ -53,7 +60,7 @@ const Header = () => {
                     <StyledRoundButton 
                     onClick={() => setRegisterType('registerOther')} 
                     className="registerBtn signupBtn">
-                      Register
+                      Register Roll
                     </StyledRoundButton>
                   </div> 
 
@@ -84,10 +91,14 @@ const Header = () => {
               ? <RegisterOtherModal 
                 active={registerType === 'registerOther'}
                 onHide={hideModal}
+                formError={formError}
+                setFormError={setFormError}
                 />
               : <RegisterUserModal 
                 active={registerType === 'registerUser'}
                 onHide={hideModal}
+                formError={formError}
+                setFormError={setFormError}
                 />
             }
 
@@ -95,6 +106,8 @@ const Header = () => {
             <LoginModal 
             active={registerType === 'login'} 
             onHide={hideModal}
+            formError={formError}
+            setFormError={setFormError}
             />
         </LocalStyles>
     );

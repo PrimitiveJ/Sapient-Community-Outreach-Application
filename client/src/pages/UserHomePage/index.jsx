@@ -24,7 +24,6 @@ import "./UserHome.css";
 import { images } from "../../assets";
 import BackgroundImage from "../../components/BackgroundImage";
 import { StyledPageContainer } from "../../components/styles/StyledPageContainer.style";
-import GlobalStyle from "../../components/styles/GlobalStyle.style";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -49,6 +48,7 @@ const HomePage = () => {
       setUsers(userData);
     })();
   }, []);
+
   return (
     <StyledPageContainer
       // ref={pageContainerRef}
@@ -57,9 +57,6 @@ const HomePage = () => {
     >
       {/* conditionally render intro animation
       {loadWithIntro && <IntroTransition />} */}
-
-      {/* use global styles */}
-      <GlobalStyle />
 
       {/* Page container background */}
       <BackgroundImage
