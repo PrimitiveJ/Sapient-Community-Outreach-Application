@@ -50,3 +50,16 @@ export const GET_EVENT = gql`
         }
     }
 `
+
+
+export const GET_10_EVENTS = gql`
+
+    query get10Events {
+        get10Events {
+            author
+            title
+            description
+        }
+    }
+
+`

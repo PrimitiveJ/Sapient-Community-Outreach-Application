@@ -13,8 +13,12 @@ import {
     Button
 } from 'react-bootstrap';
 
-const LoginModal = ({ active, onHide }) => {
-    const [formData, setFormData] = useState({});
+const LoginModal = ({ active, onHide, formError, setFormError }) => {
+    const [formData, setFormData] = useState({
+        username: '',
+        password: ''
+    });
+
     const [login] = useMutation(LOGIN_USER);
 
     /*
@@ -22,6 +26,15 @@ const LoginModal = ({ active, onHide }) => {
     */
     const handleFormSubmit = async event => {
         event.preventDefault();
+
+        if (!formData.username.trim()) {
+            setFormError({
+                ...formError,
+                default: { hidden: false, message: 'invalid username' }
+            });
+            return;
+        }
+
 
         /*
             Get data response object from the LOGIN_USER mutation. Data 
@@ -55,10 +68,13 @@ const LoginModal = ({ active, onHide }) => {
         if (data.response.ok) {
             auth.login(data.token);
             window.location.assign('/home');
+        } else {
+            console.log('response: ', data);
+            setFormError({
+                ...formError,
+                default: { hidden: false, message: data.response.message }
+            });
         }
-
-        // !debug
-        console.log('response: ', data);
     }
     
     /*
@@ -85,16 +101,19 @@ const LoginModal = ({ active, onHide }) => {
                 <Modal.Body>
                     <Form onSubmit={handleFormSubmit}>
                         <Form.Group>
-                            <Form.Label >Username:</Form.Label>
+                            <Form.Label >Username: </Form.Label>
+                            <Form.Text hidden={formError.invalidUsername.hidden} className="error">
+                                {formError.invalidUsername.message}
+                            </Form.Text>
                             <Form.Control name="username" type="text" onChange={handleFormChange} placeholder="Enter Username" />
-                            {/* <Form.Text className="text-muted">
-                                Username validation error message here???
-                            </Form.Text> */}
                             <Form.Label>Password:</Form.Label>
                             <Form.Control name="password" type="password" onChange={handleFormChange} placeholder="Enter Password" />
-                            <Button type="submit" variant="primary">
+                            <Button type="submit" variant="primary" style={{display: 'block'}}>
                                 Login
                             </Button>
+                            <Form.Label hidden={formError.default.hidden} className="error">
+                                {formError.default.message}
+                            </Form.Label>
                         </Form.Group>
                     </Form>
                 </Modal.Body>

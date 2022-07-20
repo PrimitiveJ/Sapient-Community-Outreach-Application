@@ -19,78 +19,75 @@ import React, { useEffect, useState } from "react";
 
 import UserNav from "./UserNav";
 import UserCard from "./UserCard";
-import UserEvents from "./UserEvents";
+import EventCard from "./EventCard";
 import "./UserHome.css";
 import { images } from "../../assets";
 import BackgroundImage from "../../components/BackgroundImage";
 import { StyledPageContainer } from "../../components/styles/StyledPageContainer.style";
-import GlobalStyle from "../../components/styles/GlobalStyle.style";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import auth from '../../utils/auth';
+import LocalStyles from './local.style';
+import { v4 as uuidv4 } from 'uuid';
 // import Organizer from "./Organizer";
 // import Business from "./Business";
+
+import { useQuery } from '@apollo/client';
+import { GET_10_EVENTS } from '../../utils/queries';
 
 const HomePage = () => {
   //     const { theme, setTheme } = useThemeContext();
 
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    (async () => {
-      let userData;
-      try {
-        const response = await fetch("https://randomuser.me/api/?results=1");
-        userData = (await response.json()).results;
-      } catch (error) {
-        console.log(error, "random user");
-        userData = [];
-      }
-      setUsers(userData);
-    })();
-  }, []);
+  // pull events data from the database
+  const { data: eventsData, loading: eventsLoading } = useQuery(GET_10_EVENTS);
+
+  // redirect back to home page if user is not logged in
+  if (!auth.loggedIn()) {
+    window.location.assign('/home');
+    return;
+  }
+
   return (
-    <StyledPageContainer
-      // ref={pageContainerRef}
-      backgroundColor="backgroundOne"
-      relative={false}
-    >
-      {/* conditionally render intro animation
-      {loadWithIntro && <IntroTransition />} */}
+    <LocalStyles>
+      <StyledPageContainer
+        // ref={pageContainerRef}
+        backgroundColor="backgroundOne"
+        relative={true}
+      >
+        {/* conditionally render intro animation
+        {loadWithIntro && <IntroTransition />} */}
 
-      {/* use global styles */}
-      <GlobalStyle />
+        {/* Page container background */}
+        <BackgroundImage
+          opacity="0.5"
+          backgroundColor="white"
+          image={images.backgrounds.landingPageHeader}
+        />
 
-      {/* Page container background */}
-      <BackgroundImage
-        opacity="0.5"
-        backgroundColor="white"
-        image={images.backgrounds.landingPageHeader}
-      />
+        <div style={{display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
+          <Col xl={2} lg={3} md={4} sm={4} xs={12}>
+            <div>
+              <UserCard />
+            </div>
+          </Col>
 
-      <Row>
-        <Col sm={12} lg={4}>
-          <div>
-            {users.map((user, index) => (
-              <UserCard userData={user} key={index} />
-            ))}
-          </div>
-        </Col>
-
-        <Col sm={12} lg={7}>
-          <Row>
-            <Col className="event-header">
-              <h1>Upcoming Events</h1>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <UserEvents />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-    </StyledPageContainer>
+          <Col>
+            <div style={{width: '100%', height: '100%', padding: '10px'}}>
+            {
+              // wait for data to finish loading until resuming
+              eventsLoading 
+              ? 'Loading...'
+              : eventsData.get10Events.map(event => {
+                 return <EventCard key={uuidv4()} eventData={event}/>
+              }) 
+            }
+            </div>
+          </Col>
+        </div>
+      </StyledPageContainer>
+    </LocalStyles>
   );
 };
 export default HomePage;

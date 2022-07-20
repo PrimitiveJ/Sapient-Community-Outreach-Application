@@ -3,23 +3,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import assets from '../../assets';
 
-const ThingOne = styled.div`
-    width: 100px;
-    height: 100px;
-`
-
-const ThingTwo = styled(ThingOne)`
-    background-color: red;
+const LocalStyles = styled.div`
+    p {
+        background-color: black;
+    }
 `
 
 const TestPage = () => {
-    console.log(Button);
     return (
-        <div>
-            <ThingTwo/>
-        </div>
+        <LocalStyles>
+            <Col xl={2} lg={3}>
+                <p>Hello, world!</p>
+            </Col>
+        </LocalStyles>
     );
 }
 

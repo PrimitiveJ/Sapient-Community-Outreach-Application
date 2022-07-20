@@ -36,6 +36,11 @@ const resolvers = {
             }
             return { response: { message: 'event not found', ok: false }};
         },
+
+        get10Events: async () => {
+            const events10 = await Event.find({}).limit(10);
+            return events10;
+        }
     },
 
     Mutation: {

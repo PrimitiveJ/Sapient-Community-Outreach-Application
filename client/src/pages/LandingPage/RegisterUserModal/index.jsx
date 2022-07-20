@@ -5,7 +5,7 @@ import stateList from '../../../utils/state-list.json';
 import { useMutation } from '@apollo/client';
 import { SIGNUP_USER } from '../../../utils/mutations';
 
-const RegisterUserModal = ({ active, onHide }) => {
+const RegisterUserModal = ({ active, onHide, formError, setFormError }) => {
     const [signupUser, { error }] = useMutation(SIGNUP_USER);
     const [formData, setFormData] = useState({
         username: { valid: false, value: '' },
@@ -33,13 +33,38 @@ const RegisterUserModal = ({ active, onHide }) => {
             if (formValue.valid) userForm[key] = formValue.value;
         });
 
+        // pre-posting input validation for existing username/password
+        // there is a better way to do this, fix later.
+        if (!userForm.username) {
+            setFormError({
+                ...formError,
+                default: { hidden: false, message: 'username is required' }
+            });
+            return;
+        } else if (!userForm.password) {
+            setFormError({
+                ...formError,
+                default: { hidden: false, message: 'password is required' }
+            });
+            return;
+        }
+
+        // make user sign-up post 
         const data = (await signupUser({
             variables: { inputPayload: userForm }
         })).data.signup;
 
+        // if signup was successful, sign token and refresh page
         if (data.response.ok) {
             auth.login(data.token);
             window.location.assign('/home');
+        } else {
+
+        // if signup failed, display error
+            setFormError({
+                ...formError,
+                default: { hidden: false, message: data.response.message }
+            });
         }
     }
 
@@ -65,7 +90,7 @@ const RegisterUserModal = ({ active, onHide }) => {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control key="email" name="email" type="email" placeholder="Enter email" onChange={handleFormChange}/>
-                        <Form.Text className="text-muted">
+                        <Form.Text className="">
                             We'll never share your email with anyone else.
                         </Form.Text>
                     </Form.Group>
@@ -75,13 +100,16 @@ const RegisterUserModal = ({ active, onHide }) => {
                         <Form.Control key="zipcode" name="zipcode" type="zipcode" placeholder="Zip Code" onChange={handleFormChange}/>
                     </Form.Group>
 
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={onHide}>
-                            Close
-                        </Button>
-                        <Button type="submit" variant="primary">
-                            Sign Up
-                        </Button>
+                    <Modal.Footer style={{justifyContent: formError.default.hidden ? 'flex-end' : 'space-between'}}>
+                        <Form.Label hidden={formError.default.hidden} className="error" style={{flex: '0.7'}}>{formError.default.message}</Form.Label>
+                        <div>
+                            <Button variant="secondary" onClick={onHide}>
+                                Close
+                            </Button>
+                            <Button type="submit" variant="primary">
+                                Sign Up
+                            </Button>
+                        </div>
                     </Modal.Footer>
                 </Form>
 

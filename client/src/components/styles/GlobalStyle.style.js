@@ -26,6 +26,15 @@ const GlobalStyle = createGlobalStyle`
 
     .modal-body label {
         color: white;
+        margin-right: 5px;
+    }
+
+    .modal-body small.error,
+    .modal-body .form-label.form-label.error {
+        color: #ffee77;
+        font-weight: 400;
+        font-family: cursive;
+        margin-top: 15px;
     }
 
     .modal-content input,
@@ -88,7 +97,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .modal-body small {
-        color: white !important;
+        color: white;
     }
     /*
         Global modal styles end

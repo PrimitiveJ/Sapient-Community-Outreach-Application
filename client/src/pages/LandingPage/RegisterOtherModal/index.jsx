@@ -65,7 +65,7 @@ const RegisterOtherModal = ({ active, onHide }) => {
                 type="email" placeholder="Enter email"
                 />
 
-                <Form.Text className="text-muted">
+                <Form.Text className="">
                     We'll never share your email with anyone else.
                 </Form.Text>
             </Form.Group>

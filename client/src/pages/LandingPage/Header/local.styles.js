@@ -18,7 +18,7 @@ const LocalStyles = styled.header`
   }
 
   .registerButtonContainer {
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 10px;
     display: flex;
     gap: 1rem;
@@ -61,6 +61,16 @@ const LocalStyles = styled.header`
   .headerLogo p {
     font-family: inherit;
     text-align: center;
+  }
+
+  .loginWelcome {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+  }
+
+  .loginWelcome span {
+    color: #ccedb9;
   }
 `;
 

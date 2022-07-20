@@ -11,7 +11,7 @@ import LoginModal from "../LoginModal";
 import LocalStyles from "./local.styles";
 
 
-const Header = () => {
+const Header = ({ prompt }) => {
     /*
         Modal active states:
             * none: no modals are visible
@@ -20,13 +20,21 @@ const Header = () => {
             * login: login modal is visible (if) user is logged out
     */
     const [registerType, setRegisterType] = useState('none');
-    const hideModal = () => setRegisterType('none');
+    const hideModal = () => {
+      setRegisterType('none');
+    }
+
+    // form error state for login/signup modals
+    const [formError, setFormError] = useState({
+      invalidUsername: { hidden: true, message: '' },
+      invalidPassword: { hidden: true, message: '' },
+      default: { hidden: true, message: '' }
+    });
 
     const handleLogout = () => {
       auth.logout();
       window.location.assign('/home');
     }
-
 
     return (
         <LocalStyles>
@@ -36,6 +44,13 @@ const Header = () => {
                 <Col lg={4} md={6} xs={12}>
                     <p>Globally scoped, locally focused. Because compassion is in our DNA.</p>
                 </Col>
+            </div>
+            <div>
+              {
+                auth.loggedIn() 
+                ? <h2 className="loginWelcome">Welcome, <span>{auth.getProfile().data.username}</span></h2>
+                : ''
+              }
             </div>
             {
                 // (if) user is logged in
@@ -53,7 +68,7 @@ const Header = () => {
                     <StyledRoundButton 
                     onClick={() => setRegisterType('registerOther')} 
                     className="registerBtn signupBtn">
-                      Register
+                      Register Roll
                     </StyledRoundButton>
                   </div> 
 
@@ -84,10 +99,14 @@ const Header = () => {
               ? <RegisterOtherModal 
                 active={registerType === 'registerOther'}
                 onHide={hideModal}
+                formError={formError}
+                setFormError={setFormError}
                 />
               : <RegisterUserModal 
                 active={registerType === 'registerUser'}
                 onHide={hideModal}
+                formError={formError}
+                setFormError={setFormError}
                 />
             }
 
@@ -95,6 +114,8 @@ const Header = () => {
             <LoginModal 
             active={registerType === 'login'} 
             onHide={hideModal}
+            formError={formError}
+            setFormError={setFormError}
             />
         </LocalStyles>
     );
