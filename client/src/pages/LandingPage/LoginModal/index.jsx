@@ -16,7 +16,7 @@ import {
     Button
 } from 'react-bootstrap';
 
-const LoginModal = ({ modalActive, hideModal }) => {
+const LoginModal = ({ active, onHide }) => {
     const [formData, setFormData] = useState({});
     const [login] = useMutation(LOGIN_USER);
 
@@ -81,7 +81,7 @@ const LoginModal = ({ modalActive, hideModal }) => {
     */
     return (
         <>
-            <Modal show={modalActive} onHide={hideModal}>
+            <Modal show={active} onHide={onHide}>
                 <Modal.Header closeButton>
                     <Modal.Title>Login:</Modal.Title>
                 </Modal.Header>

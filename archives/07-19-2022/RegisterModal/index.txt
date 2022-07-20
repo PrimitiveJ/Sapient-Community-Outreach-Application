@@ -3,6 +3,7 @@ import RegisterSelect from './register-select'
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import auth from '../../../utils/auth';
 
 /*
     Page: Register Page
@@ -15,7 +16,7 @@ import Button from 'react-bootstrap/Button';
 */
 
 
-function RegisterPage({ modalActive, hideModal }) {
+function RegisterPage({ modalActive, hideModal, registerType }) {
     const everystate = [
         'Alabama',
         'Alaska',
@@ -89,7 +90,9 @@ return (
       <Modal.Header closeButton>
         <Modal.Title>Select Registration Type</Modal.Title>
       </Modal.Header>
-      <Modal.Body><RegisterSelect everystate={everystate}/></Modal.Body>
+      <Modal.Body>
+          <RegisterSelect registerType={registerType} everystate={everystate}/>
+      </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={hideModal}>
           Close
