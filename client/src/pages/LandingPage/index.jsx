@@ -79,9 +79,6 @@ const LandingPage = () => {
       {/* conditionally render intro animation */}
       {loadWithIntro && <IntroTransition />}
 
-      {/* use global styles */}
-      <GlobalStyle />
-
       {/* Page container background */}
       <BackgroundImage
         opacity="0.5"

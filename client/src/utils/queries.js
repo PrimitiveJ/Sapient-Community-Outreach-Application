@@ -50,4 +50,3 @@ export const GET_EVENT = gql`
         }
     }
 `
-

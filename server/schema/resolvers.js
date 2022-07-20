@@ -35,7 +35,7 @@ const resolvers = {
                 return response;
             }
             return { response: { message: 'event not found', ok: false }};
-        }
+        },
     },
 
     Mutation: {
@@ -56,6 +56,21 @@ const resolvers = {
 
             const token = signToken(user);
             return { token, user, response: { message: 'login successful', ok: true }};
+        },
+
+        signup: async(_, { inputPayload }) => {
+            console.log('server recieved signup');
+            const existingUser = await User.findOne({ username: inputPayload.username });
+
+            if (existingUser) {
+                console.log('user already exists');
+                return { response: { message: 'an account with this username already exists', ok: false }};
+            }
+
+            const newUser = await User.create(inputPayload);
+            console.log('server created new user: ', newUser);
+            const token = signToken(newUser);
+            return { token, user: newUser, response: { message: 'account creation successful', ok: true }};
         },
 
         createEvent: async (_, { author, inputPayload }) => {

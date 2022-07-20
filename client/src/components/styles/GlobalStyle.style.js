@@ -33,15 +33,23 @@ const GlobalStyle = createGlobalStyle`
         margin-bottom: 15px;
     }
 
+    .modal-content .btn-close {
+        background-color: #8bb888;
+        opacity: 1;
+        color: white;
+    }
+
     .modal-content button {
-        background-color: #81b88f;
+        /* background-color: #81b88f; */
+        background-color: #4a3415;
         border-color: #7b9175;
     }
 
     .modal-content .btn-primary:hover,
     .modal-content .btn-primary:active,
     .modal-content .btn-primary:focus {
-        background-color: #7eaf74;
+        /* background-color: #7eaf74; */
+        background-color: #4a3415;
         border-color: #7eaf74;
         box-shadow: none;
     }
@@ -61,10 +69,16 @@ const GlobalStyle = createGlobalStyle`
         margin-right: 5px;
     }
 
-    .modal-body form h1 {
+    .modal-body form h1,
+    .modal-body form h2 {
         color: white;
         margin-top: 20px;
         margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .modal-body form h2 {
+        font-size: 1.5rem;
     }
 
     .modal-body .form-label {

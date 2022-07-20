@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import auth from '../../../utils/auth';
 
 // import BackgroundImage from '../../../components/BackgroundImage';
@@ -26,6 +26,7 @@ const Header = () => {
       auth.logout();
       window.location.assign('/home');
     }
+
 
     return (
         <LocalStyles>

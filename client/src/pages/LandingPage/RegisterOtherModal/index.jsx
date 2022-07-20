@@ -4,9 +4,15 @@ import auth from '../../../utils/auth';
 import stateList from '../../../utils/state-list.json';
 
 const RegisterOtherModal = ({ active, onHide }) => {
+    const getDefaultForm = () => ({
+        use: false, 
+        email: '',
+        zipcode: ''
+    });
+
     const [formData, setFormData] = useState({
-        organizer: { use: false },
-        business: { use: false },
+        organizer: getDefaultForm(),
+        business: getDefaultForm()
     });
 
     const toggleRegistry = registerType => {
@@ -21,6 +27,10 @@ const RegisterOtherModal = ({ active, onHide }) => {
         });
     }
 
+    /*
+        todo: react gives warning here about 'changing uncontrolled input from undefined -> defined.
+        let's see if we can fix this later. not an issue right now though.
+    */
     const updateFormData = (event, registerType) => {
         const prevData = formData[registerType];
         const { name, value } = event.target;
@@ -29,20 +39,28 @@ const RegisterOtherModal = ({ active, onHide }) => {
             ...formData,
             [registerType]: {
                 ...prevData,
-                [name]: value
+                [name]: value, // <-- probably what's causing the warning
             }
         });
     }
 
     const renderRegisterFormWithType = registerType => {
+        const data = formData[registerType] || {};
         const updater = event => updateFormData(event, registerType);
 
         return <>
+            <h2>
+                {
+                    registerType === 'business'
+                    ? 'Business Information' 
+                    : 'Organizer Information'
+                }
+            </h2>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
 
                 <Form.Control 
-                onChange={updater} 
+                onChange={updater} value={data.email}
                 key="email" name="email" 
                 type="email" placeholder="Enter email"
                 />
@@ -55,7 +73,7 @@ const RegisterOtherModal = ({ active, onHide }) => {
             <Form.Group className="mb-3" controlId="formBasicZipCode">
                 <Form.Label>Zip</Form.Label>
                 <Form.Control 
-                onChange={updater}
+                onChange={updater} value={data.zipcode}
                 name="zipcode" key="zipcode" 
                 type="zipcode" placeholder="Zip Code" 
                 />
@@ -68,11 +86,17 @@ const RegisterOtherModal = ({ active, onHide }) => {
     return (
         <Modal show={active} onHide={onHide}>
             <Modal.Header closeButton>
-                <Modal.Title>Register
+                <Modal.Title>
                 {
-                    formData.business
-                        ? ' as a Business Sponsor' 
-                        : ' as an Organizer'
+                    formData.business.use
+                        ? 'Register as a Business Sponsor' 
+                        : formData.organizer.use
+                        ? 'Register as an Organizer'
+                        : 'Select a registry type:'
+                }
+                {
+                    formData.business.use && formData.organizer.use
+                    ? ' and an Organizer' : ''
                 }
                 </Modal.Title>
             </Modal.Header>
@@ -106,7 +130,7 @@ const RegisterOtherModal = ({ active, onHide }) => {
                     Close
                 </Button>
                 <Button variant="primary" onClick={onHide}>
-                    Save Changes
+                    Register
                 </Button>
             </Modal.Footer>
         </Modal>

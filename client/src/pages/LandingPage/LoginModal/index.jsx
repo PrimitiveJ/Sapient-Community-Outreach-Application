@@ -1,9 +1,6 @@
 
 import React, { useState } from 'react';
-import style from 'styled-components';
-// import { useNavigate } from 'react-router-dom';
-import { useQuery, useMutation } from "@apollo/client";
-import { GET_USER } from '../../../utils/queries';
+import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from '../../../utils/mutations';
 
 import auth from '../../../utils/auth';
