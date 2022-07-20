@@ -49,7 +49,16 @@ export const GET_EVENT = gql`
     }
   }
 `;
-
+export const GET_EVENTS_10 = gql`
+  query getEbvents10 {
+    getEvents10 {
+      author: String
+      title: String
+      description: String
+      location: Location
+    }
+  }
+`;
 const GET_MAP_API_KEY = gql`
   query getMapAPIKey {
     getMapAPIKey

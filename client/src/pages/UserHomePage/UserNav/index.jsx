@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Nav from "react-bootstrap/Nav";
 
 import { useQuery } from "@apollo/client";
-import { GET_MAP_API_KEY } from "../../../utils/queries";
+// import { GET_MAP_API_KEY } from "../../../utils/queries";
 
 // import { Route, Routes } from "react-router-dom";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
@@ -45,14 +45,14 @@ const UserNav = () => {
     setActiveModal("user-map");
   };
 
-  // mount hook - only runs code once per page load
-  useEffect(() => {
-    API_KEY.current = useQuery(GET_MAP_API_KEY, {
-      variables: {},
-    });
+  // // mount hook - only runs code once per page load
+  // useEffect(() => {
+  //   API_KEY.current = useQuery(GET_MAP_API_KEY, {
+  //     variables: {},
+  //   });
 
-    console.log("API KEY RESPONSE: ", API_KEY.current);
-  }, []);
+  //   console.log("API KEY RESPONSE: ", API_KEY.current);
+  // }, []);
 
   return (
     <LocalStyles>
