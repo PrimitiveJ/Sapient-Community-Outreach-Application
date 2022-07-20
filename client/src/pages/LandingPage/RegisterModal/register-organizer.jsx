@@ -27,10 +27,6 @@ function RegisterOrganizer(props) {
               {props.everystate.map(state => {return <option>{state}</option>})}
             </Form.Select>
           </Form.Group>
-          {/* <Form.Select aria-label="Default select example">
-            <option>Select your State</option>
-            {props.everystate.map(state => {return <option>{state}</option>})}
-          </Form.Select> */}
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Zip</Form.Label>

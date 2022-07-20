@@ -61,7 +61,7 @@ function App() {
       <ThemeSelectionProvider>
         <Routes>
           <Route path="/" element={<LandingPageIntro/>}/>
-          <Route path="/home" element={<LandingPage/>}/>
+          <Route path="/home" element={<EventCreationPage/>}/>
           <Route path="/user-home" element={<UserHomePage/>}/>
           <Route path="/event/:id" element={<EventPage/>}/>
           <Route path="/dev" element={<TestPage/>}/>
