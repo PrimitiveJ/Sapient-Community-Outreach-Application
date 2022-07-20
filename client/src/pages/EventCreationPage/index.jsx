@@ -11,6 +11,8 @@ import React, {useState} from "react";
 import Card from 'react-bootstrap/Card';
 import {Modal, ModalHeader, ModalBody, ModalFooter, Form} from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
+import ImageUploading from 'react-images-uploading';
+import UploadImage from './UploadImage'
 
 const everystate = [
     'Alabama',
@@ -238,12 +240,14 @@ export default class EventCreationPage extends React.Component {
                                     </Form>
                                 </div>
                             </div>
-                            <form action="/stats" enctype="multipart/form-data" method="post">
+                            {/* <form action="/stats" enctype="multipart/form-data" method="post">
                                 <div class="form-group">
                                     <label>Image:</label>
                                     <input type="file" class="form-control-file" name="uploaded_file"/>
                                 </div>
-                            </form>
+                            </form> */}
+                            <UploadImage/>
+                            
                         </ModalBody>
                         <ModalFooter>
                             <input type="submit" value="Submit" color="primary" className="btn btn-primary"/>
