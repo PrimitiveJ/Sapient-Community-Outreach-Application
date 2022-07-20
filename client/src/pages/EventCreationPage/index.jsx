@@ -9,7 +9,7 @@
 
 import React, {useState} from "react";
 import Card from 'react-bootstrap/Card';
-import {Modal, ModalHeader, ModalBody, ModalFooter, Form, FormSelect} from 'react-bootstrap'
+import {Modal, ModalHeader, ModalBody, ModalFooter, Form} from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 
 const everystate = [
@@ -161,7 +161,7 @@ export default class EventCreationPage extends React.Component {
                     <form onSubmit={
                         this.handleSubmit
                     }>
-                        <ModalHeader>Event Information:</ModalHeader>
+                        <ModalHeader><h1>Event Information:</h1></ModalHeader>
                         <ModalBody>
                             <div className="row">
                                 <div className="form-group col-md-12">
