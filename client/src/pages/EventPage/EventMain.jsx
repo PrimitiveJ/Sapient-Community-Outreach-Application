@@ -29,7 +29,7 @@ const HoverEffect = styled.div`
 
 const something = () => { console.log('something');}
 
-function EventMain() {
+function EventMain(props) {
     const box = useRef();
 
     const changeBackgroundColor = () => {
