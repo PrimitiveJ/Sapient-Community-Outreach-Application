@@ -5,16 +5,6 @@ function RegisterOrganizer(props) {
     return (
         <Form>
             <h1>Event Organizer Registration</h1>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Username</Form.Label>
-            <Form.Control type="username" placeholder="Username" />
-          </Form.Group>
-    
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
-
           <Form.Group className="mb-3" controlId="formBasicCity">
             <Form.Label>City</Form.Label>
             <Form.Control type="city" placeholder="City" />

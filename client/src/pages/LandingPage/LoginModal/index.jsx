@@ -1,9 +1,6 @@
 
 import React, { useState } from 'react';
-import style from 'styled-components';
-// import { useNavigate } from 'react-router-dom';
-import { useQuery, useMutation } from "@apollo/client";
-import { GET_USER } from '../../../utils/queries';
+import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from '../../../utils/mutations';
 
 import auth from '../../../utils/auth';
@@ -16,7 +13,7 @@ import {
     Button
 } from 'react-bootstrap';
 
-const LoginModal = ({ modalActive, hideModal }) => {
+const LoginModal = ({ active, onHide }) => {
     const [formData, setFormData] = useState({});
     const [login] = useMutation(LOGIN_USER);
 
@@ -81,7 +78,7 @@ const LoginModal = ({ modalActive, hideModal }) => {
     */
     return (
         <>
-            <Modal show={modalActive} onHide={hideModal}>
+            <Modal show={active} onHide={onHide}>
                 <Modal.Header closeButton>
                     <Modal.Title>Login:</Modal.Title>
                 </Modal.Header>

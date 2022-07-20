@@ -1,104 +1,35 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-
+import React, { useState, useEffect } from "react";
 import auth from '../../../utils/auth';
 
 // import BackgroundImage from '../../../components/BackgroundImage';
 import { Logo } from "../../../components/Logo";
 import { StyledRoundButton } from "../../../components/styles/StyledButton.style";
 import { Container, Row, Col } from "react-bootstrap";
-import RegisterModal from "../RegisterModal";
+import RegisterUserModal from "../RegisterUserModal";
+import RegisterOtherModal from "../RegisterOtherModal";
 import LoginModal from "../LoginModal";
+import LocalStyles from "./local.styles";
 
-// import { images } from '../../../assets';
-
-const StyledHeader = styled.header`
-  width: 100%;
-  background-image: url(${({ backgroundImage }) => backgroundImage});
-  background-size: cover;
-  background-position: center;
-  padding-bottom: 20px;
-
-  .headerLogo {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: "Edu VIC WA NT Beginner", cursive;
-  }
-
-  .registerButtonContainer {
-    margin-top: 50px;
-    margin-bottom: 10px;
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .signupBtn,
-  .loginBtn,
-  .logoutBtn {
-    font-weight: 700;
-    background: none;
-    box-shadow: 0 0 5px black;
-    transition: background-color 0.5s;
-  }
-
-  .signupBtn {
-    text-decoration: underline;
-  }
-
-  .loginBtn {
-    background-color: #6f9674;
-  }
-
-  .logoutBtn {
-    background-color: #304631;
-  }
-
-  .registerBtn:hover {
-    background-color: ${({ theme }) => theme.themeEight};
-  }
-
-  h1 {
-    font-family: inherit;
-    color: ${({ theme }) => theme.textColorFour};
-    font-size: 3rem;
-    margin-bottom: 10px;
-  }
-
-  .headerLogo p {
-    font-family: inherit;
-    text-align: center;
-  }
-`;
 
 const Header = () => {
-  /*
+    /*
         Modal active states:
             * none: no modals are visible
-            * register: register modal is visible
-            * login: login modal is visible
+            * registerUser: (if) user is logged out
+            * registerOther: (if) user is logged in
+            * login: login modal is visible (if) user is logged out
     */
-    const [activeModal, setActiveModal] = useState('none');
-
-
-    // handlers
-    const hideModal = () => setActiveModal('none');
-    const showLoginModal = () => setActiveModal('login');
-    const showRegisterModal = () => setActiveModal('register');
+    const [registerType, setRegisterType] = useState('none');
+    const hideModal = () => setRegisterType('none');
 
     const handleLogout = () => {
       auth.logout();
       window.location.assign('/home');
     }
 
-    // !debug
-    console.log('is logged in: ', auth.loggedIn());
 
     return (
-        <StyledHeader>
+        <LocalStyles>
             <div className="headerLogo">
                 <Logo size="200px" padding="15px"/>
                 <h1>Sapient</h1>
@@ -107,21 +38,65 @@ const Header = () => {
                 </Col>
             </div>
             {
-                // user is logged in
+                // (if) user is logged in
                 auth.loggedIn() 
                 ? <div className="registerButtonContainer">
-                    <StyledRoundButton onClick={handleLogout} className="registerBtn logoutBtn">Logout</StyledRoundButton>
+
+                    {/* Logout button */}
+                    <StyledRoundButton 
+                    onClick={handleLogout} 
+                    className="registerBtn logoutBtn">
+                      Logout
+                    </StyledRoundButton>
+
+                    {/* Register as business/organizer button */}
+                    <StyledRoundButton 
+                    onClick={() => setRegisterType('registerOther')} 
+                    className="registerBtn signupBtn">
+                      Register
+                    </StyledRoundButton>
                   </div> 
 
-                // user is not logged in
+                // (if) user is NOT logged in
                 : <div className="registerButtonContainer">
-                    <StyledRoundButton onClick={showLoginModal} className="registerBtn loginBtn">Login</StyledRoundButton>
-                    <StyledRoundButton onClick={showRegisterModal} className="registerBtn signupBtn">Sign Up</StyledRoundButton>
+
+                    {/* Login button */}
+                    <StyledRoundButton 
+                    onClick={() => setRegisterType('login')} 
+                    className="registerBtn loginBtn">
+                      Login
+                    </StyledRoundButton>
+
+                    {/* Register account button */}
+                    <StyledRoundButton 
+                    onClick={() => setRegisterType('registerUser')} 
+                    className="registerBtn signupBtn">
+                      Sign Up
+                    </StyledRoundButton>
                 </div>
             }
-            <RegisterModal modalActive={activeModal === 'register'} hideModal={hideModal}/>
-            <LoginModal modalActive={activeModal === 'login'} hideModal={hideModal}/>
-        </StyledHeader>
+
+            
+            {/* 
+              Register prompts based on user register type selection
+            */}
+            {auth.loggedIn()
+              ? <RegisterOtherModal 
+                active={registerType === 'registerOther'}
+                onHide={hideModal}
+                />
+              : <RegisterUserModal 
+                active={registerType === 'registerUser'}
+                onHide={hideModal}
+                />
+            }
+
+            {/* Render login modal (if) user is logged out */}
+            <LoginModal 
+            active={registerType === 'login'} 
+            onHide={hideModal}
+            />
+        </LocalStyles>
     );
 }
 

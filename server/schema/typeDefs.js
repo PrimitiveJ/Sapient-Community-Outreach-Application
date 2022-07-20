@@ -10,8 +10,14 @@ const typeDefs = `
 
     type User {
         username: String
-        password: String
         response: Response
+    }
+
+    input UserInput {
+        username: String!
+        email: String
+        password: String!
+        zipcode: String
     }
 
     type Location {
@@ -66,6 +72,7 @@ const typeDefs = `
     type Mutation {
         createEvent(author: String!, inputPayload: EventInput): Response
         login(username: String!, password: String!): AuthFilter
+        signup(inputPayload: UserInput): AuthFilter
     }
 
 `

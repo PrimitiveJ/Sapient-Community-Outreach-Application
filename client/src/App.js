@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ThemeSelectionProvider } from './providers/ThemeSelectionProvider';
 import { Route, Routes } from 'react-router-dom';
 import { setContext } from "@apollo/client/link/context";
+import GlobalStyle from './components/styles/GlobalStyle.style';
 
 import {
   ApolloClient,
@@ -59,6 +60,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <ThemeSelectionProvider>
+        {/* use global css styles */}
+        <GlobalStyle />
         <Routes>
           <Route path="/" element={<LandingPageIntro/>}/>
           <Route path="/home" element={<LandingPage/>}/>
