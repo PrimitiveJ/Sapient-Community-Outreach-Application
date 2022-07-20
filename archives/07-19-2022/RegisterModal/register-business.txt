@@ -11,6 +11,11 @@ function RegisterBusiness(props) {
             <Form.Control type="address" placeholder="Address" />
           </Form.Group>
 
+          <Form.Group className="mb-3" controlId="formBasicCity">
+            <Form.Label>City</Form.Label>
+            <Form.Control type="city" placeholder="City" />
+          </Form.Group>
+
           <Form.Select aria-label="State Select">
             <option>Select your State</option>
             {props.everystate.map(state => {return <option>{state}</option>})}
