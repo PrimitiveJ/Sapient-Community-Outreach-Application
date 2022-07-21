@@ -1,4 +1,4 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -35,13 +35,22 @@ const something = () => { console.log('something');}
 function EventMain(props) {
     const box = useRef();
     const { id: eventId } = useParams();
+    const [initialLoad, setLoadState] = useState(true);
 
-    const thisEvent = useQuery(GET_EVENT, { variables: { id: eventId }});
-    console.log(thisEvent);
+    if (initialLoad) {
+        const thisEvent = useQuery(GET_EVENT, { variables: { id: eventId }});
+        console.log(thisEvent);
+        console.log('THIS SHOULD ONLY RUN ONCE');
+    }
 
     const changeBackgroundColor = () => {
         box.current.style.backgroundColor = "green";
     }
+
+    useEffect(() => {
+        setLoadState(false);
+    }, []);
+
     return (
         <StyledPageContainer relative={true}>
             <BackgroundImage image={images.backgrounds.landingPageHeader}/>

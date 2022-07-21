@@ -41,7 +41,6 @@ export const GET_EVENT = gql`
             }
             participants {
                 username
-                password
             }
             response {
                 message
