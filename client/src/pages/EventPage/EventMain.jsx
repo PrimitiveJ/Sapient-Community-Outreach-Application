@@ -30,26 +30,24 @@ const HoverEffect = styled.div`
     }
 `
 
-const something = () => { console.log('something');}
 
 function EventMain(props) {
     const box = useRef();
     const { id: eventId } = useParams();
-    const [initialLoad, setLoadState] = useState(true);
 
-    if (initialLoad) {
-        const thisEvent = useQuery(GET_EVENT, { variables: { id: eventId }});
-        console.log(thisEvent);
-        console.log('THIS SHOULD ONLY RUN ONCE');
+    const { loading, data } = useQuery(GET_EVENT, { variables: { id: eventId }});
+    console.log(data);
+
+    if (loading) {
+        console.log('still loading...');
+        return
     }
+
+    console.log('I DON\'T FUCKING KNOW');
 
     const changeBackgroundColor = () => {
         box.current.style.backgroundColor = "green";
     }
-
-    useEffect(() => {
-        setLoadState(false);
-    }, []);
 
     return (
         <StyledPageContainer relative={true}>
