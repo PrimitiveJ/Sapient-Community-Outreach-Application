@@ -16,18 +16,20 @@ import { GET_EVENT } from '../../utils/queries';
 import { v4 as uuidv4 } from 'uuid';
 
 const HoverEffect = styled.div`
-.button {
-    transition: background-color 0.5s;
-}
+    .button {
+        transition: background-color 0.5s;
+    }
+
     & .button:hover {
         background-color: green !important;
     }
-.card {
-    transition: background-color 0.5s;
-}
+
+    .card {
+        transition: background-color 0.5s;
+    }
+
     & .card:hover {
         background-color: green !important;
-       
     }
 `
 
@@ -85,34 +87,28 @@ function EventMain(props) {
                 <Accordion defaultActiveKey="0">
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>Comments</Accordion.Header>
-                        <Accordion.Body >
-                            <> {
-                                [
-                                    'Primary',
-                                    'Secondary',
-                                ].map((variant) => (
-                                    <HoverEffect key={uuidv4()}>
-                                        <Card 
-                                            bg={variant.toLowerCase()}
-                                            text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
-                                            style={{ width: '30%vw' }}
-                                            className="mb-4">
+                        <Accordion.Body>
 
-                                            <Card.Header>
-                                                Date/Time of comment
-                                            </Card.Header>
+                            {eventData.comments.map((comment) => (
+                                // <HoverEffect key={uuidv4()}>
+                                    <Card 
+                                        // bg={variant.toLowerCase()}
+                                        // text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
+                                        style={{ width: '30%vw' }}
+                                        className="mb-4">
 
-                                            <Card.Body>
-                                                <Card.Title>UserName
-                                                </Card.Title>
-                                                <Card.Text>
-                                                    EXAMPLECOMMENTHERE
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </HoverEffect>
-                                ))
-                            } </>
+                                        <Card.Header>
+                                            Date/Time of comment
+                                        </Card.Header>
+
+                                        <Card.Body>
+                                            <Card.Title>{comment.author}</Card.Title>
+                                            <Card.Text>{comment.content}</Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                // </HoverEffect>
+                            ))}
+
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>

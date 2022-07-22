@@ -12,7 +12,7 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import UserCalendarModal from "../UserCalendar";
 import auth from '../../../utils/auth';
-import EventModal from '../../EventCreationPage';
+import EventModal from '../CreateEventModal';
 import { POST_EVENT } from '../../../utils/mutations';
 import { useMutation } from '@apollo/client';
 /*
@@ -62,7 +62,7 @@ const UserNav = () => {
           />
         </ButtonGroup>
       </Nav>
-      <EventModal onHide={hideModal} isShown={activeModal === "post-event"} postFunc={postEvent}/>
+      <EventModal hideModal={hideModal} isShown={activeModal === "post-event"} postFunc={postEvent}/>
     </LocalStyles>
   );
 };

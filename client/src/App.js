@@ -18,7 +18,6 @@ import {
   LandingPage,
   UserHomePage,
   EventPage,
-  EventCreationPage,
   LandingPageIntro,
   TestPage,
 } from "./pages";

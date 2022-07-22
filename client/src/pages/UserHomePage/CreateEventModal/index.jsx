@@ -11,8 +11,12 @@ import React, {useState} from "react";
 import Card from 'react-bootstrap/Card';
 import {Modal, ModalHeader, ModalBody, ModalFooter, Form} from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
-import everystate from '../../utils/state-list.json';
-import auth from '../../utils/auth';
+import everystate from '../../../utils/state-list.json';
+import auth from '../../../utils/auth';
+
+/*
+    Event creation modal component
+*/
 export default class EventCreationPage extends React.Component {
     constructor(props) {
         super(props);
@@ -33,24 +37,35 @@ export default class EventCreationPage extends React.Component {
         return this.isShown
     }   
 
+    /*
+        Update class component state when an input field changes 
+        in the form
+    */
     handleFormChange(event) {
         let { name, value } = event.target;
 
+        // Special case for state selection, since we need [event.target.value]
         if (name === 'state') {
             value = event.target.value;
         }
 
+        // Update modal state
         this.setState({
             ...this.state,
             [name]: value
         });
     }
 
+
+    /*
+        Process event form submission
+    */
     async handleSubmit(event) {
         event.preventDefault();
         this.props.onHide();
 
-        const form = {
+        // Construct the form payload to send off to the server
+        const eventForm = {
             title: this.state.title,
             description: this.state.description,
             location: {city: this.state.city, state: this.state.state},
@@ -60,10 +75,12 @@ export default class EventCreationPage extends React.Component {
             createdAt: (new Date()).toDateString()
         }
 
+        // Make post request to server
         const { data: { createEvent: postEventResponse }} = (await this.props.postFunc({
-            variables: { author: auth.getProfile().data.username, inputPayload: form }
+            variables: { author: auth.getProfile().data.username, inputPayload: eventForm }
         }));
 
+        // Validate post request response
         if (postEventResponse.ok) {
             window.location.assign('/user-home');
         } else {
@@ -75,7 +92,7 @@ export default class EventCreationPage extends React.Component {
     render(props) {
 
         return (
-            <Modal show={this.props.isShown}>
+            <Modal show={this.props.isShown} onHide={this.props.hideModal}>
                 <ModalHeader>
                     <h2>Event Information:</h2>
                 </ModalHeader>
@@ -120,7 +137,7 @@ export default class EventCreationPage extends React.Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="form-group col-md-4">
+                        <div className="form-group col-12">
                             <label>City</label>
 
                             <input name="city" type="text"
@@ -152,7 +169,7 @@ export default class EventCreationPage extends React.Component {
 
                 <ModalFooter>
                     <Button onClick={this.handleSubmit}>Submit</Button>
-                    <Button color="danger" onClick={this.props.onHide}>Cancel</Button>
+                    <Button color="danger" onClick={this.props.hideModal}>Cancel</Button>
                 </ModalFooter>
             </Modal>
         );

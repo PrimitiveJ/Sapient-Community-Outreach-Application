@@ -21,6 +21,29 @@ export default styled.div`
         font-weight: inherit;
     }
 
+    .card {
+        background-color: #8c9cff;
+    }
+
+    .card-title {
+        position: relative;
+        color: #003cff;
+        width: fit-content;
+        font-weight: 900;
+        /* text-decoration: underline; */
+    }
+
+    .card-title::after {
+        z-index: 20;
+        content: '';
+        background-color: #003cff;
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0;
+        bottom: 0;
+    }
+
     .main-container {
         padding: 20px;
     }
