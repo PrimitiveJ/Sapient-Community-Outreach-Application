@@ -61,7 +61,7 @@ function EventMain(props) {
             <Card className="bg-light main-container">
                 <Row className="event-head-info">
                     <Col sm={8}>
-                        <h1>Event: {eventData.title}</h1>
+                        <h1>{eventData.title}</h1>
                     </Col>
                     <Col sm={4} className="event-date-title">Date: <span>{eventData.date}</span></Col>
                 </Row>
@@ -110,9 +110,8 @@ function EventMain(props) {
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
+                {/* <Button variant="primary" className="submit-comment-btn">Submit a Comment</Button> */}
             </Card>
-            <HoverEffect> <Button variant="primary">Submit a Comment</Button></HoverEffect>
-                {' '}
         </Container>
     </StyledPageContainer>
     );

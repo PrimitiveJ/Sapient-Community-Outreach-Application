@@ -19,6 +19,7 @@ export default styled.div`
 
     h1 {
         color: white;
+        font-weight: 900;
     }
 
     h2 {
@@ -39,7 +40,22 @@ export default styled.div`
         color: #003cff;
         width: fit-content;
         font-weight: 900;
+        margin-bottom: 20px;
         /* text-decoration: underline; */
+    }
+
+    .accordion {
+        width: 70% !important;
+    }
+
+    .accordion-button {
+        background-color: #707e6b;
+        color: white;
+    }
+
+    .accordion-button::after {
+        color: white;
+        filter: invert() !important;
     }
 
     .card-title::after {
