@@ -15,10 +15,10 @@ const resolvers = {
     },
 
     getSelf: async (_, args, context) => {
-      /*
-                If [context.user] exists, then the requesting user is logged in and their data
-                is stored inside of [context.user], provided by the auth middleware on the server.
-            */
+          /*
+              If [context.user] exists, then the requesting user is logged in and their data
+              is stored inside of [context.user], provided by the auth middleware on the server.
+          */
       if (context.user) {
         const userData = await User.findOne({
           username: context.user.username,
@@ -29,48 +29,23 @@ const resolvers = {
         };
       }
 
-<<<<<<< HEAD
-            return { response: { message: 'local user is not logged in', ok: false }};
-        },
-
-
-        getEvent: async (_, { id }) => {
-            const event = await Event.findOne({ _id: id });
-            if (event) {
-                const response = {...event._doc, response: { message: 'found event', ok: true }};
-                console.log('FOUND EVENT: ', response);
-                return response;
-            }
-            return { response: { message: 'event not found', ok: false }};
-        },
-
-        get10Events: async () => {
-            const events10 = await Event.find({}).limit(10);
-            return events10;
-        }
-=======
-      return {
-        response: { message: "local user is not logged in", ok: false },
-      };
->>>>>>> 14509b623769678ff193024575e0a3e47b5015e0
+      return { response: { message: 'local user is not logged in', ok: false }};
     },
 
     getEvent: async (_, { id }) => {
-      const event = await Event.findOne({ _id: id });
-      if (event) {
-        const response = {
-          ...event._doc,
-          response: { message: "found event", ok: true },
-        };
-        return response;
-      }
-      return { response: { message: "event not found", ok: false } };
+        const event = await Event.findOne({ _id: id });
+        if (event) {
+            const response = {...event._doc, response: { message: 'found event', ok: true }};
+            console.log('FOUND EVENT: ', response);
+            return response;
+        }
+        return { response: { message: 'event not found', ok: false }};
     },
 
     get10Events: async () => {
-      const events10 = await Event.find({}).limit(10);
-      return events10;
-    },
+        const events10 = await Event.find({}).limit(10);
+        return events10;
+    }
   },
 
   Mutation: {
@@ -89,6 +64,7 @@ const resolvers = {
         // throw new AuthenticationError("Incorrect password");
       }
     },
+
     signup: async (_, { inputPayload }) => {
       console.log("server recieved signup");
       const existingUser = await User.findOne({
@@ -115,23 +91,12 @@ const resolvers = {
       };
     },
 
-<<<<<<< HEAD
-        createEvent: async (_, { author, inputPayload }) => {
-            console.log('created new event: ', author, inputPayload);
-            const newEvent = await Event.create({ ...inputPayload, author });
-            console.log('actual event data: ', newEvent);
-            return { message: 'created new event!', ok: true };
-        }
+    createEvent: async (_, { author, inputPayload }) => {
+        console.log('created new event: ', author, inputPayload);
+        const newEvent = await Event.create({ ...inputPayload, author });
+        console.log('actual event data: ', newEvent);
+        return { message: 'created new event!', ok: true };
     }
 }
-=======
-    createEvent: async (_, { author, inputPayload }) => {
-      console.log("created new event: ", author, inputPayload);
-      const newEvent = await Event.create({ ...inputPayload, author });
-      return { message: "created new event!", ok: true };
-    },
-  },
-};
->>>>>>> 14509b623769678ff193024575e0a3e47b5015e0
 
 module.exports = resolvers;
