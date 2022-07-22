@@ -21,3 +21,22 @@ export const POST_EVENT = gql`
         }
     }
 `
+
+
+export const SIGNUP_USER = gql`
+    mutation signup($inputPayload: UserInput) {
+        signup(inputPayload: $inputPayload) {
+            token
+            user {
+                username
+            }
+            response {
+                message
+                ok
+            }
+        }
+    }
+`
+
+
+

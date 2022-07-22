@@ -14,8 +14,15 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import UserCalendarModal from "../UserCalendar";
+<<<<<<< HEAD
 import UserMapModal from "../UserMap";
 
+=======
+import auth from '../../../utils/auth';
+import EventModal from '../../EventCreationPage';
+import { POST_EVENT } from '../../../utils/mutations';
+import { useMutation } from '@apollo/client';
+>>>>>>> develop
 /*
   Replaced the 'UserNav.css' file with this style component
   place all your local css for this component here :D
@@ -29,9 +36,9 @@ const LocalStyles = styled.div`
   }
 
   button {
-    cursor: pointer;
-    background-color: #b6d0b7 !important;
-    border-color: white !important;
+      cursor: pointer;
+      background-color: #4d714e !important;
+      border-color: white !important;
   }
 `;
 
@@ -45,14 +52,9 @@ const UserNav = () => {
     setActiveModal("user-map");
   };
 
-  // // mount hook - only runs code once per page load
-  // useEffect(() => {
-  //   API_KEY.current = useQuery(GET_MAP_API_KEY, {
-  //     variables: {},
-  //   });
+  const showEventModal = () => setActiveModal("post-event");
 
-  //   console.log("API KEY RESPONSE: ", API_KEY.current);
-  // }, []);
+  const [postEvent] = useMutation(POST_EVENT);
 
   return (
     <LocalStyles>
@@ -61,6 +63,8 @@ const UserNav = () => {
           <Button onClick={showUserMapModal} variant="primary">
             Events
           </Button>
+          <Button onClick={showEventModal}>Create Event</Button>
+          <Button>My Events</Button>
           <Button onClick={showUserCalendarModal} variant="primary">
             My Calendar
           </Button>
@@ -78,6 +82,7 @@ const UserNav = () => {
           />
         </ButtonGroup>
       </Nav>
+      <EventModal onHide={hideModal} isShown={activeModal === "post-event"} postFunc={postEvent}/>
     </LocalStyles>
   );
 };

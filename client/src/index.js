@@ -11,16 +11,16 @@ import "./index.css";
 
     -Will, 07/16/2022 12:52AM
 */
-const allEl = document.querySelector("body");
-window.addEventListener("keydown", (event) => {
-  if (event.keyCode === 87) {
-    if (allEl.classList.contains("wireframe")) {
-      allEl.classList.remove("wireframe");
-    } else {
-      allEl.classList.add("wireframe");
-    }
-  }
-});
+// const allEl = document.querySelector("body");
+// window.addEventListener("keydown", (event) => {
+//   if (event.keyCode === 87) {
+//     if (allEl.classList.contains("wireframe")) {
+//       allEl.classList.remove("wireframe");
+//     } else {
+//       allEl.classList.add("wireframe");
+//     }
+//   }
+// });
 
 // Initiate react app
 const root = ReactDOM.createRoot(document.getElementById("root"));

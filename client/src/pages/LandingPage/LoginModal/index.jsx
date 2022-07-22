@@ -1,9 +1,6 @@
 
 import React, { useState } from 'react';
-import style from 'styled-components';
-// import { useNavigate } from 'react-router-dom';
-import { useQuery, useMutation } from "@apollo/client";
-import { GET_USER } from '../../../utils/queries';
+import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from '../../../utils/mutations';
 
 import auth from '../../../utils/auth';
@@ -16,8 +13,12 @@ import {
     Button
 } from 'react-bootstrap';
 
-const LoginModal = ({ modalActive, hideModal }) => {
-    const [formData, setFormData] = useState({});
+const LoginModal = ({ active, onHide, formError, setFormError }) => {
+    const [formData, setFormData] = useState({
+        username: '',
+        password: ''
+    });
+
     const [login] = useMutation(LOGIN_USER);
 
     /*
@@ -25,6 +26,15 @@ const LoginModal = ({ modalActive, hideModal }) => {
     */
     const handleFormSubmit = async event => {
         event.preventDefault();
+
+        if (!formData.username.trim()) {
+            setFormError({
+                ...formError,
+                default: { hidden: false, message: 'invalid username' }
+            });
+            return;
+        }
+
 
         /*
             Get data response object from the LOGIN_USER mutation. Data 
@@ -58,10 +68,13 @@ const LoginModal = ({ modalActive, hideModal }) => {
         if (data.response.ok) {
             auth.login(data.token);
             window.location.assign('/home');
+        } else {
+            console.log('response: ', data);
+            setFormError({
+                ...formError,
+                default: { hidden: false, message: data.response.message }
+            });
         }
-
-        // !debug
-        console.log('response: ', data);
     }
     
     /*
@@ -81,23 +94,26 @@ const LoginModal = ({ modalActive, hideModal }) => {
     */
     return (
         <>
-            <Modal show={modalActive} onHide={hideModal}>
+            <Modal show={active} onHide={onHide}>
                 <Modal.Header closeButton>
                     <Modal.Title>Login:</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form onSubmit={handleFormSubmit}>
                         <Form.Group>
-                            <Form.Label >Username:</Form.Label>
+                            <Form.Label >Username: </Form.Label>
+                            <Form.Text hidden={formError.invalidUsername.hidden} className="error">
+                                {formError.invalidUsername.message}
+                            </Form.Text>
                             <Form.Control name="username" type="text" onChange={handleFormChange} placeholder="Enter Username" />
-                            {/* <Form.Text className="text-muted">
-                                Username validation error message here???
-                            </Form.Text> */}
                             <Form.Label>Password:</Form.Label>
                             <Form.Control name="password" type="password" onChange={handleFormChange} placeholder="Enter Password" />
-                            <Button type="submit" variant="primary">
+                            <Button type="submit" variant="primary" style={{display: 'block'}}>
                                 Login
                             </Button>
+                            <Form.Label hidden={formError.default.hidden} className="error">
+                                {formError.default.message}
+                            </Form.Label>
                         </Form.Group>
                     </Form>
                 </Modal.Body>

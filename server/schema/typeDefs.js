@@ -9,8 +9,14 @@ const typeDefs = `
 
     type User {
         username: String
-        password: String
         response: Response
+    }
+
+    input UserInput {
+        username: String!
+        email: String
+        password: String!
+        zipcode: String
     }
 
     type Location {
@@ -35,6 +41,7 @@ const typeDefs = `
     }
 
     type Event {
+        _id: ID
         author: String
         title: String
         description: String
@@ -55,8 +62,12 @@ const typeDefs = `
         getSelf: User
         getUser(username: String!): User
         getEvent(id: ID!): Event
+<<<<<<< HEAD
         getEvents10: [Event]
        
+=======
+        get10Events: [Event]
+>>>>>>> develop
     }
 
     input EventInput {
@@ -68,6 +79,7 @@ const typeDefs = `
     type Mutation {
         createEvent(author: String!, inputPayload: EventInput): Response
         login(username: String!, password: String!): AuthFilter
+        signup(inputPayload: UserInput): AuthFilter
     }
 
 `;

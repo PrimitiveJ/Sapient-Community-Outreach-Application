@@ -5,22 +5,15 @@ function RegisterBusiness(props) {
     return (
         <Form>
             <h1>Business Sponsor Registration</h1>
-          <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label>Username</Form.Label>
-            <Form.Control type="username" placeholder="Enter Username" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-    
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
         
           <Form.Group className="mb-3" controlId="formBasicAddress">
             <Form.Label>Business Address</Form.Label>
             <Form.Control type="address" placeholder="Address" />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicCity">
+            <Form.Label>City</Form.Label>
+            <Form.Control type="city" placeholder="City" />
           </Form.Group>
 
           <Form.Select aria-label="State Select">

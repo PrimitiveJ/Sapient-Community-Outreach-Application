@@ -45,9 +45,9 @@ const resolvers = {
       }
       return { response: { message: "event not found", ok: false } };
     },
-    getEvents10: async (parent, { data }) => {
+
+    get10Events: async () => {
       const events10 = await Event.find({}).limit(10);
-      console.log("Received data from events10", events10);
       return events10;
     },
   },
@@ -67,17 +67,36 @@ const resolvers = {
         return { response: { message: "incorrect password", ok: false } };
         // throw new AuthenticationError("Incorrect password");
       }
+    },
+    signup: async (_, { inputPayload }) => {
+      console.log("server recieved signup");
+      const existingUser = await User.findOne({
+        username: inputPayload.username,
+      });
 
-      const token = signToken(user);
+      if (existingUser) {
+        console.log("user already exists");
+        return {
+          response: {
+            message: "an account with this username already exists",
+            ok: false,
+          },
+        };
+      }
+
+      const newUser = await User.create(inputPayload);
+      console.log("server created new user: ", newUser);
+      const token = signToken(newUser);
       return {
         token,
-        user,
-        response: { message: "login successful", ok: true },
+        user: newUser,
+        response: { message: "account creation successful", ok: true },
       };
     },
 
     createEvent: async (_, { author, inputPayload }) => {
       console.log("created new event: ", author, inputPayload);
+      const newEvent = await Event.create({ ...inputPayload, author });
       return { message: "created new event!", ok: true };
     },
   },

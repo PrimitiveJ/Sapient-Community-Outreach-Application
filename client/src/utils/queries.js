@@ -21,21 +21,30 @@ export const GET_SELF = gql`
 `;
 
 export const GET_EVENT = gql`
-  query getEvent($id: ID!) {
-    getEvent(id: $id) {
-      author
-      title
-      description
-      location {
-        city
-        state
-      }
-      comments {
-        author
-        content
-        replies {
-          author
-          content
+    query getEvent($id: ID!) {
+        getEvent(id: $id) {
+            author
+            title
+            description
+            location {
+                city
+                state
+            }
+            comments {
+                author
+                content
+                replies {
+                    author
+                    content
+                }
+            }
+            participants {
+                username
+            }
+            response {
+                message
+                ok
+            }
         }
       }
       participants {
@@ -47,20 +56,18 @@ export const GET_EVENT = gql`
         ok
       }
     }
-  }
-`;
-export const GET_EVENTS_10 = gql`
-  query getEbvents10 {
-    getEvents10 {
-      author: String
-      title: String
-      description: String
-      location: Location
+`
+
+
+export const GET_10_EVENTS = gql`
+
+    query get10Events {
+        get10Events {
+            _id
+            author
+            title
+            description
+        }
     }
-  }
-`;
-const GET_MAP_API_KEY = gql`
-  query getMapAPIKey {
-    getMapAPIKey
-  }
-`;
+
+`

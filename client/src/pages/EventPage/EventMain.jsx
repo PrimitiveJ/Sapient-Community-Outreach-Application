@@ -1,4 +1,4 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -10,6 +10,9 @@ import styled from 'styled-components';
 import BackgroundImage from "../../components/BackgroundImage";
 import { images } from '../../assets';
 import { StyledPageContainer } from "../../components/styles/StyledPageContainer.style";
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { GET_EVENT } from '../../utils/queries';
 
 const HoverEffect = styled.div`
 .button {
@@ -27,14 +30,25 @@ const HoverEffect = styled.div`
     }
 `
 
-const something = () => { console.log('something');}
 
-function EventMain() {
+function EventMain(props) {
     const box = useRef();
+    const { id: eventId } = useParams();
+
+    const { loading, data } = useQuery(GET_EVENT, { variables: { id: eventId }});
+    console.log(data);
+
+    if (loading) {
+        console.log('still loading...');
+        return
+    }
+
+    console.log('I DON\'T FUCKING KNOW');
 
     const changeBackgroundColor = () => {
         box.current.style.backgroundColor = "green";
     }
+
     return (
         <StyledPageContainer relative={true}>
             <BackgroundImage image={images.backgrounds.landingPageHeader}/>

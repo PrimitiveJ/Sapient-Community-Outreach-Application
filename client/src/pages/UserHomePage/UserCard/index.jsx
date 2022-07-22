@@ -11,19 +11,21 @@ import UserImage from "./userImage";
 // import UserNav from "../UserNav";
 import UserCalendarModal from "../UserCalendar";
 import UserNav from "../UserNav";
+import auth from '../../../utils/auth';
 
-function UserCard({ userData }) {
+function UserCard() {
   const [activeModal, setActiveModal] = useState("none");
   const hideModal = () => setActiveModal("none");
   const showUserCalendarModal = () => setActiveModal("user-calendar");
+  
   return (
-    <Card className="profile-card text-center">
+    <Card style={{  }} className="profile-card text-center">
       <Card.Img variant="top" src={images.backgrounds.roadway} />
 
-      <UserImage image={userData.picture.large} />
+      <UserImage image={images.icons.profileTemp} />
       <Card.Body>
         <Card.Title className="title">
-          {userData.name.first} {userData.name.last}
+          {auth.getProfile().data.username}
         </Card.Title>
         <Card.Text className="text">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
