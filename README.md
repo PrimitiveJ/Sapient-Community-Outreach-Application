@@ -110,6 +110,7 @@ This project was made possible by our lovely contributors:
     * *@github:* https://github.com/KaylanProphet
 * **Zac Eitel**
     - User Page, UI design, Programming, Overall app idea, Idea communicator
+    * *@github:* https://github.com/Zeitel42
 - **Mason Morris**
     * Event Creation Page, Idea communicator, Programming
 * **William Horn**
