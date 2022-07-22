@@ -7,7 +7,10 @@ const eventSchema = new mongoose.Schema({
     title: String,
     description: String,
     createdAt: Date,
-
+    image: String,
+    date: String,
+    time: String,
+    
     location: {
         city: String,
         state: String
@@ -20,6 +23,11 @@ const eventSchema = new mongoose.Schema({
             author: String,
             content: String
         }]
+    }],
+
+    sponsor: [{
+        type:mongoose.SchemaTypes.ObjectId,
+        ref: 'User'
     }],
 
     participants: [{
