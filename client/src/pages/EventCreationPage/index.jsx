@@ -82,7 +82,7 @@ export default class EventCreationPage extends React.Component {
         const form = {
             title: this.state.title,
             description: this.state.description,
-            location: this.state.location
+            location: this.state.location,
         }
         console.log('form data:', form);
 
