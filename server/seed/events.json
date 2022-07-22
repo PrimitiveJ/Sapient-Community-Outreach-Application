@@ -4,8 +4,8 @@
         "title": "Math study group!",
         "description": "Join us at the DLC for a math study group!",
         "location": {
-            "city": "durham",
-            "state": "north carolina"
+            "city": "Durham",
+            "state": "North Carolina"
         },
         "comments": [
             {
@@ -27,8 +27,8 @@
         "title": "Park Cleanup",
         "description": "Help us preserve your local park to keep the community clean and safe!",
         "location": {
-            "city": "hillsborough",
-            "state": "north carolina"
+            "city": "Hillsborough",
+            "state": "North Carolina"
         },
         "comments": [
             {
@@ -38,6 +38,39 @@
                     {
                         "author": "will",
                         "content": "yeah!"
+                    }
+                ]
+            }
+        ],
+        "participants": []
+    },
+
+    {
+        "author": "Jake",
+        "title": "Animal Shelter",
+        "description": "Help us rescue animals from an animal shelter",
+        "location": {
+            "city": "Raleigh",
+            "state": "North carolina"
+        },
+        "comments": [
+            {
+                "author": "james",
+                "content": "good idea",
+                "replies": [
+                    {
+                        "author": "Jake",
+                        "content": "thanks!"
+                    }
+                ]
+            },
+            {
+                "author": "Will",
+                "content": "yeah i'm down",
+                "replies": [
+                    {
+                        "author": "Jake",
+                        "content": "good to know!"
                     }
                 ]
             }
