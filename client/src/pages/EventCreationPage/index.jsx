@@ -82,7 +82,11 @@ export default class EventCreationPage extends React.Component {
         const form = {
             title: this.state.title,
             description: this.state.description,
-            location: this.state.location
+            location: {city: this.state.city, state: this.state.state},
+            date: this.state.date,
+            image: this.state.image,
+            time: this.state.time,
+            createdAt: Date.now()
         }
         console.log('form data:', form);
 
@@ -169,9 +173,6 @@ export default class EventCreationPage extends React.Component {
                                 <div className="form-group col-md-4">
                                     <label>City</label>
                                     <input type="text"
-                                        value={
-                                            this.state.city
-                                        }
                                         onChange={
                                             this.handleChangeLocation
                                         }
@@ -182,7 +183,7 @@ export default class EventCreationPage extends React.Component {
                                         <option>Select your State</option>
                                         {
                                         everystate.map(state => {
-                                            return <option>{state}</option>
+                                            return <option onChange={this.handleChangeLocation}>{state}</option>
                                     })
                                     } </Form.Select>
                                     </Form>
