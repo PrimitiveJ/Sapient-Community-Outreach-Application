@@ -74,7 +74,6 @@ export default class EventCreationPage extends React.Component {
         });
     }
 
-
     async handleSubmit(event) {
         event.preventDefault();
         this.props.onHide();

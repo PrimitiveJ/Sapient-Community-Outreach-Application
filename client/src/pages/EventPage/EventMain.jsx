@@ -43,8 +43,6 @@ function EventMain(props) {
         return
     }
 
-    console.log('I DON\'T FUCKING KNOW');
-
     const changeBackgroundColor = () => {
         box.current.style.backgroundColor = "green";
     }
