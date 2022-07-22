@@ -32,6 +32,7 @@ const resolvers = {
             const event = await Event.findOne({ _id: id });
             if (event) {
                 const response = {...event._doc, response: { message: 'found event', ok: true }};
+                console.log('FOUND EVENT: ', response);
                 return response;
             }
             return { response: { message: 'event not found', ok: false }};
@@ -81,6 +82,7 @@ const resolvers = {
         createEvent: async (_, { author, inputPayload }) => {
             console.log('created new event: ', author, inputPayload);
             const newEvent = await Event.create({ ...inputPayload, author });
+            console.log('actual event data: ', newEvent);
             return { message: 'created new event!', ok: true };
         }
     }

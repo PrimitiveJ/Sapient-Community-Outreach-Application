@@ -9,11 +9,36 @@ export default styled.div`
         These styles are applied to the main page container.
         This is basically the local 'body' of the page.
     */
-    font-family: 'quicksand';
-    font-weight: lighter;
-    background: rgba(92,129,202,1);
+    /* font-family: 'quicksand';
+    font-weight: lighter; */
+    /* background: rgba(92,129,202,1); */
     color:rgb(0, 0, 0);
 
+    font-family: 'Josefin Sans';
+    font-weight: 900;
+
+    h2 {
+        font-weight: inherit;
+    }
+
+    .main-container {
+        padding: 20px;
+    }
+
+    .event-head-info {
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    .event-body-info.row {
+        margin-top: 10px;
+    }
+
+    .event-body-info > div {
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
 
     // General page styling
     .accordion {
@@ -105,7 +130,6 @@ export default styled.div`
         position: absolute;
         margin-left: 375px;
     }
-
 
 `
 

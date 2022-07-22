@@ -13,6 +13,7 @@ import { StyledPageContainer } from "../../components/styles/StyledPageContainer
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_EVENT } from '../../utils/queries';
+import { v4 as uuidv4 } from 'uuid';
 
 const HoverEffect = styled.div`
 .button {
@@ -33,14 +34,21 @@ const HoverEffect = styled.div`
 
 function EventMain(props) {
     const box = useRef();
+
+    // Get the id from the '/event/:id' url
     const { id: eventId } = useParams();
 
-    const { loading, data } = useQuery(GET_EVENT, { variables: { id: eventId }});
-    console.log(data);
+    /*
+        Make a query for the single event data given an event ID in the URL parameters.
+            - Must use the 'loading' property from the data response in order to debounce
+            multiple queries
+    */
+    let eventData; {
+        const { loading, data } = useQuery(GET_EVENT, { variables: { id: eventId }});
 
-    if (loading) {
-        console.log('still loading...');
-        return
+        if (loading) return <p style={{fontSize: '3rem'}}>Loading...</p>;
+        eventData = data.getEvent;
+        console.log(eventData);
     }
 
     const changeBackgroundColor = () => {
@@ -49,28 +57,28 @@ function EventMain(props) {
 
     return (
         <StyledPageContainer relative={true}>
-            <BackgroundImage image={images.backgrounds.landingPageHeader}/>
+            <BackgroundImage image={images.backgrounds.landingPageHeader} opacity="0.5"/>
 
         <Container>
-            <Card className="bg-light">
-                <Row>
+            <Card className="bg-light main-container">
+                <Row className="event-head-info">
                     <Col sm={8}>
-                        <h1>Event-Name: {data.getEvent.title}</h1>
+                        <h1>Event-Name: {eventData.title}</h1>
                     </Col>
-                    <Col sm={4}>Date:{data.getEvent.date}</Col>
+                    <Col sm={4}>Date:{eventData.date}</Col>
                 </Row>
                 <img src={images.backgrounds.lakeCleanup}/>
-                <Row>
+                <Row className="event-body-info">
                     <Col sm>
-                        <h2>Location: {data.getEvent.location.city}, {data.getEvent.location.state}</h2>
+                        <h2>Location: {eventData.location.city}, {eventData.location.state}</h2>
                     </Col>
                     <Col sm>
-                        <h3>Organizer: {data.getEvent.author}</h3>
+                        <h2>Organizer: {eventData.author}</h2>
                     </Col>
                     <Col sm>
-                        <h3>Business Sponsor</h3>
+                        <h2>Business Sponsor</h2>
                     </Col>
-                    <div>Description: {data.getEvent.description}</div>
+                    <div>Description: {eventData.description}</div>
                 </Row>
                 <Button variant="success">Sign Up as a Participant</Button>
                 {' '}
@@ -82,33 +90,27 @@ function EventMain(props) {
                                 [
                                     'Primary',
                                     'Secondary',
-                                    'Success',
-                                    'Danger',
-                                    'Warning',
-                                    'Info',
-                                    'Light',
-                                    'Dark',
                                 ].map((variant) => (
-                                    <HoverEffect><Card bg={
-                                            variant.toLowerCase()
-                                        }
-                                        key={variant}
-                                        text={
-                                            variant.toLowerCase() === 'light' ? 'dark' : 'white'
-                                        }
-                                        style={
-                                            {width: '30%vw'}
-                                        }
-                                        className="mb-4">
-                                        <Card.Header>Date/Time of comment</Card.Header>
-                                        <Card.Body>
-                                            <Card.Title>UserName
-                                            </Card.Title>
-                                            <Card.Text>
-                                                EXAMPLECOMMENTHERE
-                                            </Card.Text>
-                                        </Card.Body>
-                                    </Card></HoverEffect>
+                                    <HoverEffect key={uuidv4()}>
+                                        <Card 
+                                            bg={variant.toLowerCase()}
+                                            text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
+                                            style={{ width: '30%vw' }}
+                                            className="mb-4">
+
+                                            <Card.Header>
+                                                Date/Time of comment
+                                            </Card.Header>
+
+                                            <Card.Body>
+                                                <Card.Title>UserName
+                                                </Card.Title>
+                                                <Card.Text>
+                                                    EXAMPLECOMMENTHERE
+                                                </Card.Text>
+                                            </Card.Body>
+                                        </Card>
+                                    </HoverEffect>
                                 ))
                             } </>
                         </Accordion.Body>

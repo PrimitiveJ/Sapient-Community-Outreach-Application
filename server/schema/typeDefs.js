@@ -61,13 +61,6 @@ const typeDefs = `
         response: Response
     }
 
-    type Query {
-        getSelf: User
-        getUser(username: String!): User
-        getEvent(id: ID!): Event
-        get10Events: [Event]
-    }
-
     input EventInput {
         title: String
         description: String
@@ -77,9 +70,16 @@ const typeDefs = `
         image: String
         createdAt: String
     }
+
+    type Query {
+        getSelf: User
+        getUser(username: String!): User
+        getEvent(id: ID!): Event
+        get10Events: [Event]
+    }
     
     type Mutation {
-        createEvent(author: String!, inputPayload: EventInput): Event
+        createEvent(author: String!, inputPayload: EventInput): Response
         login(username: String!, password: String!): AuthFilter
         signup(inputPayload: UserInput): AuthFilter
     }

@@ -27,6 +27,8 @@ export const GET_EVENT = gql`
             author
             title
             description
+            date
+            time
             location {
                 city
                 state
@@ -59,6 +61,8 @@ export const GET_10_EVENTS = gql`
             author
             title
             description
+            date
+            time
         }
     }
 

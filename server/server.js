@@ -86,7 +86,7 @@ const startApolloServer = async () => {
         console.log('database is open');
 
         // await seed.plantUsers();
-        // await seed.plantEvents();
+        await seed.plantEvents();
         // console.log('seeds planted!');
 
         app.listen(PORT, () => {
