@@ -50,6 +50,9 @@ const typeDefs = `
         response: Response
         comments: [Comment]
         participants: [User]
+        date: String
+        image: String
+        time: String
     }
 
     type AuthFilter {
@@ -69,10 +72,14 @@ const typeDefs = `
         title: String
         description: String
         location: LocationInput
+        date: String
+        time: String
+        image: String
+        createdAt: String
     }
     
     type Mutation {
-        createEvent(author: String!, inputPayload: EventInput): Response
+        createEvent(author: String!, inputPayload: EventInput): Event
         login(username: String!, password: String!): AuthFilter
         signup(inputPayload: UserInput): AuthFilter
     }

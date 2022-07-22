@@ -43,8 +43,6 @@ function EventMain(props) {
         return
     }
 
-    console.log('I DON\'T FUCKING KNOW');
-
     const changeBackgroundColor = () => {
         box.current.style.backgroundColor = "green";
     }
@@ -57,22 +55,22 @@ function EventMain(props) {
             <Card className="bg-light">
                 <Row>
                     <Col sm={8}>
-                        <h1>Event-Name</h1>
+                        <h1>Event-Name: {data.getEvent.title}</h1>
                     </Col>
-                    <Col sm={4}>Date:01/02/03</Col>
+                    <Col sm={4}>Date:{data.getEvent.date}</Col>
                 </Row>
                 <img src={images.backgrounds.lakeCleanup}/>
                 <Row>
                     <Col sm>
-                        <h2>Location</h2>
+                        <h2>Location: {data.getEvent.location.city}, {data.getEvent.location.state}</h2>
                     </Col>
                     <Col sm>
-                        <h3>Organizer</h3>
+                        <h3>Organizer: {data.getEvent.author}</h3>
                     </Col>
                     <Col sm>
                         <h3>Business Sponsor</h3>
                     </Col>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, tempora hic consequatur aspernatur eius sint dolore obcaecati explicabo, totam rem tenetur reprehenderit, nam quas dicta fugiat amet quis quae culpa?</p>
+                    <div>Description: {data.getEvent.description}</div>
                 </Row>
                 <Button variant="success">Sign Up as a Participant</Button>
                 {' '}
