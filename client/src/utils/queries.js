@@ -41,7 +41,6 @@ export const GET_EVENT = gql`
             }
             participants {
                 username
-                password
             }
             response {
                 message
@@ -56,6 +55,7 @@ export const GET_10_EVENTS = gql`
 
     query get10Events {
         get10Events {
+            _id
             author
             title
             description

@@ -22,7 +22,7 @@ function UserCard() {
     <Card style={{  }} className="profile-card text-center">
       <Card.Img variant="top" src={images.backgrounds.roadway} />
 
-      <UserImage image="" />
+      <UserImage image={images.icons.profileTemp} />
       <Card.Body>
         <Card.Title className="title">
           {auth.getProfile().data.username}

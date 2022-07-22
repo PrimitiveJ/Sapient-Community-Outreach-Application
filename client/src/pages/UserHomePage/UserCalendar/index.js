@@ -10,6 +10,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import "./UserCalendar.css";
 import enUS from "date-fns/locale/en-US";
+import LocalStyles from "./local.style";
 
 const locales = {
   "en-US": enUS,
@@ -48,6 +49,7 @@ const UserCalendarModal = ({ modalActive, hideModal }) => {
   const [allEvents, setAllEvents] = useState(events);
   return (
     <>
+    <LocalStyles>
       <Modal size="lg" show={modalActive} onHide={hideModal}>
         <Modal.Header closeButton>
           <Modal.Title>My Event Calendar</Modal.Title>
@@ -63,6 +65,7 @@ const UserCalendarModal = ({ modalActive, hideModal }) => {
         />
         <Modal.Body></Modal.Body>
       </Modal>
+      </LocalStyles>
     </>
   );
 };

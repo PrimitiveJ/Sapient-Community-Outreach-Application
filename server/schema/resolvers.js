@@ -80,6 +80,7 @@ const resolvers = {
 
         createEvent: async (_, { author, inputPayload }) => {
             console.log('created new event: ', author, inputPayload);
+            const newEvent = await Event.create({ ...inputPayload, author });
             return { message: 'created new event!', ok: true };
         }
     }

@@ -42,6 +42,7 @@ const typeDefs = `
     }
 
     type Event {
+        _id: ID
         author: String
         title: String
         description: String
