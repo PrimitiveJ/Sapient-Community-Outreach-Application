@@ -74,7 +74,6 @@ export default class EventCreationPage extends React.Component {
         });
     }
 
-
     async handleSubmit(event) {
         event.preventDefault();
         this.props.onHide();
@@ -82,15 +81,11 @@ export default class EventCreationPage extends React.Component {
         const form = {
             title: this.state.title,
             description: this.state.description,
-<<<<<<< HEAD
-            location: this.state.location,
-=======
             location: {city: this.state.city, state: this.state.state},
             date: this.state.date,
             image: this.state.image,
             time: this.state.time,
             createdAt: Date.now()
->>>>>>> c8a44312c96ec76df31998f49610f342b773c381
         }
         console.log('form data:', form);
 
