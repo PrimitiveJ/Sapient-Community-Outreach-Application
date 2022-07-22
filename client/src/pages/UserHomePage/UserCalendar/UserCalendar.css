@@ -12,3 +12,7 @@
     height: 500;
     margin: 20px;
 }
+
+.rbc-off-range-bg{
+    background-color: gray;
+}

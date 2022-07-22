@@ -73,6 +73,20 @@ const HomePage = () => {
             </div>
           </Col>
 
+      {/* <Row>
+        <Col sm={12} md={3} lg={3}>
+          <div>
+            {users.map((user, index) => (
+              <UserCard userData={user} key={index} />
+            ))}
+          </div>
+        </Col>
+
+        <Col sm={12} md={8} lg={8}>
+          <UserEvents />
+        </Col>
+      </Row>
+    </StyledPageContainer> */}
           <Col>
             <div style={{width: '100%', height: '100vh', padding: '10px'}}>
             {
