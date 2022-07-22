@@ -29,7 +29,7 @@ Here are some snippets of our UI so far:
 
 Sapient is a collaborative effort brought to you by five software development graduates at [UNC Chapel Hill.](https://www.unc.edu/)
 
-We finished developing the MVP within a very narrow time of around 9 days, which met all the goals we initially strived for.
+We finished developing the MVP within a very narrow time frame of around 9 days, which met all the goals we initially strived for.
 
 ## Technologies
 
