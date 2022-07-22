@@ -21,53 +21,41 @@ export const GET_SELF = gql`
 `;
 
 export const GET_EVENT = gql`
-    query getEvent($id: ID!) {
-        getEvent(id: $id) {
-            author
-            title
-            description
-            location {
-                city
-                state
-            }
-            comments {
-                author
-                content
-                replies {
-                    author
-                    content
-                }
-            }
-            participants {
-                username
-            }
-            response {
-                message
-                ok
-            }
+  query getEvent($id: ID!) {
+    getEvent(id: $id) {
+      author
+      title
+      description
+      location {
+        city
+        state
+      }
+      comments {
+        author
+        content
+        replies {
+          author
+          content
         }
       }
       participants {
         username
-        password
       }
       response {
         message
         ok
       }
     }
-`
-
+  }
+`;
 
 export const GET_10_EVENTS = gql`
-
-    query get10Events {
-        get10Events {
-            _id
-            author
-            title
-            description
-        }
+  query get10Events {
+    get10Events {
+      _id
+      author
+      title
+      description
     }
-
-`
+  }
+`;

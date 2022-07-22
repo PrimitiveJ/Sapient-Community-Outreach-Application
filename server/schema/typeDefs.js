@@ -65,12 +65,7 @@ const typeDefs = `
         getSelf: User
         getUser(username: String!): User
         getEvent(id: ID!): Event
-<<<<<<< HEAD
-        getEvents10: [Event]
-       
-=======
         get10Events: [Event]
->>>>>>> develop
     }
 
     input EventInput {
