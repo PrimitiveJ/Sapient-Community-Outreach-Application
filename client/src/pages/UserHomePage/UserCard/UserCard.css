@@ -1,7 +1,8 @@
 .profile-card {
-    height: 100vh;
+    height: 100%;
     background-color: #629764!important;
 }
+/* 
 .title {
     color: white;
     text-shadow: 1px 1px 1px #4A6765;
@@ -9,12 +10,14 @@
 .text {
     color: white;
     text-shadow: 1px 1px 1px #4A6765;
-}
+} */
 
 .cardImage {
     display: flex;
     justify-content: center;
     margin: 1rem;
+    
+
 }
 .cardImage img {
     width: 10rem;

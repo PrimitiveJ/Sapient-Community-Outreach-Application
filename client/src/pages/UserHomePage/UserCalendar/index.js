@@ -25,13 +25,13 @@ const localizer = dateFnsLocalizer({
 
 const events = [
   {
-    title: "Blood Drive!",
+    title: "Chapel Hill Shoes",
     allDay: true,
     start: new Date(2022, 6, 13),
     end: new Date(2022, 6, 20),
   },
   {
-    title: "Food Drive!",
+    title: "Canned Food Drive!",
     allDay: true,
     start: new Date(2022, 6, 27),
     end: new Date(2022, 6, 29),
@@ -47,6 +47,10 @@ const events = [
 const UserCalendarModal = ({ modalActive, hideModal }) => {
   const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
   const [allEvents, setAllEvents] = useState(events);
+
+  const addEvent = () => {
+    setAllEvents([...allEvents, newEvent]);
+  };
   return (
     <>
     <LocalStyles>

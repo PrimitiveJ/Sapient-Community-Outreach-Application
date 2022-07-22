@@ -62,6 +62,7 @@ const client = new ApolloClient({
 
 
 function App() {
+  console.log(process.env);
   return (
     <ApolloProvider client={client}>
       <ThemeSelectionProvider>

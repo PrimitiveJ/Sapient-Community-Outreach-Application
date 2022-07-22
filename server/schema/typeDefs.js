@@ -1,5 +1,4 @@
-
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = `
 
@@ -62,6 +61,7 @@ const typeDefs = `
     }
 
     type Query {
+        getMapAPIKey: String
         getSelf: User
         getUser(username: String!): User
         getEvent(id: ID!): Event
@@ -84,6 +84,6 @@ const typeDefs = `
         signup(inputPayload: UserInput): AuthFilter
     }
 
-`
+`;
 
 module.exports = typeDefs;
