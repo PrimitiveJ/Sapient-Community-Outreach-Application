@@ -15,6 +15,7 @@ const EventCard = ({ eventData }) => {
   return (
         <Card
           style={{ backgroundColor: "#5b7b67" }}
+          // style={{ backgroundColor: "#d2ddd4" }}
           className="mb-2"
         >
           <Card.Header className="eventDate">01/01/0001</Card.Header>

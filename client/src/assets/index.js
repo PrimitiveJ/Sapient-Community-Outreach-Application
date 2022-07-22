@@ -72,6 +72,7 @@ export const images = {
     lakeCleanup: importImage("lake-cleanup.jpg"),
     eventPageBackground: importImage("treesimage.jpg"),
     roadway: importImage("roadway.jpeg"),
+    myEventDefault: importImage("my-event-default.png")
   },
 };
 

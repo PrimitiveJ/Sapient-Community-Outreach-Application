@@ -61,11 +61,11 @@ function EventMain(props) {
             <Card className="bg-light main-container">
                 <Row className="event-head-info">
                     <Col sm={8}>
-                        <h1>Event: <span>{eventData.title}</span></h1>
+                        <h1>Event: {eventData.title}</h1>
                     </Col>
                     <Col sm={4} className="event-date-title">Date: <span>{eventData.date}</span></Col>
                 </Row>
-                <img src={images.backgrounds.lakeCleanup}/>
+                <img src={images.backgrounds.roadway}/>
                 <Row className="event-body-info">
                     <Col sm>
                         <h2>Location: <span className="blue">{eventData.location.city}, {eventData.location.state}</span></h2>

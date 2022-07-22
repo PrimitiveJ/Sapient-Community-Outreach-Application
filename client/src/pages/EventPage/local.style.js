@@ -17,6 +17,10 @@ export default styled.div`
     font-family: 'Josefin Sans';
     font-weight: 900;
 
+    h1 {
+        color: white;
+    }
+
     h2 {
         font-weight: inherit;
     }
@@ -56,8 +60,21 @@ export default styled.div`
         padding-bottom: 5vw;
     }
 
+    .main-container .accordion-item {
+        background-color: #384539 !important;
+    }
+
+    .card {
+        background-color: #a0ada2 !important;
+    }   
+
     .main-container img {
         box-shadow: 0 0 20px #666666;
+        border-radius: 20px;
+        object-fit: cover;
+        width: 100%;
+        height: 35vw;
+        max-height: 550px;
     }
 
     .event-date-title {
@@ -65,11 +82,11 @@ export default styled.div`
     }
 
     span.blue {
-        color: #007eff;
+        color: #1a39a1;
     }
 
     span.green {
-        color: #386837;
+        color: #deffdd;
     }
 
     .description-box {
@@ -98,7 +115,7 @@ export default styled.div`
     }
 
     .event-body-info.row {
-        margin-top: 20px;
+        margin-top: 30px;
         text-align: center;
     }
 
