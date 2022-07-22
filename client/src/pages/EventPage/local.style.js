@@ -22,7 +22,12 @@ export default styled.div`
     }
 
     .card {
-        background-color: #8c9cff;
+        /* background-color: #8c9cff; */
+        background-color: white;
+    }
+
+    .card-text {
+        color: black;
     }
 
     .card-title {
@@ -45,7 +50,45 @@ export default styled.div`
     }
 
     .main-container {
-        padding: 20px;
+        padding-top: 2vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        padding-bottom: 5vw;
+    }
+
+    .main-container img {
+        box-shadow: 0 0 20px #666666;
+    }
+
+    .event-date-title {
+        text-align: right;
+    }
+
+    span.blue {
+        color: #007eff;
+    }
+
+    span.green {
+        color: #386837;
+    }
+
+    .description-box {
+        margin-top: 25px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .description-box p {
+        color: black;
+    }
+
+    .description-box h3 {
+        margin-bottom: 15px !important;
+    }
+
+    .signup-participant-btn {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .event-head-info {
@@ -55,7 +98,8 @@ export default styled.div`
     }
 
     .event-body-info.row {
-        margin-top: 10px;
+        margin-top: 20px;
+        text-align: center;
     }
 
     .event-body-info > div {

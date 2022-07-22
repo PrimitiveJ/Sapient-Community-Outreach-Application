@@ -53,10 +53,6 @@ function EventMain(props) {
         console.log(eventData);
     }
 
-    const changeBackgroundColor = () => {
-        box.current.style.backgroundColor = "green";
-    }
-
     return (
         <StyledPageContainer relative={true}>
             <BackgroundImage image={images.backgrounds.landingPageHeader} opacity="0.5"/>
@@ -65,25 +61,27 @@ function EventMain(props) {
             <Card className="bg-light main-container">
                 <Row className="event-head-info">
                     <Col sm={8}>
-                        <h1>Event-Name: {eventData.title}</h1>
+                        <h1>Event: <span>{eventData.title}</span></h1>
                     </Col>
-                    <Col sm={4}>Date:{eventData.date}</Col>
+                    <Col sm={4} className="event-date-title">Date: <span>{eventData.date}</span></Col>
                 </Row>
                 <img src={images.backgrounds.lakeCleanup}/>
                 <Row className="event-body-info">
                     <Col sm>
-                        <h2>Location: {eventData.location.city}, {eventData.location.state}</h2>
+                        <h2>Location: <span className="blue">{eventData.location.city}, {eventData.location.state}</span></h2>
                     </Col>
                     <Col sm>
-                        <h2>Organizer: {eventData.author}</h2>
+                        <h2>Organizer: <span className="green">{eventData.author}</span></h2>
                     </Col>
                     <Col sm>
                         <h2>Business Sponsor</h2>
                     </Col>
-                    <div>Description: {eventData.description}</div>
+                    <div className="description-box">
+                        <h3>Description:</h3>
+                        <p>{eventData.description}</p>
+                    </div>
                 </Row>
-                <Button variant="success">Sign Up as a Participant</Button>
-                {' '}
+                <Button className="signup-participant-btn" variant="success">Sign Up as a Participant</Button>
                 <Accordion defaultActiveKey="0">
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>Comments</Accordion.Header>

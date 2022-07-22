@@ -62,7 +62,7 @@ export default class EventCreationPage extends React.Component {
     */
     async handleSubmit(event) {
         event.preventDefault();
-        this.props.onHide();
+        this.props.hideModal();
 
         // Construct the form payload to send off to the server
         const eventForm = {
