@@ -88,7 +88,7 @@ const HomePage = () => {
       </Row>
     </StyledPageContainer> */}
           <Col>
-            <div style={{width: '100%', height: '100vh', padding: '10px'}}>
+            <div style={{width: '100%', height: '100vh', padding: '10px', overflow: 'scroll'}}>
             {
               // wait for data to finish loading until resuming
               eventsLoading 

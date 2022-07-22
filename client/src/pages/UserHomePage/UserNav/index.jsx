@@ -17,7 +17,7 @@ import UserCalendarModal from "../UserCalendar";
 import UserMapModal from "../UserMap";
 
 import auth from "../../../utils/auth";
-import EventModal from "../../EventCreationPage";
+import EventModal from "../CreateEventModal";
 import { POST_EVENT } from "../../../utils/mutations";
 import { useMutation } from "@apollo/client";
 /*

@@ -11,10 +11,7 @@ const StyledFooter = styled.div`
 `;
 
 const Footer = () => {
-  return <StyledFooter></StyledFooter>;
-};
 
-<<<<<<< HEAD
     return (
         <StyledFooter>
 
@@ -27,6 +24,3 @@ const Footer = () => {
 }
 
 export default Footer;
-=======
-export default Footer;
->>>>>>> 14509b623769678ff193024575e0a3e47b5015e0

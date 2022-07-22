@@ -21,7 +21,6 @@ export const GET_SELF = gql`
 `;
 
 export const GET_EVENT = gql`
-<<<<<<< HEAD
     query getEvent($id: ID!) {
         getEvent(id: $id) {
             author
@@ -48,39 +47,11 @@ export const GET_EVENT = gql`
                 message
                 ok
             }
-=======
-  query getEvent($id: ID!) {
-    getEvent(id: $id) {
-      author
-      title
-      description
-      location {
-        city
-        state
-      }
-      comments {
-        author
-        content
-        replies {
-          author
-          content
->>>>>>> 14509b623769678ff193024575e0a3e47b5015e0
         }
-      }
-      participants {
-        username
-      }
-      response {
-        message
-        ok
-      }
     }
-  }
 `;
 
 export const GET_10_EVENTS = gql`
-<<<<<<< HEAD
-
     query get10Events {
         get10Events {
             _id
@@ -90,14 +61,5 @@ export const GET_10_EVENTS = gql`
             date
             time
         }
-=======
-  query get10Events {
-    get10Events {
-      _id
-      author
-      title
-      description
->>>>>>> 14509b623769678ff193024575e0a3e47b5015e0
     }
-  }
 `;
