@@ -14,15 +14,12 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import UserCalendarModal from "../UserCalendar";
-<<<<<<< HEAD
 import UserMapModal from "../UserMap";
 
-=======
-import auth from '../../../utils/auth';
-import EventModal from '../../EventCreationPage';
-import { POST_EVENT } from '../../../utils/mutations';
-import { useMutation } from '@apollo/client';
->>>>>>> develop
+import auth from "../../../utils/auth";
+import EventModal from "../../EventCreationPage";
+import { POST_EVENT } from "../../../utils/mutations";
+import { useMutation } from "@apollo/client";
 /*
   Replaced the 'UserNav.css' file with this style component
   place all your local css for this component here :D
@@ -36,9 +33,9 @@ const LocalStyles = styled.div`
   }
 
   button {
-      cursor: pointer;
-      background-color: #4d714e !important;
-      border-color: white !important;
+    cursor: pointer;
+    background-color: #4d714e !important;
+    border-color: white !important;
   }
 `;
 
@@ -82,7 +79,11 @@ const UserNav = () => {
           />
         </ButtonGroup>
       </Nav>
-      <EventModal onHide={hideModal} isShown={activeModal === "post-event"} postFunc={postEvent}/>
+      <EventModal
+        onHide={hideModal}
+        isShown={activeModal === "post-event"}
+        postFunc={postEvent}
+      />
     </LocalStyles>
   );
 };
