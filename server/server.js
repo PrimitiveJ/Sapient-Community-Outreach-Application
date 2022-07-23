@@ -48,7 +48,7 @@ const { ApolloServer } = require("apollo-server-express");
 const { typeDefs, resolvers } = require("./schema");
 const dbConnection = require("./config/db-connection");
 const { authMiddleware } = require("./utils/auth");
-const seed = require("./seed");
+// const seed = require("./seed");
 
 // Access .env variables
 const PORT = process.env.PORT || 3001;
@@ -86,7 +86,7 @@ const startApolloServer = async () => {
     console.log("database is open");
 
         // await seed.plantUsers();
-        await seed.plantEvents();
+        // await seed.plantEvents();
         // console.log('seeds planted!');
 
     app.listen(PORT, () => {

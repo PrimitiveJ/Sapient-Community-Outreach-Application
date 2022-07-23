@@ -7,14 +7,18 @@ const {
 const users = require('./users.json');
 const events = require('./events.json');
 
-module.exports = {
-    plantUsers: async () => {
-        await User.deleteMany({});
-        await User.create(users);
-    },
-
-    plantEvents: async () => {
-        await Event.deleteMany({});
-        await Event.create(events);
-    }
+const plantUsers = async () => {
+    await User.deleteMany({});
+    await User.create(users);
 }
+
+const plantEvents = async () => {
+    await Event.deleteMany({});
+    await Event.create(events);
+}
+
+(async () => {
+    await plantEvents();
+    await plantUsers();
+    console.log('seeded database');
+})();
