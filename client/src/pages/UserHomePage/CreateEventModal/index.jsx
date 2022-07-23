@@ -86,7 +86,10 @@ export default class EventCreationPage extends React.Component {
         if (windowAlert) return window.alert('Error: ' + windowAlert);
         
 
+        // creating state for keeping track of error messages so we can update state to display them
         console.log('form data: ', eventForm);
+        delete eventForm.postFailed;
+        delete eventForm.errorMsg;
 
         // Make post request to server
         const { data: { createEvent: postEventResponse }} = (await this.props.postFunc({
@@ -97,7 +100,7 @@ export default class EventCreationPage extends React.Component {
         if (postEventResponse.ok) {
             window.location.assign('/user-home');
         } else {
-            window.alert('Error posting: ', postEventResponse.message);
+            // window.alert('Error posting: ', postEventResponse.message);
         }
     }
 
@@ -107,59 +110,60 @@ export default class EventCreationPage extends React.Component {
         return (
             <Modal show={this.props.isShown} onHide={this.props.hideModal}>
                 <ModalHeader>
-                    <h2>Event Information:</h2>
+                    <Modal.Title>Event Information:</Modal.Title>
                 </ModalHeader>
 
                 <ModalBody>
-                    <div className="row">
-                        <div className="form-group col-md-12">
-                            <label>Event Title:</label>
+                    <Form>
+                        <div className="row">
+                            <div className="form-group col-md-12">
+                                <Form.Label>Event Title:</Form.Label>
 
-                            <input 
-                            name="title" type="text"
-                            onChange={this.handleFormChange}
-                            className="form-control"/>
+                                <input 
+                                name="title" type="text"
+                                onChange={this.handleFormChange}
+                                className="form-control"/>
+                            </div>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="form-group col-md-12">
-                            <label>Description:</label>
+                        <div className="row">
+                            <div className="form-group col-md-12">
+                            <Form.Label>Description:</Form.Label>
 
-                            <textarea 
-                            name="description" rows='4'
-                            onChange={this.handleFormChange}
-                            className="form-control"/>
+                                <textarea 
+                                style={{marginBottom: '10px'}}
+                                name="description" rows='4'
+                                onChange={this.handleFormChange}
+                                className="form-control"/>
+                            </div>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="form-group col-md-4">
-                            <label>Date of Event:</label>
+                        <div className="row">
+                            <div className="form-group col-md-4">
+                            <Form.Label>Date of Event:</Form.Label>
 
-                            <input name="date" type="text"
-                            onChange={this.handleFormChange}
-                            className="form-control"/>
+                                <input name="date" type="text"
+                                onChange={this.handleFormChange}
+                                className="form-control"/>
+                            </div>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="form-group col-md-4">
-                            <label>Time of Event:</label>
+                        <div className="row">
+                            <div className="form-group col-md-4">
+                            <Form.Label>Time of Event:</Form.Label>
 
-                            <input name="time" type="text"
-                            onChange={this.handleFormChange}
-                            className="form-control"/>
+                                <input name="time" type="text"
+                                onChange={this.handleFormChange}
+                                className="form-control"/>
+                            </div>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="form-group col-12">
-                            <label>City</label>
+                        <div className="row">
+                            <div className="form-group col-12">
+                            <Form.Label>City</Form.Label>
 
-                            <input name="city" type="text"
-                            onChange={this.handleFormChange}
-                            className="form-control"/>
+                                <input name="city" type="text"
+                                onChange={this.handleFormChange}
+                                className="form-control"/>
 
-                            <label>State</label>
+                                <Form.Label>State</Form.Label>
 
-                            <Form>
                                 <Form.Control 
                                 as="select" 
                                 name="state"
@@ -170,14 +174,23 @@ export default class EventCreationPage extends React.Component {
                                     {/* Procedural rendering of state list */}
                                     {everystate.map(state => <option key={state}>{state}</option>)}
                                 </Form.Control>
-                            </Form>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="form-group">
-                        <label>Image:</label>
-                        <input type="file" className="form-control-file" name="uploaded_file"/>
-                    </div>
+                        <div className="form-group">
+                            <Form.Label>Image:</Form.Label>
+                            <input type="file" className="form-control-file" name="uploaded_file"/>
+                        </div>
+
+                        <Form.Label 
+                        style={{
+                            marginTop: '20px', 
+                            color: '#f3e37c', 
+                            display: this.state.postFailed ? this.state.errorMsg : 'none'
+                        }}>
+                            Something
+                        </Form.Label>
+                    </Form>
                 </ModalBody>
 
                 <ModalFooter>
