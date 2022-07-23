@@ -43,6 +43,13 @@ const LocalStyles = styled.div`
     width: 100%;
     height: 100%;
   }
+
+  .btn-group-vertical > * {
+    border: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #849b85 !important;
+  }
 `;
 
 const UserNav = () => {

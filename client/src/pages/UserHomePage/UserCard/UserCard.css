@@ -1,5 +1,5 @@
 .profile-card {
-    height: 100vh;
+    min-height: 100vh;
     background-color: #667868 !important;
 }
 /* 
@@ -15,11 +15,15 @@
 .cardImage {
     display: flex;
     justify-content: center;
-    margin: 1rem;
+    margin: 20px;
     
 
 }
 .cardImage img {
     width: 10rem;
     border-radius: 50%;
+}
+
+.card-title.h5 {
+    color: #b5daff;
 }
