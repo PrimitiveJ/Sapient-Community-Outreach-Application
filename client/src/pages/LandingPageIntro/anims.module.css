@@ -1,0 +1,70 @@
+/* ---------- */
+/* Animations */
+/* ---------- */
+
+@keyframes fadeInKey {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOutKey {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes focusInKey {
+    0% { filter: blur(5px); }
+    100% { filter: blur(0px); }
+}
+
+@keyframes heightMaxToZero {
+    0% { height: 100%; }
+    100% { height: 0%; }
+}
+
+@keyframes welcomeTitleTransition {
+    0% { top: -50px; }
+    100% { top: 0; }
+}
+
+.fadeOutWelcomeTitle.fadeOutWelcomeTitle {
+    opacity: 1;
+    animation: fadeOutKey 1s ease-in-out 1.75s forwards
+        ,welcomeTitleTransition 1.5s ease-in-out forwards;
+}
+
+/* .fadeIn {
+    animation-name: fadeInKey;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 1.5s;
+}
+
+.focusIn {
+    animation-name: focusInKey;
+    animation-duration: 10s;
+    animation-fill-mode: forwards;
+    animation-delay: 1.5s;
+} */
+
+/* Fade-in the main intro screen */
+.fadeInFocusIntro {
+    animation: fadeInKey 1.5s ease-in-out forwards,
+        focusInKey 2s ease-in-out forwards;
+}
+
+/* Fade-in the main intro title */
+.fadeInFocusTitle {
+    animation: fadeInKey 0.5s ease-in-out forwards,
+        focusInKey 1s ease-in-out forwards;
+}
+
+/* Fade-in the logo lights */
+.fadeInLights {
+    animation: fadeInKey 1s ease-in-out forwards;
+}
+
+.hideIntroLogo {
+    animation: heightMaxToZero 1s ease-in-out forwards;
+}
+

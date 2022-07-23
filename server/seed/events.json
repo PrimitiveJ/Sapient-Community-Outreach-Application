@@ -1,0 +1,83 @@
+[
+    {
+        "author": "Will",
+        "title": "Math study group!",
+        "description": "Join us at the DLC for a math study group!",
+        "date": "4/3/2012",
+        "location": {
+            "city": "Durham",
+            "state": "North Carolina"
+        },
+        "comments": [
+            {
+                "author": "james",
+                "content": "nice",
+                "replies": [
+                    {
+                        "author": "will",
+                        "content": "thanks!"
+                    }
+                ]
+            }
+        ],
+        "participants": []
+    },
+
+    {
+        "author": "Kaylan",
+        "title": "Park Cleanup",
+        "description": "Help us preserve your local park to keep the community clean and safe!",
+        "date": "7/23/2019",
+        "location": {
+            "city": "Hillsborough",
+            "state": "North Carolina"
+        },
+        "comments": [
+            {
+                "author": "zac",
+                "content": "cool",
+                "replies": [
+                    {
+                        "author": "will",
+                        "content": "yeah!"
+                    }
+                ]
+            }
+        ],
+        "participants": []
+    },
+
+    {
+        "author": "Jake",
+        "title": "Animal Shelter",
+        "description": "Help us rescue animals from an animal shelter",
+        "date": "5/30/2022",
+        "location": {
+            "city": "Raleigh",
+            "state": "North carolina"
+        },
+        "comments": [
+            {
+                "author": "james",
+                "content": "good idea",
+                "replies": [
+                    {
+                        "author": "Jake",
+                        "content": "thanks!"
+                    }
+                ]
+            },
+            {
+                "author": "Will",
+                "content": "yeah i'm down",
+                "replies": [
+                    {
+                        "author": "Jake",
+                        "content": "good to know!"
+                    }
+                ]
+            }
+        ],
+        "participants": []
+    }
+]

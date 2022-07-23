@@ -1,0 +1,29 @@
+.profile-card {
+    min-height: 100vh;
+    background-color: #667868 !important;
+}
+/* 
+.title {
+    color: white;
+    text-shadow: 1px 1px 1px #4A6765;
+}
+.text {
+    color: white;
+    text-shadow: 1px 1px 1px #4A6765;
+} */
+
+.cardImage {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    
+
+}
+.cardImage img {
+    width: 10rem;
+    border-radius: 50%;
+}
+
+.card-title.h5 {
+    color: #b5daff;
+}
