@@ -40,11 +40,16 @@ const authLink = setContext((_, { headers }) => {
 
   if we need to revert back to 5.0.1, use this code:
 */
+const isProduction = process.env.NODE_ENV === 'production' 
+
+
 const httpLink = createHttpLink({
-  uri: process.env.NODE_ENV === 'production' 
+  uri: isProduction
     ? '/graphql'
     : 'http://localhost:3001/graphql'
 });
+
+console.log('is production: ', isProduction);
 
 // use this proxy link for react-scripts 4.0.3
 // const httpLink = createHttpLink({
