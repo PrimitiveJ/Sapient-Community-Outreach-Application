@@ -14,7 +14,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import UserCalendarModal from "../UserCalendar";
-import UserMapModal from "../UserMap";
+// import UserMapModal from "../UserMap";
 
 import auth from "../../../utils/auth";
 import EventModal from "../CreateEventModal";
@@ -42,6 +42,13 @@ const LocalStyles = styled.div`
     margin-top: 20px;
     width: 100%;
     height: 100%;
+  }
+
+  .btn-group-vertical > * {
+    border: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #849b85 !important;
   }
 `;
 
@@ -86,11 +93,11 @@ const UserNav = () => {
             modalActive={activeModal === "user-calendar"}
             hideModal={hideModal}
           />
-          <UserMapModal
+          {/* <UserMapModal
             modalActive={activeModal === "user-map"}
             hideModal={hideModal}
             apiKey={API_KEY}
-          />
+          /> */}
         </ButtonGroup>
       </Nav>
       <EventModal hideModal={hideModal} isShown={activeModal === "post-event"} postFunc={postEvent}/>

@@ -23,12 +23,12 @@ function UserCard() {
       <Card.Img variant="top" src={images.backgrounds.roadway} />
 
       <UserImage image={images.icons.profileTemp} />
-      <Card.Body>
+      <Card.Body style={{paddingTop: '0'}}>
         <Card.Title className="title">
           {auth.getProfile().data.username}
         </Card.Title>
-        <Card.Text className="text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        <Card.Text className="text" style={{marginBottom: '20px'}}>
+          My Profile
         </Card.Text>
         <UserNav />
       </Card.Body>

@@ -18,7 +18,11 @@ const EventCard = ({ eventData }) => {
           // style={{ backgroundColor: "#d2ddd4" }}
           className="mb-2"
         >
-          <Card.Header className="eventDate">{(new Date(parseInt(eventData.createdAt))).toDateString()}</Card.Header>
+          <Card.Header className="eventDate">
+            Posted on: {(new Date(parseInt(eventData.createdAt))).toDateString()}  
+            {' '} by: <span style={{color: "#b2cdff"}}>{eventData.author}</span>
+          </Card.Header>
+
           <Card.Body className="event-body">
             <Card.Title className="eventTitle">{eventData.title}</Card.Title>
             <Card.Text>

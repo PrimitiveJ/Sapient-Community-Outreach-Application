@@ -1,6 +1,6 @@
-import React from "react";
-import UserMap from "./map";
-import { Modal } from "react-bootstrap";
+// import React from "react";
+// import UserMap from "./map";
+// import { Modal } from "react-bootstrap";
 
 // const location = [
 //   {
@@ -10,18 +10,18 @@ import { Modal } from "react-bootstrap";
 //   },
 // ];
 
-const UserMapModal = ({ modalActive, hideModal, apiKey }) => {
-  return (
-    <>
-      <Modal size="lg" show={modalActive} onHide={hideModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Events Near Me</Modal.Title>
-        </Modal.Header>
-        <UserMap apiKey={apiKey} />
-        <Modal.Body></Modal.Body>
-      </Modal>
-    </>
-  );
-};
+// const UserMapModal = ({ modalActive, hideModal, apiKey }) => {
+//   return (
+//     <>
+//       <Modal size="lg" show={modalActive} onHide={hideModal}>
+//         <Modal.Header closeButton>
+//           <Modal.Title>Events Near Me</Modal.Title>
+//         </Modal.Header>
+//         <UserMap apiKey={apiKey} />
+//         <Modal.Body></Modal.Body>
+//       </Modal>
+//     </>
+//   );
+// };
 
-export default UserMapModal;
+// export default UserMapModal;
