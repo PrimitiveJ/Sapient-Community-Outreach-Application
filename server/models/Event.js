@@ -1,12 +1,16 @@
 
 const mongoose = require('mongoose');
+const { events } = require('./User');
 
 const eventSchema = new mongoose.Schema({
 
     author: String,
     title: String,
     description: String,
-    createdAt: Date,
+    // createdAt: {
+    //     type: String,
+    //     default: () => Date.now()
+    // },
     image: String,
     date: String,
     time: String,
@@ -35,6 +39,12 @@ const eventSchema = new mongoose.Schema({
         ref: 'User'
     }]
 
+}, {
+    timestamps: true,
+    toJSON: { 
+        virtuals: true,
+    }
 });
+
 
 module.exports = mongoose.model('Event', eventSchema);

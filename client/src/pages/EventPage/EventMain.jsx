@@ -50,7 +50,7 @@ function EventMain(props) {
 
         if (loading) return <p style={{fontSize: '3rem'}}>Loading...</p>;
         eventData = data.getEvent;
-        console.log(eventData);
+        console.log('EVENT DATA: ', eventData);
     }
 
     return (
@@ -81,7 +81,14 @@ function EventMain(props) {
                         <p>{eventData.description}</p>
                     </div>
                 </Row>
-                <Button className="signup-participant-btn" variant="success">Sign Up as a Participant</Button>
+
+                <Button 
+                className="signup-participant-btn" 
+                variant="success"
+                onClick={() => window.alert('Coming soon!')}>
+                    Sign Up as a Participant
+                </Button>
+
                 <Accordion defaultActiveKey="0">
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>Comments</Accordion.Header>
@@ -93,7 +100,9 @@ function EventMain(props) {
                                         // bg={variant.toLowerCase()}
                                         // text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
                                         style={{ width: '30%vw' }}
+                                        key={uuidv4()}
                                         className="mb-4">
+                                
 
                                         <Card.Header>
                                             Date/Time of comment
@@ -110,7 +119,13 @@ function EventMain(props) {
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
-                {/* <Button variant="primary" className="submit-comment-btn">Submit a Comment</Button> */}
+
+                <Button 
+                variant="primary" 
+                onClick={() => window.alert('Coming soon!')}
+                className="submit-comment-btn">
+                    Submit a Comment
+                </Button>
             </Card>
         </Container>
     </StyledPageContainer>

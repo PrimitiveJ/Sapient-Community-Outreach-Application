@@ -66,14 +66,27 @@ export default class EventCreationPage extends React.Component {
 
         // Construct the form payload to send off to the server
         const eventForm = {
-            title: this.state.title,
-            description: this.state.description,
+            title: this.state.title.trim(),
+            description: this.state.description.trim(),
             location: {city: this.state.city, state: this.state.state},
-            date: this.state.date,
+            date: this.state.date.trim(),
             image: this.state.image,
-            time: this.state.time,
-            createdAt: (new Date()).toDateString()
+            time: this.state.time.trim(),
+            // createdAt: (new Date()).toDateString()
         }
+
+
+        // Input validation
+        let windowAlert;
+
+        if (!eventForm.title) { windowAlert = 'must include title'; delete eventForm.title; };
+        if (!eventForm.description) { windowAlert = 'must include description'; delete eventForm.description; };
+        if (!eventForm.date) { windowAlert = 'must include a set date'; delete eventForm.date; };
+
+        if (windowAlert) return window.alert('Error: ' + windowAlert);
+        
+
+        console.log('form data: ', eventForm);
 
         // Make post request to server
         const { data: { createEvent: postEventResponse }} = (await this.props.postFunc({

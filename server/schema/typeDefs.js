@@ -52,6 +52,7 @@ const typeDefs = `
         date: String
         image: String
         time: String
+        createdAt: String
     }
 
     type AuthFilter {
@@ -61,13 +62,12 @@ const typeDefs = `
     }
 
     input EventInput {
-        title: String
+        title: String!
         description: String
         location: LocationInput
         date: String
         time: String
         image: String
-        createdAt: String
     }
 
     type Query {

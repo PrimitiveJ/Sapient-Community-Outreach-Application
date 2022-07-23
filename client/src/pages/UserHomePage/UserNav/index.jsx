@@ -37,6 +37,12 @@ const LocalStyles = styled.div`
     background-color: #4d714e !important;
     border-color: white !important;
   }
+
+  .config-btn-group {
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const UserNav = () => {
@@ -53,20 +59,28 @@ const UserNav = () => {
 
   const [postEvent] = useMutation(POST_EVENT);
 
+  const handleLogout = () => {
+    auth.logout();
+    window.location.assign('/home');
+  }
+
   return (
     <LocalStyles>
       <Nav defaultActiveKey="/home" className="flex-column nav">
         <ButtonGroup vertical>
-          <Button onClick={showUserMapModal} variant="primary">
+          {/* <Button onClick={showUserMapModal} variant="primary"> */}
+          <Button onClick={() => window.alert('Coming soon!')} variant="primary"> 
             Events
           </Button>
           <Button onClick={showEventModal}>Create Event</Button>
-          <Button>My Events</Button>
+          <Button onClick={() => window.alert('Coming soon!')}>My Events</Button>
           <Button onClick={showUserCalendarModal} variant="primary">
             My Calendar
           </Button>
-          <Button>Settings</Button>
-          <Button>Logout</Button>
+
+          <Button onClick={() => window.location.assign('/home')}>Home</Button>
+          <Button onClick={() => window.alert('Coming soon!')}>Settings</Button>
+          <Button onClick={handleLogout}>Logout</Button>
 
           <UserCalendarModal
             modalActive={activeModal === "user-calendar"}

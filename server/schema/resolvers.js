@@ -33,13 +33,16 @@ const resolvers = {
             if (event) {
                 const response = {...event._doc, response: { message: 'found event', ok: true }};
                 console.log('FOUND EVENT: ', response);
+                console.log('created at formatted: ', event._doc.createdAt_formatted);
                 return response;
             }
             return { response: { message: 'event not found', ok: false }};
         },
 
         get10Events: async () => {
-            const events10 = await Event.find({}).limit(10);
+            const events10 = await Event.find({})
+                .limit(10)
+                .sort([['createdAt', -1]]);
             return events10;
         }
     },

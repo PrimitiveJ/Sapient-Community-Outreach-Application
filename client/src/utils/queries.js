@@ -28,6 +28,7 @@ export const GET_EVENT = gql`
             description
             date
             time
+            createdAt
             location {
                 city
                 state
@@ -60,6 +61,7 @@ export const GET_10_EVENTS = gql`
             description
             date
             time
+            createdAt
         }
     }
 `;

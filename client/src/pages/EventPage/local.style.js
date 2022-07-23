@@ -44,6 +44,13 @@ export default styled.div`
         /* text-decoration: underline; */
     }
 
+    .submit-comment-btn {
+        width: fit-content;
+        margin-top: 35px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .accordion {
         width: 70% !important;
     }
